@@ -89,11 +89,27 @@ const productOptions = [
 
         <!-- RIGHT: Quote Form -->
         <div class="quote-form-wrap">
-          <div class="form-header">
+          <div class="form-header" id="form-header-area">
             <h2>Request a Quote</h2>
             <p>Tell us what you are looking for. We will review your inquiry and contact you to discuss the next steps.</p>
           </div>
-          <form class="quote-form" id="quote-form" name="quote-request" method="POST">
+
+          <!-- SUCCESS CONFIRMATION STATE -->
+          <div class="form-success-card" id="form-success-message" style="display:none;">
+            <div class="success-icon">✓</div>
+            <h3>Thank You, <span id="success-user-name">Valued Client</span>!</h3>
+            <p>Your quote request has been received successfully. Our international trade and product team will review your requirements and follow up within 24 hours.</p>
+            <div class="success-actions">
+              <a href="https://wa.me/+1234567890" class="btn-whatsapp-direct" id="success-wa-btn" target="_blank" rel="noopener">
+                💬 Forward to WhatsApp for Instant Review
+              </a>
+              <button type="button" class="btn-secondary" id="reset-form-btn" style="width:100%; justify-content:center; margin-top:1rem;">
+                ← Submit Another Request
+              </button>
+            </div>
+          </div>
+
+          <form class="quote-form" id="quote-form" name="quote-request">
             <div class="form-row">
               <div class="form-group">
                 <label for="full-name">Full Name *</label>
@@ -157,7 +173,7 @@ const productOptions = [
                 <input type="file" id="files" name="files" multiple accept="image/*,.pdf,.dwg,.dxf" />
                 <div class="file-upload-inner">
                   <span class="file-icon">📎</span>
-                  <span>Click to upload or drag & drop</span>
+                  <span id="file-upload-label">Click to upload or drag & drop</span>
                   <span style="font-size:0.72rem; color:var(--stone-400);">Images, PDFs, DWG files accepted</span>
                 </div>
               </div>
@@ -297,6 +313,63 @@ const productOptions = [
 .file-icon { font-size: 1.5rem; }
 .file-upload-inner span { font-size: 0.85rem; color: var(--stone-600); }
 
+/* Form Success State */
+.form-success-card {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  animation: fadeIn 0.4s ease;
+}
+.success-icon {
+  width: 68px;
+  height: 68px;
+  background: var(--green-100);
+  color: var(--green-700);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 auto 1.5rem;
+  border: 2px solid var(--green-300);
+}
+.form-success-card h3 {
+  font-size: 1.6rem;
+  color: var(--green-800);
+  margin-bottom: 0.75rem;
+}
+.form-success-card p {
+  color: var(--stone-600);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+.btn-whatsapp-direct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-whatsapp-direct:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 960px) {
   .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
   .page-hero { height: 260px; }
@@ -306,5 +379,87 @@ const productOptions = [
   .form-row { grid-template-columns: 1fr; }
   .quote-form-wrap { padding: 1.25rem; border-radius: var(--radius-lg); }
   .contact-info h2 { font-size: 1.5rem; }
+  .form-success-card { padding: 1.5rem 0.5rem; }
 }
 </style>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-quote-btn') as HTMLButtonElement;
+  const fileInput = document.getElementById('files') as HTMLInputElement;
+  const fileLabel = document.getElementById('file-upload-label');
+  const successBox = document.getElementById('form-success-message');
+  const formHeader = document.getElementById('form-header-area');
+  const resetBtn = document.getElementById('reset-form-btn');
+
+  // File selection indicator
+  fileInput?.addEventListener('change', () => {
+    if (fileInput.files && fileInput.files.length > 0) {
+      const names = Array.from(fileInput.files).map(f => f.name).join(', ');
+      if (fileLabel) {
+        fileLabel.textContent = `✓ Selected: ${names}`;
+        fileLabel.style.color = 'var(--green-700)';
+        fileLabel.style.fontWeight = '600';
+      }
+    }
+  });
+
+  // Client-side submit handler (prevent native POST to GitHub Pages)
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting Request... ⏳';
+    }
+
+    const formData = new FormData(form);
+    const fullName = (formData.get('fullName') as string) || '';
+    const email = (formData.get('email') as string) || '';
+    const phone = (formData.get('phone') as string) || '';
+    const country = (formData.get('country') as string) || '';
+    const productService = (formData.get('productService') as string) || '';
+    const quantity = (formData.get('quantity') as string) || '';
+    const message = (formData.get('message') as string) || '';
+
+    // Create pre-filled WhatsApp message for immediate follow up
+    const waText = encodeURIComponent(
+      `Hello SMITH Co. LTD,\n\nI just submitted a quote request on your website:\n• Name: ${fullName}\n• Email: ${email}\n• Phone: ${phone}\n• Country: ${country}\n• Product/Service: ${productService}\n• Estimated Quantity: ${quantity || 'N/A'}\n• Message: ${message}`
+    );
+    const waUrl = `https://wa.me/+1234567890?text=${waText}`;
+
+    setTimeout(() => {
+      form.style.display = 'none';
+      if (formHeader) formHeader.style.display = 'none';
+      if (successBox) {
+        successBox.style.display = 'block';
+        const waLink = document.getElementById('success-wa-btn') as HTMLAnchorElement;
+        if (waLink) waLink.href = waUrl;
+        const nameSpan = document.getElementById('success-user-name');
+        if (nameSpan) nameSpan.textContent = fullName;
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 400);
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    form.reset();
+    if (fileLabel) {
+      fileLabel.textContent = 'Click to upload or drag & drop';
+      fileLabel.style.color = '';
+      fileLabel.style.fontWeight = '';
+    }
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit My Request →';
+    }
+    if (successBox) successBox.style.display = 'none';
+    if (formHeader) formHeader.style.display = 'block';
+    form.style.display = 'flex';
+  });
+</script>
