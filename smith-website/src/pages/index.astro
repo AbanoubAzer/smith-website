@@ -11,11 +11,41 @@ const t = getLang(lang);
 const h = t.home;
 
 const heroSlides = [
-  { img: url('/images/doors/entrance door.jpg'), alt: 'Luxury Entrance Doors' },
-  { img: url('/images/windows/1.jpg'), alt: 'Premium Aluminum Windows' },
-  { img: url('/images/metalwork/full-facade.png'), alt: 'Wrought Iron Metalwork' },
-  { img: url('/images/kitchens/Kitchen 1.png'), alt: 'Custom Kitchen Cabinets' },
-  { img: url('/images/marble/M 1.jpg'), alt: 'Premium Marble & Stone' },
+  {
+    img: url('/images/doors/entrance door.jpg'),
+    alt: 'Luxury Entrance Doors',
+    tagline: 'YOUR GLOBAL PARTNER IN',
+    headline: 'Architectural Products & Trade Solutions',
+    desc: 'We connect quality building materials and architectural products with customers, contractors, builders, and businesses across the United States and international markets.',
+  },
+  {
+    img: url('/images/windows/1.jpg'),
+    alt: 'Premium Aluminum Windows',
+    tagline: 'ENGINEERED EXCELLENCE',
+    headline: 'High-Performance Windows & Aluminum',
+    desc: 'Precision thermal break windows, panoramic sliding systems, and architectural facades engineered to meet high international building codes.',
+  },
+  {
+    img: url('/images/metalwork/full-facade.png'),
+    alt: 'Wrought Iron Metalwork',
+    tagline: 'ARTISAN CRAFTSMANSHIP',
+    headline: 'Custom Wrought Iron & Ornamental Metal',
+    desc: 'Bespoke grand entrance gates, decorative balcony railings, fences, and customized steel structures tailored to luxury residential and commercial projects.',
+  },
+  {
+    img: url('/images/kitchens/Kitchen 1.png'),
+    alt: 'Custom Kitchen Cabinets',
+    tagline: 'BESPOKE LIVING SPACES',
+    headline: 'Luxury Custom Kitchens & Interior Millwork',
+    desc: 'Modern and classic kitchen cabinetry, premium bathroom vanities, and custom walk-in closets built with fine craftsmanship and durable hardware.',
+  },
+  {
+    img: url('/images/marble/M 1.jpg'),
+    alt: 'Premium Marble & Stone',
+    tagline: 'FINE NATURAL SURFACES',
+    headline: 'Direct Quarry Marble, Granite & Stone',
+    desc: 'Exquisite natural stone slabs, engineered quartz countertops, and architectural stone surfaces sourced directly from premium global quarries.',
+  },
 ];
 ---
 
@@ -37,16 +67,31 @@ const heroSlides = [
       ))}
     </div>
     <div class="hero-overlay"></div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero-arrow hero-arrow-prev" id="hero-prev-btn" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="hero-arrow hero-arrow-next" id="hero-next-btn" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+
     <div class="container">
       <div class="hero-content">
-        <p class="hero-tagline">{h.hero.tagline}</p>
-        <h1 class="hero-title">{h.hero.headline}</h1>
-        <p class="hero-desc">{h.hero.sub}</p>
+        <div class="hero-text-slides">
+          {heroSlides.map((slide, i) => (
+            <div class={`hero-text-slide${i === 0 ? ' active' : ''}`} data-index={i}>
+              <p class="hero-tagline">{slide.tagline}</p>
+              <h1 class="hero-title">{slide.headline}</h1>
+              <p class="hero-desc">{slide.desc}</p>
+            </div>
+          ))}
+        </div>
         <div class="hero-ctas">
           <a href={url('/products/')} class="btn-primary" id="hero-explore-btn">
             {h.hero.cta1} →
           </a>
-          <a href={url('/contact/#quote')} class="btn-outline" id="hero-quote-btn">
+          <a href={url('/contact/')} class="btn-outline" id="hero-quote-btn">
             {h.hero.cta2}
           </a>
         </div>

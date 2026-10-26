@@ -11,11 +11,41 @@ const t = getLang(lang);
 const h = t.home;
 
 const heroSlides = [
-  { img: url('/images/doors/entrance door.jpg'), alt: 'أبواب مداخل فاخرة' },
-  { img: url('/images/windows/1.jpg'), alt: 'نوافذ ألومنيوم فاخرة' },
-  { img: url('/images/metalwork/full-facade.png'), alt: 'أعمال الحديد المطروق' },
-  { img: url('/images/kitchens/Kitchen 1.png'), alt: 'خزائن مطبخ مخصصة' },
-  { img: url('/images/marble/M 1.jpg'), alt: 'رخام وأحجار فاخرة' },
+  {
+    img: url('/images/doors/entrance door.jpg'),
+    alt: 'أبواب مداخل فاخرة',
+    tagline: 'شريكك العالمي في',
+    headline: 'أبواب المداخل الفاخرة والحلول المعمارية',
+    desc: 'نربط مواد البناء عالية الجودة والمنتجات المعمارية بالعملاء والمقاولين والمطورين والشركات في الولايات المتحدة والأسواق الدولية.',
+  },
+  {
+    img: url('/images/windows/1.jpg'),
+    alt: 'نوافذ ألومنيوم فاخرة',
+    tagline: 'هندسة متطورة وعزل مثالي',
+    headline: 'نوافذ ألومنيوم وأنظمة واجهات متطورة',
+    desc: 'حلول نوافذ ألومنيوم عالية الأداء وعازلة للحرارة مصممة للمشاريع السكنية والتجارية الحديثة بأعلى معايير الجودة العالمية.',
+  },
+  {
+    img: url('/images/metalwork/full-facade.png'),
+    alt: 'أعمال الحديد المطروق',
+    tagline: 'حرفية يدوية وتصاميم مميزة',
+    headline: 'أعمال الحديد المطروق والبوابات الفاخرة',
+    desc: 'بوابات حديدية مصنعة خصيصاً، درابزينات معمارية فاخرة، وتفاصيل معدنية تضيف طابعاً من الفخامة لكل واجهة ومشروع.',
+  },
+  {
+    img: url('/images/kitchens/Kitchen 1.png'),
+    alt: 'خزائن مطبخ مخصصة',
+    tagline: 'أناقة التصميم الداخلي',
+    headline: 'مطابخ وخزائن مصممة خصيصاً لمساحتك',
+    desc: 'خزائن مطبخ عصرية وكلاسيكية، أسطح رخام وكوارتز متقنة، وحلول تخزين وتصميم داخلي متكاملة تناسب أرقى المساحات.',
+  },
+  {
+    img: url('/images/marble/M 1.jpg'),
+    alt: 'رخام وأحجار فاخرة',
+    tagline: 'فخامة الأحجار الطبيعية',
+    headline: 'رخام وأحجار طبيعية مستوردة مباشرة',
+    desc: 'توريد مباشر من أفضل المحاجر العالمية للرخام والجرانيت والكوارتز لتلبية متطلبات المشاريع المعمارية الراقية والفلل الفخمة.',
+  },
 ];
 ---
 
@@ -37,16 +67,31 @@ const heroSlides = [
       ))}
     </div>
     <div class="hero-overlay"></div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero-arrow hero-arrow-prev" id="hero-prev-btn" aria-label="الشريحة السابقة">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+    <button class="hero-arrow hero-arrow-next" id="hero-next-btn" aria-label="الشريحة التالية">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+
     <div class="container">
       <div class="hero-content">
-        <p class="hero-tagline">{h.hero.tagline}</p>
-        <h1 class="hero-title">{h.hero.headline}</h1>
-        <p class="hero-desc">{h.hero.sub}</p>
+        <div class="hero-text-slides">
+          {heroSlides.map((slide, i) => (
+            <div class={`hero-text-slide${i === 0 ? ' active' : ''}`} data-index={i}>
+              <p class="hero-tagline">{slide.tagline}</p>
+              <h1 class="hero-title">{slide.headline}</h1>
+              <p class="hero-desc">{slide.desc}</p>
+            </div>
+          ))}
+        </div>
         <div class="hero-ctas">
           <a href={url('/products/')} class="btn-primary" id="hero-explore-btn-ar">
             {h.hero.cta1} ←
           </a>
-          <a href={url('/contact/#quote')} class="btn-outline" id="hero-quote-btn-ar">
+          <a href={url('/contact/')} class="btn-outline" id="hero-quote-btn-ar">
             {h.hero.cta2}
           </a>
         </div>

@@ -82,7 +82,7 @@ export const translations = {
         headline: 'Architectural Products & Trade Solutions',
         sub: 'We connect quality building materials and architectural products with customers, contractors, builders, and businesses across the United States and international markets.',
         cta1: 'Explore Our Products',
-        cta2: 'Request a Quote',
+        cta2: 'Contact Us',
       },
       features: {
         title: 'One Partner. Multiple Solutions.',
@@ -220,7 +220,7 @@ export const translations = {
         headline: 'المنتجات المعمارية وحلول التجارة',
         sub: 'نربط مواد البناء عالية الجودة والمنتجات المعمارية بالعملاء والمقاولين والمطورين والشركات في الولايات المتحدة والأسواق الدولية.',
         cta1: 'استكشف منتجاتنا',
-        cta2: 'طلب عرض سعر',
+        cta2: 'تواصل معنا',
       },
       features: {
         title: 'شريك واحد. حلول متعددة.',
