@@ -1,0 +1,169 @@
+---
+// src/pages/global-sourcing/index.astro
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const services = [
+  {
+    icon: '🔍',
+    title: 'Product Sourcing',
+    desc: 'We help you find the right products matching your specifications, design references, and budget from our supplier network.',
+    id: 'product-sourcing',
+  },
+  {
+    icon: '🏭',
+    title: 'Supplier Coordination',
+    desc: 'We handle communication with suppliers on your behalf — from initial inquiry to order confirmation and production follow-up.',
+    id: 'supplier-coord',
+  },
+  {
+    icon: '🔬',
+    title: 'Order Inspection',
+    desc: 'Pre-shipment inspection arrangements to verify product quality, specifications, and quantity before your order leaves the factory.',
+    id: 'order-inspection',
+  },
+  {
+    icon: '📋',
+    title: 'Export Documentation',
+    desc: 'Assistance with export documentation, customs paperwork, and shipping documentation to support smooth international trade.',
+    id: 'export-docs',
+  },
+  {
+    icon: '🚢',
+    title: 'Sea & Air Freight',
+    desc: 'Coordination of international shipping via sea or air freight from China to your destination country.',
+    id: 'freight',
+  },
+  {
+    icon: '🔧',
+    title: 'Installation Coordination',
+    desc: 'For selected products in the U.S., we coordinate installation discussions through our local installation partners.',
+    id: 'installation',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="Global Sourcing Services — From China to Your Destination | SMITH Co. LTD"
+  description="We source products from China, coordinate with suppliers, arrange inspections, handle export documentation, and coordinate international shipping to your destination."
+>
+  <Header lang={lang} />
+
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src="/images/metalwork/gate-1.jpg" alt="Global Sourcing" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><span>Global Sourcing</span>
+        </nav>
+        <h1>Global Sourcing Services</h1>
+        <p>Your Product. Our Network. From sourcing to delivery.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto 4rem;">
+        <span class="section-tag">What We Do</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem;">End-to-End Sourcing Support</h2>
+        <p style="color:var(--stone-600); font-size:0.95rem; line-height:1.8;">
+          We source products according to your specifications, coordinate with trusted suppliers, and handle inspections, documentation, and shipping — so you can focus on your business.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        {services.map(svc => (
+          <div class="service-card" id={`service-${svc.id}`}>
+            <div class="service-icon">{svc.icon}</div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Process -->
+      <div class="process-section">
+        <h2 style="text-align:center; margin-bottom:3rem;">How It Works</h2>
+        <div class="process-steps">
+          {[
+            { num: '01', title: 'Share Your Requirements', desc: 'Tell us what you need — product type, specifications, quantity, destination, and budget.' },
+            { num: '02', title: 'We Research & Source', desc: 'We review your requirements and help identify suitable suppliers and products from our network.' },
+            { num: '03', title: 'Supplier Coordination', desc: 'We handle supplier communication, sample requests, and order negotiations on your behalf.' },
+            { num: '04', title: 'Inspection & Confirmation', desc: 'Pre-shipment inspection is arranged to verify quality and specifications before shipment.' },
+            { num: '05', title: 'Export & Shipping', desc: 'We assist with export documentation and coordinate international shipping to your destination.' },
+          ].map((step, i) => (
+            <div class="process-step" id={`step-${i}`}>
+              <div class="step-num">{step.num}</div>
+              <div class="step-content">
+                <h4>{step.title}</h4>
+                <p>{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-banner" style="margin-top:0;">
+        <div class="cta-banner-content">
+          <h2>Ready to start sourcing?</h2>
+          <p>Share your product requirements and we'll review them and get back to you within 24 hours.</p>
+        </div>
+        <a href="/contact/#quote" class="btn-primary" id="start-sourcing-btn">Start Your Inquiry →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero { position: relative; height: 320px; overflow: hidden; display: flex; align-items: flex-end; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%); z-index: 1; }
+.page-hero .container { position: relative; z-index: 2; padding-bottom: 2.5rem; width: 100%; }
+.page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
+.page-hero-content p { color: rgba(255,255,255,0.75); }
+.breadcrumb { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+.breadcrumb a { color: var(--copper-300); }
+
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
+.service-card {
+  background: var(--white); border-radius: var(--radius-lg); padding: 2rem;
+  border: 1px solid var(--stone-100); transition: all var(--transition);
+}
+.service-card:hover { border-color: var(--green-300); transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.service-icon { font-size: 2rem; margin-bottom: 1rem; }
+.service-card h3 { font-size: 1.05rem; color: var(--green-800); margin-bottom: 0.6rem; }
+.service-card p { font-size: 0.85rem; color: var(--stone-600); line-height: 1.7; }
+
+.process-section { margin-bottom: 4rem; }
+.process-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+.process-step { display: flex; gap: 1.5rem; align-items: flex-start; }
+.step-num {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--green-800); color: var(--copper-300);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 800; flex-shrink: 0;
+}
+.step-content h4 { font-size: 1rem; color: var(--green-800); margin-bottom: 0.35rem; }
+.step-content p { font-size: 0.85rem; color: var(--stone-600); line-height: 1.6; }
+
+.cta-banner {
+  background: var(--green-800); border-radius: var(--radius-xl); padding: 3rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.cta-banner-content h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.4rem; }
+.cta-banner-content p { font-size: 0.88rem; color: rgba(255,255,255,0.7); max-width: 520px; }
+
+@media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .cta-banner { flex-direction: column; text-align: center; }
+}
+</style>

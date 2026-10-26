@@ -1,0 +1,306 @@
+---
+// src/pages/products/index.astro
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const categories = [
+  {
+    id: 'doors',
+    title: 'Doors',
+    subtitle: 'Entrance, Interior, Pivot & Garage Doors',
+    desc: 'Premium entrance doors, interior doors, pivot doors, and garage doors. Crafted from wood, aluminum, WPC, and steel with custom finishes for any architectural style.',
+    img: '/images/doors/entrance door.jpg',
+    href: '/products/doors/',
+    count: '22+ models',
+    subcats: ['Main Entrance', 'Interior Doors', 'Pivot Doors', 'Garage Doors', 'Custom Doors'],
+  },
+  {
+    id: 'windows',
+    title: 'Windows & Aluminum',
+    subtitle: 'Sliding, Casement & Custom Systems',
+    desc: 'Aluminum windows and custom window systems for residential and commercial projects. Durable, energy-efficient, and available in multiple configurations.',
+    img: '/images/windows/1.jpg',
+    href: '/products/windows/',
+    count: '18+ models',
+    subcats: ['Aluminum Windows', 'Sliding Windows', 'Casement Windows', 'Custom Systems'],
+  },
+  {
+    id: 'outdoor',
+    title: 'Outdoor Living',
+    subtitle: 'Pergolas, Sunrooms & Outdoor Structures',
+    desc: 'Enhance your outdoor spaces with custom pergolas, sunrooms, and outdoor structures. Designed for durability and elegance in any climate.',
+    img: '/images/windows/pergola.png',
+    href: '/products/outdoor/',
+    count: '12+ models',
+    subcats: ['Pergolas', 'Sunrooms', 'Outdoor Structures'],
+  },
+  {
+    id: 'metalwork',
+    title: 'Wrought Iron & Metalwork',
+    subtitle: 'Gates, Railings, Fences & Grilles',
+    desc: 'Custom wrought iron gates, fences, stair and balcony railings, decorative grilles, and iron pergolas. Handcrafted with precision for lasting elegance.',
+    img: '/images/metalwork/full-facade.png',
+    href: '/products/metalwork/',
+    count: '30+ models',
+    subcats: ['Iron Gates', 'Fences', 'Stair Railings', 'Balcony Railings', 'Window Grilles'],
+  },
+  {
+    id: 'kitchens',
+    title: 'Kitchens & Interiors',
+    subtitle: 'Cabinets, Countertops, Bars & Vanities',
+    desc: 'Premium custom kitchens, home bar systems, bathroom vanities, and walk-in closets. High-end cabinetry engineered for luxury and durability.',
+    img: '/images/kitchens/Kitchen 1.png',
+    href: '/products/kitchens/',
+    count: '15+ models',
+    subcats: ['Kitchen Cabinets', 'Countertops', 'Bar Tops', 'Bathroom Vanities', 'Wardrobes'],
+  },
+  {
+    id: 'stone',
+    title: 'Stone Surfaces',
+    subtitle: 'Quartz, Marble, Granite & Custom Stone',
+    desc: 'Natural and engineered stone surfaces for floors, walls, countertops, and decorative applications. Premium marble, quartz, and granite sourced globally.',
+    img: '/images/marble/M 1.jpg',
+    href: '/products/stone/',
+    count: '10+ varieties',
+    subcats: ['Quartz', 'Marble', 'Granite', 'Custom Stone'],
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="All Products — Architectural Products & Building Materials | SMITH Co. LTD"
+  description="Browse our complete range of architectural products: doors, windows, pergolas, wrought iron metalwork, kitchens, bathroom vanities, and premium stone surfaces."
+>
+  <Header lang={lang} />
+
+  <!-- Page Header -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src="/images/doors/projects.jpeg" alt="Our Products" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>›</span>
+          <span>Products</span>
+        </nav>
+        <h1>Our Products</h1>
+        <p>Architectural solutions for residential and commercial projects worldwide</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div class="cat-grid">
+        {categories.map(cat => (
+          <article class="cat-card" id={`cat-${cat.id}`}>
+            <a href={cat.href} class="cat-img-wrap">
+              <img src={cat.img} alt={cat.title} loading="lazy" />
+              <div class="cat-img-overlay">
+                <span class="cat-count">{cat.count}</span>
+              </div>
+            </a>
+            <div class="cat-body">
+              <div class="cat-subtitle">{cat.subtitle}</div>
+              <h2 class="cat-title">
+                <a href={cat.href}>{cat.title}</a>
+              </h2>
+              <p class="cat-desc">{cat.desc}</p>
+              <div class="cat-subcats">
+                {cat.subcats.map(sub => (
+                  <span class="cat-sub-tag">{sub}</span>
+                ))}
+              </div>
+              <a href={cat.href} class="cat-cta" id={`explore-${cat.id}-btn`}>
+                Explore {cat.title} →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <h2>Can't find what you're looking for?</h2>
+          <p>We provide custom sourcing for a wide range of products. Share your specifications and we'll help you find the right supplier.</p>
+        </div>
+        <a href="/contact/#quote" class="btn-primary" id="custom-sourcing-btn">Request Custom Sourcing →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+/* Page Hero */
+.page-hero {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%);
+  z-index: 1;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 3rem;
+  width: 100%;
+}
+.page-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.page-hero-content p {
+  color: rgba(255,255,255,0.75);
+  font-size: 1rem;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+}
+.breadcrumb a { color: var(--copper-300); }
+.breadcrumb a:hover { color: var(--copper-200); }
+
+/* Category Grid */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.cat-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-deep);
+}
+.cat-img-wrap {
+  position: relative;
+  display: block;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.cat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.cat-card:hover .cat-img-wrap img { transform: scale(1.06); }
+.cat-img-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.cat-count {
+  background: rgba(13,31,26,0.75);
+  color: var(--copper-300);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+.cat-body {
+  padding: 1.5rem;
+}
+.cat-subtitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--copper-400);
+  margin-bottom: 0.4rem;
+}
+.cat-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+.cat-title a { color: var(--green-800); }
+.cat-title a:hover { color: var(--green-600); }
+.cat-desc {
+  font-size: 0.83rem;
+  color: var(--stone-600);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.cat-subcats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.cat-sub-tag {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  background: var(--green-100);
+  color: var(--green-700);
+  border-radius: 20px;
+  font-weight: 500;
+}
+.cat-cta {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--green-600);
+  transition: color var(--transition);
+}
+.cat-cta:hover { color: var(--copper-500); }
+
+/* CTA Banner */
+.cta-banner {
+  background: var(--green-800);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-banner-content h2 {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.cta-banner-content p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 520px;
+}
+
+@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .cta-banner { flex-direction: column; text-align: center; }
+}
+</style>

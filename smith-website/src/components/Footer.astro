@@ -1,0 +1,121 @@
+---
+// src/components/Footer.astro
+import type { Lang } from '../i18n/translations';
+import { getLang } from '../i18n/translations';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = getLang(lang);
+---
+
+<!-- FOOTER STAT BAR -->
+<div class="footer-bar">
+  <div class="container">
+    <div class="footer-bar-inner">
+      <div class="footer-stat">
+        <div class="footer-stat-icon">◈</div>
+        <div>
+          <div class="footer-stat-title">{t.home.footer.q1}</div>
+          <div class="footer-stat-sub">{t.home.footer.q1sub}</div>
+        </div>
+      </div>
+      <div class="footer-stat">
+        <div class="footer-stat-icon">🌐</div>
+        <div>
+          <div class="footer-stat-title">{t.home.footer.q2}</div>
+          <div class="footer-stat-sub">{t.home.footer.q2sub}</div>
+        </div>
+      </div>
+      <div class="footer-stat">
+        <div class="footer-stat-icon">🎧</div>
+        <div>
+          <div class="footer-stat-title">{t.home.footer.q3}</div>
+          <div class="footer-stat-sub">{t.home.footer.q3sub}</div>
+        </div>
+      </div>
+      <div class="footer-tagline">{t.home.footer.tagline}</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN FOOTER -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="/images/logo/logo.png" alt="SMITH Co. LTD" />
+        <p>
+          {lang === 'en'
+            ? 'A global trading company specializing in architectural products, building materials, and international sourcing solutions for residential and commercial projects.'
+            : 'شركة تجارة دولية متخصصة في المنتجات المعمارية ومواد البناء وحلول التوريد الدولية للمشاريع السكنية والتجارية.'}
+        </p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a href="https://wa.me/+1234567890" style="color:var(--copper-300); font-size:0.8rem; display:flex; align-items:center; gap:0.3rem;" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div class="footer-col">
+        <div class="footer-col-title">{lang === 'en' ? 'Products' : 'المنتجات'}</div>
+        <ul>
+          <li><a href={lang === 'en' ? '/products/doors/' : '/ar/products/doors/'}>{lang === 'en' ? 'Doors' : 'الأبواب'}</a></li>
+          <li><a href={lang === 'en' ? '/products/windows/' : '/ar/products/windows/'}>{lang === 'en' ? 'Windows & Aluminum' : 'النوافذ والألومنيوم'}</a></li>
+          <li><a href={lang === 'en' ? '/products/outdoor/' : '/ar/products/outdoor/'}>{lang === 'en' ? 'Pergolas & Sunrooms' : 'البرجولات والغرف الشمسية'}</a></li>
+          <li><a href={lang === 'en' ? '/products/metalwork/' : '/ar/products/metalwork/'}>{lang === 'en' ? 'Wrought Iron & Metalwork' : 'الحديد المطروق والمعادن'}</a></li>
+          <li><a href={lang === 'en' ? '/products/kitchens/' : '/ar/products/kitchens/'}>{lang === 'en' ? 'Kitchens & Interiors' : 'المطابخ والديكور الداخلي'}</a></li>
+          <li><a href={lang === 'en' ? '/products/stone/' : '/ar/products/stone/'}>{lang === 'en' ? 'Stone Surfaces' : 'الأسطح الحجرية'}</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <div class="footer-col-title">{lang === 'en' ? 'Services' : 'الخدمات'}</div>
+        <ul>
+          <li><a href={lang === 'en' ? '/global-sourcing/' : '/ar/global-sourcing/'}>{lang === 'en' ? 'Global Sourcing' : 'التوريد العالمي'}</a></li>
+          <li><a href={lang === 'en' ? '/order-inspection/' : '/ar/order-inspection/'}>{lang === 'en' ? 'Order Inspection' : 'فحص الطلبات'}</a></li>
+          <li><a href={lang === 'en' ? '/export-docs/' : '/ar/export-docs/'}>{lang === 'en' ? 'Export Documentation' : 'وثائق التصدير'}</a></li>
+          <li><a href={lang === 'en' ? '/freight/' : '/ar/freight/'}>{lang === 'en' ? 'Sea & Air Freight' : 'الشحن البحري والجوي'}</a></li>
+          <li><a href={lang === 'en' ? '/our-network/' : '/ar/our-network/'}>{lang === 'en' ? 'Our Network' : 'شبكتنا'}</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <div class="footer-col-title">{lang === 'en' ? 'Contact' : 'التواصل'}</div>
+        <div class="footer-contact-item">
+          <span>🏢</span>
+          <span>{lang === 'en' ? 'China — Company Office' : 'الصين — المكتب الرئيسي'}</span>
+        </div>
+        <div class="footer-contact-item">
+          <span>📍</span>
+          <span>{lang === 'en' ? 'New Jersey, USA — Partner Office' : 'نيو جيرسي — مكتب الشريك'}</span>
+        </div>
+        <div class="footer-contact-item">
+          <span>🏢</span>
+          <span>{lang === 'en' ? 'Kuwait — Company Office' : 'الكويت — المكتب الإقليمي'}</span>
+        </div>
+        <div style="margin-top:1rem;">
+          <a
+            href={lang === 'en' ? '/contact/' : '/ar/contact/'}
+            style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--copper-300); font-weight:600;"
+          >
+            {lang === 'en' ? 'Request a Quote →' : '← طلب عرض سعر'}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>{t.footer.rights}</p>
+      <div class="footer-bottom-links">
+        <a href={lang === 'en' ? '/privacy-policy/' : '/ar/privacy-policy/'}>{t.footer.privacy}</a>
+        <a href={lang === 'en' ? '/terms/' : '/ar/terms/'}>{t.footer.terms}</a>
+        <a href={lang === 'en' ? '/ar/' : '/'}>{lang === 'en' ? 'العربية' : 'English'}</a>
+      </div>
+    </div>
+  </div>
+</footer>

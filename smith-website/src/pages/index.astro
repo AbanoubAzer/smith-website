@@ -1,0 +1,142 @@
+---
+// src/pages/index.astro — English Home Page
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLang } from '../i18n/translations';
+
+const lang = 'en';
+const t = getLang(lang);
+const h = t.home;
+
+const heroSlides = [
+  { img: '/images/doors/entrance door.jpg', alt: 'Luxury Entrance Doors' },
+  { img: '/images/windows/1.jpg', alt: 'Premium Aluminum Windows' },
+  { img: '/images/metalwork/full-facade.png', alt: 'Wrought Iron Metalwork' },
+  { img: '/images/kitchens/Kitchen 1.png', alt: 'Custom Kitchen Cabinets' },
+  { img: '/images/marble/M 1.jpg', alt: 'Premium Marble & Stone' },
+];
+---
+
+<Base
+  lang={lang}
+  title="SMITH Co. LTD — Architectural Products & Global Trade Solutions"
+  description="We connect quality building materials and architectural products with customers across the United States and international markets. Doors, Windows, Kitchens, Marble, and more."
+  canonicalUrl="https://smithcoltd.com/"
+>
+  <Header lang={lang} />
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-slider">
+      {heroSlides.map((slide, i) => (
+        <div class={`hero-slide${i === 0 ? ' active' : ''}`}>
+          <img src={slide.img} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+        </div>
+      ))}
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-tagline">{h.hero.tagline}</p>
+        <h1 class="hero-title">{h.hero.headline}</h1>
+        <p class="hero-desc">{h.hero.sub}</p>
+        <div class="hero-ctas">
+          <a href="/products/" class="btn-primary" id="hero-explore-btn">
+            {h.hero.cta1} →
+          </a>
+          <a href="/contact/#quote" class="btn-outline" id="hero-quote-btn">
+            {h.hero.cta2}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-dots">
+      {heroSlides.map((_, i) => (
+        <button class={`hero-dot${i === 0 ? ' active' : ''}`} aria-label={`Slide ${i + 1}`} />
+      ))}
+    </div>
+  </section>
+
+  <!-- FEATURES BAR -->
+  <section class="features-bar" aria-label="Key Features">
+    <div class="container">
+      <div class="features-grid">
+        {h.features.items.map((feat, i) => (
+          <div class="feature-item" id={`feature-${i}`}>
+            <span class="feature-icon">{feat.icon}</span>
+            <div class="feature-title">{feat.title}</div>
+            <div class="feature-desc">{feat.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SHOWCASE -->
+  <section class="products-section" aria-labelledby="products-heading">
+    <div class="container">
+      <div class="products-layout">
+        <!-- Sidebar -->
+        <div class="products-sidebar">
+          <span class="section-tag">{h.products.tag}</span>
+          <h2 id="products-heading">{h.products.title}</h2>
+          <p>{h.products.desc}</p>
+          <a href="/products/" class="btn-secondary" id="view-all-products-btn">
+            {h.products.viewAll} →
+          </a>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="products-grid">
+          {h.products.categories.map((cat, i) => (
+            <a href={cat.href} class="product-card" id={`product-card-${i}`} aria-label={cat.title}>
+              <img src={cat.img} alt={cat.title} loading="lazy" />
+              <div class="product-card-overlay">
+                <div class="product-card-title">
+                  {cat.title}
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL SOURCING + PRESENCE -->
+  <section class="sourcing-section" aria-labelledby="sourcing-heading">
+    <div class="sourcing-layout">
+      <!-- Ship image -->
+      <div class="sourcing-image">
+        <img src="/images/metalwork/gate-1.jpg" alt="Global Shipping" loading="lazy" />
+      </div>
+
+      <!-- Content -->
+      <div class="sourcing-content">
+        <span class="section-tag">{h.sourcing.tag}</span>
+        <h2 id="sourcing-heading">{h.sourcing.title}</h2>
+        <p>{h.sourcing.desc}</p>
+        <a href="/global-sourcing/" class="btn-copper" id="learn-more-btn">
+          {h.sourcing.cta} →
+        </a>
+      </div>
+
+      <!-- Global Presence -->
+      <div class="presence-content">
+        <div class="presence-title">{h.presence.title}</div>
+        <div class="presence-list">
+          {h.presence.locations.map((loc, i) => (
+            <div class="presence-item" id={`presence-${i}`}>
+              <div class="pi-icon">{loc.icon}</div>
+              <span>{loc.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>

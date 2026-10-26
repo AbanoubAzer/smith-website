@@ -1,0 +1,120 @@
+---
+// src/pages/about/index.astro
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const values = [
+  { icon: '📚', title: 'Product Knowledge', desc: 'Practical understanding of architectural products and building materials.' },
+  { icon: '🔄', title: 'Sourcing Flexibility', desc: 'Solutions tailored to different products, specifications, and budgets.' },
+  { icon: '✔', title: 'Quality Coordination', desc: 'Inspection arrangements and order verification based on agreed requirements.' },
+  { icon: '📦', title: 'Trade Support', desc: 'Assistance with documentation, supplier communication, and shipping coordination.' },
+  { icon: '🌐', title: 'Regional Connections', desc: 'A network of representatives and partners supporting selected markets.' },
+];
+---
+
+<Base
+  lang={lang}
+  title="About Us — Your Partner in Architectural Products & Global Trade | SMITH Co. LTD"
+  description="We are a general trading business based in China, serving customers seeking architectural products, building materials, and reliable sourcing solutions for international markets."
+>
+  <Header lang={lang} />
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src="/images/doors/projects.jpeg" alt="About SMITH Co. LTD" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><span>About Us</span>
+        </nav>
+        <h1>About SMITH Co. LTD</h1>
+        <p>Your Partner in Architectural Products and Global Trade</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-text">
+          <span class="section-tag">Who We Are</span>
+          <h2>A Global Trading Partner You Can Rely On</h2>
+          <p>We are a general trading business based in China, serving customers and businesses seeking architectural products, building materials, and reliable sourcing solutions for international markets.</p>
+          <p>Our experience includes sourcing doors, aluminum windows, wrought ironwork, pergolas, kitchens, quartz, marble, and other products for residential and commercial projects. Beyond our product range, we support clients through supplier coordination, order follow-up, inspection arrangements, export documentation assistance, and international shipping coordination.</p>
+          <p>With our China-based operations, regional representatives, and U.S. installation partners, we aim to provide a more connected and convenient experience for customers across different markets.</p>
+
+          <div class="about-mission">
+            <h3>Our Mission</h3>
+            <p>To simplify international sourcing and trade by connecting customers with suitable products, suppliers, and logistics solutions.</p>
+          </div>
+
+          <a href="/contact/" class="btn-secondary" id="discuss-requirements-btn" style="margin-top:1.5rem; display:inline-flex;">
+            Let's Discuss Your Requirements →
+          </a>
+        </div>
+
+        <div class="about-side">
+          <div class="about-img-stack">
+            <img src="/images/doors/entrance door.jpg" alt="Our Products" class="about-img-main" />
+            <img src="/images/marble/M 1.jpg" alt="Stone Surfaces" class="about-img-accent" />
+          </div>
+
+          <div class="values-grid">
+            <h3 style="grid-column:1/-1; font-size:1.1rem; color:var(--green-800);">Our Approach</h3>
+            {values.map((val, i) => (
+              <div class="value-item" id={`value-${i}`}>
+                <span class="value-icon">{val.icon}</span>
+                <div>
+                  <div class="value-title">{val.title}</div>
+                  <div class="value-desc">{val.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero {
+  position: relative; height: 320px; overflow: hidden; display: flex; align-items: flex-end;
+}
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%); z-index: 1; }
+.page-hero .container { position: relative; z-index: 2; padding-bottom: 2.5rem; width: 100%; }
+.page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
+.page-hero-content p { color: rgba(255,255,255,0.75); }
+.breadcrumb { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+.breadcrumb a { color: var(--copper-300); }
+.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.about-text h2 { font-size: clamp(1.5rem,2.5vw,2rem); margin-bottom: 1.25rem; margin-top: 0.5rem; }
+.about-text p { font-size: 0.9rem; color: var(--stone-600); line-height: 1.85; margin-bottom: 1rem; }
+.about-mission {
+  background: var(--green-900); border-radius: var(--radius-md); padding: 1.5rem;
+  border-left: 4px solid var(--copper-400); margin-top: 1.5rem;
+}
+.about-mission h3 { color: var(--copper-300); font-size: 0.9rem; margin-bottom: 0.5rem; }
+.about-mission p { color: rgba(255,255,255,0.8); font-size: 0.88rem; margin: 0; }
+.about-img-stack { position: relative; margin-bottom: 2rem; }
+.about-img-main { border-radius: var(--radius-lg); aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+.about-img-accent {
+  position: absolute; bottom: -1.5rem; right: -1rem;
+  width: 45%; border-radius: var(--radius-md);
+  aspect-ratio: 1; object-fit: cover;
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-card);
+}
+.values-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
+.value-item { display: flex; gap: 1rem; align-items: flex-start; }
+.value-icon { font-size: 1.2rem; flex-shrink: 0; }
+.value-title { font-size: 0.88rem; font-weight: 700; color: var(--green-800); margin-bottom: 0.2rem; }
+.value-desc { font-size: 0.8rem; color: var(--stone-600); line-height: 1.5; }
+@media (max-width: 900px) { .about-layout { grid-template-columns: 1fr; } }
+</style>

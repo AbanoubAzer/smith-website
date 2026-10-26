@@ -1,0 +1,144 @@
+---
+// src/pages/our-network/index.astro
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+const offices = [
+  {
+    id: 'china',
+    flag: '🇨🇳',
+    location: 'China',
+    type: 'Company Office',
+    title: 'Sourcing & Supplier Coordination',
+    desc: 'Our China-based office supports supplier communication, product sourcing, order follow-up, inspection coordination, and export preparation.',
+    color: 'var(--green-700)',
+  },
+  {
+    id: 'usa',
+    flag: '🇺🇸',
+    location: 'New Jersey, USA',
+    type: 'Partner Office',
+    title: 'Local Partner Office',
+    desc: 'Our partner in New Jersey provides a local point of contact for coordinating eligible product orders, project requirements, and agreed collection or payment arrangements.',
+    color: 'var(--copper-600)',
+  },
+  {
+    id: 'usa-install',
+    flag: '🔧',
+    location: 'Tennessee, New York & New Jersey',
+    type: 'Installation Partners',
+    title: 'Installation Partners',
+    desc: 'Through our local partners, we can coordinate installation-related discussions for selected architectural products and projects in these markets.',
+    color: 'var(--stone-600)',
+  },
+  {
+    id: 'kuwait',
+    flag: '🇰🇼',
+    location: 'Kuwait',
+    type: 'Company Office',
+    title: 'Regional Presence',
+    desc: 'Our Kuwait-based office and sourcing representative network help coordinate client inquiries and sourcing requirements in the region.',
+    color: 'var(--green-700)',
+  },
+  {
+    id: 'egypt-saudi',
+    flag: '🌍',
+    location: 'Egypt & Saudi Arabia',
+    type: 'Local Representatives',
+    title: 'Sourcing Representatives',
+    desc: 'Our representatives help facilitate communication, collect product requirements, and coordinate sourcing inquiries in these markets.',
+    color: 'var(--copper-600)',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="Our Network — Global Presence | SMITH Co. LTD"
+  description="Our business network connects sourcing operations in China with regional representatives and local project partners across the USA, Kuwait, Egypt, and Saudi Arabia."
+>
+  <Header lang={lang} />
+
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src="/images/metalwork/fence-1.png" alt="Our Global Network" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><span>Our Network</span>
+        </nav>
+        <h1>Our Network</h1>
+        <p>A Connected Network for Global Trade</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div style="text-align:center; max-width:600px; margin:0 auto 4rem;">
+        <span class="section-tag">Global Presence</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem;">Connecting Markets. Coordinating Solutions.</h2>
+        <p style="color:var(--stone-600); font-size:0.95rem; line-height:1.8;">
+          Wherever your business operates, our goal is to make sourcing, purchasing, and cross-border trade more organized and accessible.
+        </p>
+      </div>
+
+      <div class="network-grid">
+        {offices.map(office => (
+          <div class="network-card" id={`office-card-${office.id}`}>
+            <div class="network-card-header" style={`background:${office.color}`}>
+              <div class="nc-flag">{office.flag}</div>
+              <div>
+                <div class="nc-location">{office.location}</div>
+                <div class="nc-type">{office.type}</div>
+              </div>
+            </div>
+            <div class="network-card-body">
+              <h3>{office.title}</h3>
+              <p>{office.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="cta-banner" style="margin-top:4rem;">
+        <div class="cta-banner-content">
+          <h2>Contact Our Team</h2>
+          <p>Reach out to discuss your project requirements, get a sourcing quote, or learn more about how we can support your business.</p>
+        </div>
+        <a href="/contact/" class="btn-primary" id="contact-team-btn">Get in Touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero { position: relative; height: 320px; overflow: hidden; display: flex; align-items: flex-end; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%); z-index: 1; }
+.page-hero .container { position: relative; z-index: 2; padding-bottom: 2.5rem; width: 100%; }
+.page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
+.page-hero-content p { color: rgba(255,255,255,0.75); }
+.breadcrumb { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+.breadcrumb a { color: var(--copper-300); }
+
+.network-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.network-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); transition: transform var(--transition), box-shadow var(--transition); }
+.network-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-deep); }
+.network-card-header { padding: 1.5rem; display: flex; gap: 1rem; align-items: center; }
+.nc-flag { font-size: 2rem; }
+.nc-location { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+.nc-type { font-size: 0.72rem; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 0.2rem; }
+.network-card-body { padding: 1.5rem; }
+.network-card-body h3 { font-size: 1rem; color: var(--green-800); margin-bottom: 0.6rem; }
+.network-card-body p { font-size: 0.83rem; color: var(--stone-600); line-height: 1.7; }
+.cta-banner { background: var(--green-800); border-radius: var(--radius-xl); padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.cta-banner-content h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.4rem; }
+.cta-banner-content p { font-size: 0.88rem; color: rgba(255,255,255,0.7); max-width: 520px; }
+@media (max-width: 900px) { .network-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .network-grid { grid-template-columns: 1fr; } .cta-banner { flex-direction: column; text-align: center; } }
+</style>
