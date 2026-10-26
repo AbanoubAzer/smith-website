@@ -2,6 +2,7 @@
 // src/components/Footer.astro
 import type { Lang } from '../i18n/translations';
 import { getLang } from '../i18n/translations';
+import { url } from '../utils/paths';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -44,7 +45,7 @@ const t = getLang(lang);
     <div class="footer-grid">
       <!-- Brand -->
       <div class="footer-brand">
-        <img src="/images/logo/logo.png" alt="SMITH Co. LTD" />
+        <img src={url('/images/logo/logo.png')} alt="SMITH Co. LTD" />
         <p>
           {lang === 'en'
             ? 'A global trading company specializing in architectural products, building materials, and international sourcing solutions for residential and commercial projects.'
@@ -61,12 +62,12 @@ const t = getLang(lang);
       <div class="footer-col">
         <div class="footer-col-title">{lang === 'en' ? 'Products' : 'المنتجات'}</div>
         <ul>
-          <li><a href={lang === 'en' ? '/products/doors/' : '/ar/products/doors/'}>{lang === 'en' ? 'Doors' : 'الأبواب'}</a></li>
-          <li><a href={lang === 'en' ? '/products/windows/' : '/ar/products/windows/'}>{lang === 'en' ? 'Windows & Aluminum' : 'النوافذ والألومنيوم'}</a></li>
-          <li><a href={lang === 'en' ? '/products/outdoor/' : '/ar/products/outdoor/'}>{lang === 'en' ? 'Pergolas & Sunrooms' : 'البرجولات والغرف الشمسية'}</a></li>
-          <li><a href={lang === 'en' ? '/products/metalwork/' : '/ar/products/metalwork/'}>{lang === 'en' ? 'Wrought Iron & Metalwork' : 'الحديد المطروق والمعادن'}</a></li>
-          <li><a href={lang === 'en' ? '/products/kitchens/' : '/ar/products/kitchens/'}>{lang === 'en' ? 'Kitchens & Interiors' : 'المطابخ والديكور الداخلي'}</a></li>
-          <li><a href={lang === 'en' ? '/products/stone/' : '/ar/products/stone/'}>{lang === 'en' ? 'Stone Surfaces' : 'الأسطح الحجرية'}</a></li>
+          <li><a href={url(lang === 'en' ? '/products/#cat-doors' : '/ar/products/#cat-doors')}>{lang === 'en' ? 'Doors' : 'الأبواب'}</a></li>
+          <li><a href={url(lang === 'en' ? '/products/#cat-windows' : '/ar/products/#cat-windows')}>{lang === 'en' ? 'Windows & Aluminum' : 'النوافذ والألومنيوم'}</a></li>
+          <li><a href={url(lang === 'en' ? '/products/#cat-outdoor' : '/ar/products/#cat-outdoor')}>{lang === 'en' ? 'Pergolas & Sunrooms' : 'البرجولات والغرف الشمسية'}</a></li>
+          <li><a href={url(lang === 'en' ? '/products/#cat-metalwork' : '/ar/products/#cat-metalwork')}>{lang === 'en' ? 'Wrought Iron & Metalwork' : 'الحديد المطروق والمعادن'}</a></li>
+          <li><a href={url(lang === 'en' ? '/products/#cat-kitchens' : '/ar/products/#cat-kitchens')}>{lang === 'en' ? 'Kitchens & Interiors' : 'المطابخ والديكور الداخلي'}</a></li>
+          <li><a href={url(lang === 'en' ? '/products/#cat-stone' : '/ar/products/#cat-stone')}>{lang === 'en' ? 'Stone Surfaces' : 'الأسطح الحجرية'}</a></li>
         </ul>
       </div>
 
@@ -74,11 +75,11 @@ const t = getLang(lang);
       <div class="footer-col">
         <div class="footer-col-title">{lang === 'en' ? 'Services' : 'الخدمات'}</div>
         <ul>
-          <li><a href={lang === 'en' ? '/global-sourcing/' : '/ar/global-sourcing/'}>{lang === 'en' ? 'Global Sourcing' : 'التوريد العالمي'}</a></li>
-          <li><a href={lang === 'en' ? '/order-inspection/' : '/ar/order-inspection/'}>{lang === 'en' ? 'Order Inspection' : 'فحص الطلبات'}</a></li>
-          <li><a href={lang === 'en' ? '/export-docs/' : '/ar/export-docs/'}>{lang === 'en' ? 'Export Documentation' : 'وثائق التصدير'}</a></li>
-          <li><a href={lang === 'en' ? '/freight/' : '/ar/freight/'}>{lang === 'en' ? 'Sea & Air Freight' : 'الشحن البحري والجوي'}</a></li>
-          <li><a href={lang === 'en' ? '/our-network/' : '/ar/our-network/'}>{lang === 'en' ? 'Our Network' : 'شبكتنا'}</a></li>
+          <li><a href={url(lang === 'en' ? '/global-sourcing/' : '/ar/global-sourcing/')}>{lang === 'en' ? 'Global Sourcing' : 'التوريد العالمي'}</a></li>
+          <li><a href={url(lang === 'en' ? '/global-sourcing/#order-inspection' : '/ar/global-sourcing/#order-inspection')}>{lang === 'en' ? 'Order Inspection' : 'فحص الطلبات'}</a></li>
+          <li><a href={url(lang === 'en' ? '/global-sourcing/#export-docs' : '/ar/global-sourcing/#export-docs')}>{lang === 'en' ? 'Export Documentation' : 'وثائق التصدير'}</a></li>
+          <li><a href={url(lang === 'en' ? '/global-sourcing/#freight' : '/ar/global-sourcing/#freight')}>{lang === 'en' ? 'Sea & Air Freight' : 'الشحن البحري والجوي'}</a></li>
+          <li><a href={url(lang === 'en' ? '/our-network/' : '/ar/our-network/')}>{lang === 'en' ? 'Our Network' : 'شبكتنا'}</a></li>
         </ul>
       </div>
 
@@ -99,7 +100,7 @@ const t = getLang(lang);
         </div>
         <div style="margin-top:1rem;">
           <a
-            href={lang === 'en' ? '/contact/' : '/ar/contact/'}
+            href={url(lang === 'en' ? '/contact/' : '/ar/contact/')}
             style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--copper-300); font-weight:600;"
           >
             {lang === 'en' ? 'Request a Quote →' : '← طلب عرض سعر'}
@@ -112,9 +113,9 @@ const t = getLang(lang);
     <div class="footer-bottom">
       <p>{t.footer.rights}</p>
       <div class="footer-bottom-links">
-        <a href={lang === 'en' ? '/privacy-policy/' : '/ar/privacy-policy/'}>{t.footer.privacy}</a>
-        <a href={lang === 'en' ? '/terms/' : '/ar/terms/'}>{t.footer.terms}</a>
-        <a href={lang === 'en' ? '/ar/' : '/'}>{lang === 'en' ? 'العربية' : 'English'}</a>
+        <a href={url(lang === 'en' ? '/contact/' : '/ar/contact/')}>{t.footer.privacy}</a>
+        <a href={url(lang === 'en' ? '/contact/' : '/ar/contact/')}>{t.footer.terms}</a>
+        <a href={url(lang === 'en' ? '/ar/' : '/')}>{lang === 'en' ? 'العربية' : 'English'}</a>
       </div>
     </div>
   </div>

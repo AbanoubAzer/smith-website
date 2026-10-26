@@ -4,17 +4,18 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLang } from '../i18n/translations';
+import { url } from '../utils/paths';
 
 const lang = 'en';
 const t = getLang(lang);
 const h = t.home;
 
 const heroSlides = [
-  { img: '/images/doors/entrance door.jpg', alt: 'Luxury Entrance Doors' },
-  { img: '/images/windows/1.jpg', alt: 'Premium Aluminum Windows' },
-  { img: '/images/metalwork/full-facade.png', alt: 'Wrought Iron Metalwork' },
-  { img: '/images/kitchens/Kitchen 1.png', alt: 'Custom Kitchen Cabinets' },
-  { img: '/images/marble/M 1.jpg', alt: 'Premium Marble & Stone' },
+  { img: url('/images/doors/entrance door.jpg'), alt: 'Luxury Entrance Doors' },
+  { img: url('/images/windows/1.jpg'), alt: 'Premium Aluminum Windows' },
+  { img: url('/images/metalwork/full-facade.png'), alt: 'Wrought Iron Metalwork' },
+  { img: url('/images/kitchens/Kitchen 1.png'), alt: 'Custom Kitchen Cabinets' },
+  { img: url('/images/marble/M 1.jpg'), alt: 'Premium Marble & Stone' },
 ];
 ---
 
@@ -42,10 +43,10 @@ const heroSlides = [
         <h1 class="hero-title">{h.hero.headline}</h1>
         <p class="hero-desc">{h.hero.sub}</p>
         <div class="hero-ctas">
-          <a href="/products/" class="btn-primary" id="hero-explore-btn">
+          <a href={url('/products/')} class="btn-primary" id="hero-explore-btn">
             {h.hero.cta1} →
           </a>
-          <a href="/contact/#quote" class="btn-outline" id="hero-quote-btn">
+          <a href={url('/contact/#quote')} class="btn-outline" id="hero-quote-btn">
             {h.hero.cta2}
           </a>
         </div>
@@ -82,7 +83,7 @@ const heroSlides = [
           <span class="section-tag">{h.products.tag}</span>
           <h2 id="products-heading">{h.products.title}</h2>
           <p>{h.products.desc}</p>
-          <a href="/products/" class="btn-secondary" id="view-all-products-btn">
+          <a href={url('/products/')} class="btn-secondary" id="view-all-products-btn">
             {h.products.viewAll} →
           </a>
         </div>
@@ -90,8 +91,8 @@ const heroSlides = [
         <!-- Product Cards Grid -->
         <div class="products-grid">
           {h.products.categories.map((cat, i) => (
-            <a href={cat.href} class="product-card" id={`product-card-${i}`} aria-label={cat.title}>
-              <img src={cat.img} alt={cat.title} loading="lazy" />
+            <a href={url(cat.href)} class="product-card" id={`product-card-${i}`} aria-label={cat.title}>
+              <img src={url(cat.img)} alt={cat.title} loading="lazy" />
               <div class="product-card-overlay">
                 <div class="product-card-title">
                   {cat.title}
@@ -110,7 +111,7 @@ const heroSlides = [
     <div class="sourcing-layout">
       <!-- Ship image -->
       <div class="sourcing-image">
-        <img src="/images/metalwork/gate-1.jpg" alt="Global Shipping" loading="lazy" />
+        <img src={url('/images/metalwork/gate-1.jpg')} alt="Global Shipping" loading="lazy" />
       </div>
 
       <!-- Content -->
@@ -118,7 +119,7 @@ const heroSlides = [
         <span class="section-tag">{h.sourcing.tag}</span>
         <h2 id="sourcing-heading">{h.sourcing.title}</h2>
         <p>{h.sourcing.desc}</p>
-        <a href="/global-sourcing/" class="btn-copper" id="learn-more-btn">
+        <a href={url('/global-sourcing/')} class="btn-copper" id="learn-more-btn">
           {h.sourcing.cta} →
         </a>
       </div>

@@ -2,13 +2,14 @@
 // src/components/Header.astro
 import type { Lang } from '../i18n/translations';
 import { getLang } from '../i18n/translations';
+import { url } from '../utils/paths';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = getLang(lang);
 const isRtl = lang === 'ar';
 const altLang = lang === 'en' ? 'AR | العربية' : 'EN | English';
-const altHref = lang === 'en' ? '/ar/' : '/';
+const altHref = lang === 'en' ? url('/ar/') : url('/');
 ---
 
 <!-- TOP BAR -->
@@ -38,8 +39,8 @@ const altHref = lang === 'en' ? '/ar/' : '/';
 <header class="header" id="main-header">
   <div class="container">
     <!-- Logo -->
-    <a href={lang === 'en' ? '/' : '/ar/'} class="logo" id="site-logo">
-      <img src="/images/logo/logo.png" alt="SMITH Co. LTD Logo" width="48" height="48" />
+    <a href={lang === 'en' ? url('/') : url('/ar/')} class="logo" id="site-logo">
+      <img src={url('/images/logo/logo.png')} alt="SMITH Co. LTD Logo" width="48" height="48" />
     </a>
 
     <!-- Nav Links -->
@@ -47,12 +48,12 @@ const altHref = lang === 'en' ? '/ar/' : '/';
 
       <!-- Home -->
       <div class="nav-item">
-        <a href={lang === 'en' ? '/' : '/ar/'} class="nav-link" id="nav-home">{t.nav.home}</a>
+        <a href={lang === 'en' ? url('/') : url('/ar/')} class="nav-link" id="nav-home">{t.nav.home}</a>
       </div>
 
       <!-- Products MEGA MENU -->
       <div class="nav-item" id="nav-products-item">
-        <a href={lang === 'en' ? '/products/' : '/ar/products/'} class="nav-link" id="nav-products">
+        <a href={lang === 'en' ? url('/products/') : url('/ar/products/')} class="nav-link" id="nav-products">
           {t.nav.products}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </a>
@@ -61,39 +62,39 @@ const altHref = lang === 'en' ? '/ar/' : '/';
           <div class="mega-col">
             <div class="mega-col-title">{t.megaMenu.doors.title}</div>
             {t.megaMenu.doors.items.map(item => (
-              <a href={item.href}>{item.label}</a>
+              <a href={url(item.href)}>{item.label}</a>
             ))}
           </div>
           <!-- Column 2: Windows + Outdoor -->
           <div class="mega-col">
             <div class="mega-col-title">{t.megaMenu.windows.title}</div>
             {t.megaMenu.windows.items.map(item => (
-              <a href={item.href}>{item.label}</a>
+              <a href={url(item.href)}>{item.label}</a>
             ))}
             <div class="mega-col-title" style="margin-top:1rem">{t.megaMenu.outdoor.title}</div>
             {t.megaMenu.outdoor.items.map(item => (
-              <a href={item.href}>{item.label}</a>
+              <a href={url(item.href)}>{item.label}</a>
             ))}
           </div>
           <!-- Column 3: Metalwork -->
           <div class="mega-col">
             <div class="mega-col-title">{t.megaMenu.metalwork.title}</div>
             {t.megaMenu.metalwork.items.map(item => (
-              <a href={item.href}>{item.label}</a>
+              <a href={url(item.href)}>{item.label}</a>
             ))}
           </div>
           <!-- Column 4: Kitchens -->
           <div class="mega-col">
             <div class="mega-col-title">{t.megaMenu.kitchens.title}</div>
             {t.megaMenu.kitchens.items.map(item => (
-              <a href={item.href}>{item.label}</a>
+              <a href={url(item.href)}>{item.label}</a>
             ))}
           </div>
           <!-- Column 5: Stone -->
           <div class="mega-col">
             <div class="mega-col-title">{t.megaMenu.stone.title}</div>
             {t.megaMenu.stone.items.map(item => (
-              <a href={item.href}>{item.label}</a>
+              <a href={url(item.href)}>{item.label}</a>
             ))}
           </div>
         </div>
@@ -101,28 +102,28 @@ const altHref = lang === 'en' ? '/ar/' : '/';
 
       <!-- Global Sourcing -->
       <div class="nav-item">
-        <a href={lang === 'en' ? '/global-sourcing/' : '/ar/global-sourcing/'} class="nav-link" id="nav-sourcing">{t.nav.globalSourcing}</a>
+        <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/global-sourcing/')} class="nav-link" id="nav-sourcing">{t.nav.globalSourcing}</a>
       </div>
 
       <!-- Our Network -->
       <div class="nav-item">
-        <a href={lang === 'en' ? '/our-network/' : '/ar/our-network/'} class="nav-link" id="nav-network">{t.nav.ourNetwork}</a>
+        <a href={lang === 'en' ? url('/our-network/') : url('/ar/our-network/')} class="nav-link" id="nav-network">{t.nav.ourNetwork}</a>
       </div>
 
       <!-- About -->
       <div class="nav-item">
-        <a href={lang === 'en' ? '/about/' : '/ar/about/'} class="nav-link" id="nav-about">{t.nav.aboutUs}</a>
+        <a href={lang === 'en' ? url('/about/') : url('/ar/about/')} class="nav-link" id="nav-about">{t.nav.aboutUs}</a>
       </div>
 
       <!-- Contact -->
       <div class="nav-item">
-        <a href={lang === 'en' ? '/contact/' : '/ar/contact/'} class="nav-link" id="nav-contact">{t.nav.contactUs}</a>
+        <a href={lang === 'en' ? url('/contact/') : url('/ar/contact/')} class="nav-link" id="nav-contact">{t.nav.contactUs}</a>
       </div>
     </nav>
 
     <!-- Actions -->
     <div class="header-actions">
-      <a href={lang === 'en' ? '/contact/#quote' : '/ar/contact/#quote'} class="btn-quote" id="header-quote-btn">
+      <a href={lang === 'en' ? url('/contact/#quote') : url('/ar/contact/#quote')} class="btn-quote" id="header-quote-btn">
         {t.nav.requestQuote}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       </a>
@@ -150,6 +151,16 @@ const altHref = lang === 'en' ? '/ar/' : '/';
     #mega-menu-products { width: 700px; grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 768px) {
-    #mega-menu-products { width: 100%; grid-template-columns: 1fr; }
+    #mega-menu-products {
+      position: static !important;
+      transform: none !important;
+      left: auto !important;
+      right: auto !important;
+      width: 100% !important;
+      grid-template-columns: 1fr !important;
+      box-shadow: none !important;
+      border: none !important;
+      max-width: 100% !important;
+    }
   }
 </style>

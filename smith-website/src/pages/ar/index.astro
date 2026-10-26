@@ -4,17 +4,18 @@ import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getLang } from '../../i18n/translations';
+import { url } from '../../utils/paths';
 
 const lang = 'ar';
 const t = getLang(lang);
 const h = t.home;
 
 const heroSlides = [
-  { img: '/images/doors/entrance door.jpg', alt: 'أبواب مداخل فاخرة' },
-  { img: '/images/windows/1.jpg', alt: 'نوافذ ألومنيوم فاخرة' },
-  { img: '/images/metalwork/full-facade.png', alt: 'أعمال الحديد المطروق' },
-  { img: '/images/kitchens/Kitchen 1.png', alt: 'خزائن مطبخ مخصصة' },
-  { img: '/images/marble/M 1.jpg', alt: 'رخام وأحجار فاخرة' },
+  { img: url('/images/doors/entrance door.jpg'), alt: 'أبواب مداخل فاخرة' },
+  { img: url('/images/windows/1.jpg'), alt: 'نوافذ ألومنيوم فاخرة' },
+  { img: url('/images/metalwork/full-facade.png'), alt: 'أعمال الحديد المطروق' },
+  { img: url('/images/kitchens/Kitchen 1.png'), alt: 'خزائن مطبخ مخصصة' },
+  { img: url('/images/marble/M 1.jpg'), alt: 'رخام وأحجار فاخرة' },
 ];
 ---
 
@@ -42,10 +43,10 @@ const heroSlides = [
         <h1 class="hero-title">{h.hero.headline}</h1>
         <p class="hero-desc">{h.hero.sub}</p>
         <div class="hero-ctas">
-          <a href="/ar/products/" class="btn-primary" id="hero-explore-btn-ar">
+          <a href={url('/products/')} class="btn-primary" id="hero-explore-btn-ar">
             {h.hero.cta1} ←
           </a>
-          <a href="/ar/contact/#quote" class="btn-outline" id="hero-quote-btn-ar">
+          <a href={url('/contact/#quote')} class="btn-outline" id="hero-quote-btn-ar">
             {h.hero.cta2}
           </a>
         </div>
@@ -81,14 +82,14 @@ const heroSlides = [
           <span class="section-tag">{h.products.tag}</span>
           <h2 id="products-heading-ar">{h.products.title}</h2>
           <p>{h.products.desc}</p>
-          <a href="/ar/products/" class="btn-secondary" id="view-all-products-btn-ar">
+          <a href={url('/products/')} class="btn-secondary" id="view-all-products-btn-ar">
             {h.products.viewAll} ←
           </a>
         </div>
         <div class="products-grid">
           {h.products.categories.map((cat, i) => (
-            <a href={cat.href} class="product-card" id={`product-card-ar-${i}`} aria-label={cat.title}>
-              <img src={cat.img} alt={cat.title} loading="lazy" />
+            <a href={url(cat.href)} class="product-card" id={`product-card-ar-${i}`} aria-label={cat.title}>
+              <img src={url(cat.img)} alt={cat.title} loading="lazy" />
               <div class="product-card-overlay">
                 <div class="product-card-title">
                   {cat.title}
@@ -106,13 +107,13 @@ const heroSlides = [
   <section class="sourcing-section" aria-labelledby="sourcing-heading-ar">
     <div class="sourcing-layout">
       <div class="sourcing-image">
-        <img src="/images/metalwork/gate-1.jpg" alt="شحن دولي" loading="lazy" />
+        <img src={url('/images/metalwork/gate-1.jpg')} alt="شحن دولي" loading="lazy" />
       </div>
       <div class="sourcing-content">
         <span class="section-tag">{h.sourcing.tag}</span>
         <h2 id="sourcing-heading-ar">{h.sourcing.title}</h2>
         <p>{h.sourcing.desc}</p>
-        <a href="/ar/global-sourcing/" class="btn-copper" id="learn-more-btn-ar">
+        <a href={url('/global-sourcing/')} class="btn-copper" id="learn-more-btn-ar">
           {h.sourcing.cta} ←
         </a>
       </div>

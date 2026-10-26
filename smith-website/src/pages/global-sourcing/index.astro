@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { url } from '../../utils/paths';
 
 const lang = 'en';
 const services = [
@@ -54,11 +55,11 @@ const services = [
 
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src="/images/metalwork/gate-1.jpg" alt="Global Sourcing" />
+    <img src={url('/images/metalwork/gate-1.jpg')} alt="Global Sourcing" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span>›</span><span>Global Sourcing</span>
+          <a href={url('/')}>Home</a><span>›</span><span>Global Sourcing</span>
         </nav>
         <h1>Global Sourcing Services</h1>
         <p>Your Product. Our Network. From sourcing to delivery.</p>
@@ -114,7 +115,7 @@ const services = [
           <h2>Ready to start sourcing?</h2>
           <p>Share your product requirements and we'll review them and get back to you within 24 hours.</p>
         </div>
-        <a href="/contact/#quote" class="btn-primary" id="start-sourcing-btn">Start Your Inquiry →</a>
+        <a href={url('/contact/#quote')} class="btn-primary" id="start-sourcing-btn">Start Your Inquiry →</a>
       </div>
     </div>
   </section>
@@ -161,9 +162,15 @@ const services = [
 .cta-banner-content h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.4rem; }
 .cta-banner-content p { font-size: 0.88rem; color: rgba(255,255,255,0.7); max-width: 520px; }
 
-@media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); margin-bottom: 3rem; }
+  .page-hero { height: 260px; }
+}
 @media (max-width: 600px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .cta-banner { flex-direction: column; text-align: center; }
+  .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .page-hero { height: 220px; }
+  .cta-banner { flex-direction: column; text-align: center; padding: 1.75rem; }
+  .process-step { gap: 1rem; }
+  .step-num { width: 42px; height: 42px; font-size: 0.75rem; }
 }
 </style>

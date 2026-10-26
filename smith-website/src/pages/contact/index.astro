@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { url } from '../../utils/paths';
 
 const lang = 'en';
 const productOptions = [
@@ -24,11 +25,11 @@ const productOptions = [
   <!-- Page Hero -->
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src="/images/marble/M 2.jpg" alt="Contact Us" />
+    <img src={url('/images/marble/M 2.jpg')} alt="Contact Us" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href={url('/')}>Home</a>
           <span>›</span>
           <span>Contact Us</span>
         </nav>
@@ -297,10 +298,13 @@ const productOptions = [
 .file-upload-inner span { font-size: 0.85rem; color: var(--stone-600); }
 
 @media (max-width: 960px) {
-  .contact-layout { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .page-hero { height: 260px; }
 }
 @media (max-width: 600px) {
+  .page-hero { height: 220px; }
   .form-row { grid-template-columns: 1fr; }
-  .quote-form-wrap { padding: 1.5rem; border-radius: var(--radius-lg); }
+  .quote-form-wrap { padding: 1.25rem; border-radius: var(--radius-lg); }
+  .contact-info h2 { font-size: 1.5rem; }
 }
 </style>

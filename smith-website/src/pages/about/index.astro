@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { url } from '../../utils/paths';
 
 const lang = 'en';
 const values = [
@@ -24,11 +25,11 @@ const values = [
   <!-- Hero -->
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src="/images/doors/projects.jpeg" alt="About SMITH Co. LTD" />
+    <img src={url('/images/doors/projects.jpeg')} alt="About SMITH Co. LTD" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span>›</span><span>About Us</span>
+          <a href={url('/')}>Home</a><span>›</span><span>About Us</span>
         </nav>
         <h1>About SMITH Co. LTD</h1>
         <p>Your Partner in Architectural Products and Global Trade</p>
@@ -51,15 +52,15 @@ const values = [
             <p>To simplify international sourcing and trade by connecting customers with suitable products, suppliers, and logistics solutions.</p>
           </div>
 
-          <a href="/contact/" class="btn-secondary" id="discuss-requirements-btn" style="margin-top:1.5rem; display:inline-flex;">
+          <a href={url('/contact/')} class="btn-secondary" id="discuss-requirements-btn" style="margin-top:1.5rem; display:inline-flex;">
             Let's Discuss Your Requirements →
           </a>
         </div>
 
         <div class="about-side">
           <div class="about-img-stack">
-            <img src="/images/doors/entrance door.jpg" alt="Our Products" class="about-img-main" />
-            <img src="/images/marble/M 1.jpg" alt="Stone Surfaces" class="about-img-accent" />
+            <img src={url('/images/doors/entrance door.jpg')} alt="Our Products" class="about-img-main" />
+            <img src={url('/images/marble/M 1.jpg')} alt="Stone Surfaces" class="about-img-accent" />
           </div>
 
           <div class="values-grid">
@@ -116,5 +117,12 @@ const values = [
 .value-icon { font-size: 1.2rem; flex-shrink: 0; }
 .value-title { font-size: 0.88rem; font-weight: 700; color: var(--green-800); margin-bottom: 0.2rem; }
 .value-desc { font-size: 0.8rem; color: var(--stone-600); line-height: 1.5; }
-@media (max-width: 900px) { .about-layout { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .page-hero { height: 260px; }
+}
+@media (max-width: 600px) {
+  .page-hero { height: 220px; }
+  .about-img-accent { right: 0; bottom: -1rem; width: 50%; }
+}
 </style>

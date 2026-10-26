@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { url } from '../../utils/paths';
 
 const lang = 'en';
 const offices = [
@@ -63,11 +64,11 @@ const offices = [
 
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src="/images/metalwork/fence-1.png" alt="Our Global Network" />
+    <img src={url('/images/metalwork/fence-1.png')} alt="Our Global Network" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span>›</span><span>Our Network</span>
+          <a href={url('/')}>Home</a><span>›</span><span>Our Network</span>
         </nav>
         <h1>Our Network</h1>
         <p>A Connected Network for Global Trade</p>
@@ -108,7 +109,7 @@ const offices = [
           <h2>Contact Our Team</h2>
           <p>Reach out to discuss your project requirements, get a sourcing quote, or learn more about how we can support your business.</p>
         </div>
-        <a href="/contact/" class="btn-primary" id="contact-team-btn">Get in Touch →</a>
+        <a href={url('/contact/')} class="btn-primary" id="contact-team-btn">Get in Touch →</a>
       </div>
     </div>
   </section>
@@ -139,6 +140,13 @@ const offices = [
 .cta-banner { background: var(--green-800); border-radius: var(--radius-xl); padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .cta-banner-content h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.4rem; }
 .cta-banner-content p { font-size: 0.88rem; color: rgba(255,255,255,0.7); max-width: 520px; }
-@media (max-width: 900px) { .network-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .network-grid { grid-template-columns: 1fr; } .cta-banner { flex-direction: column; text-align: center; } }
+@media (max-width: 900px) {
+  .network-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-hero { height: 260px; }
+}
+@media (max-width: 600px) {
+  .network-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .page-hero { height: 220px; }
+  .cta-banner { flex-direction: column; text-align: center; padding: 1.75rem; }
+}
 </style>

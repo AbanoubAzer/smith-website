@@ -2,6 +2,7 @@
 // src/layouts/Base.astro
 import '../styles/global.css';
 import type { Lang } from '../i18n/translations';
+import { url } from '../utils/paths';
 
 interface Props {
   lang: Lang;
@@ -12,9 +13,9 @@ interface Props {
 }
 
 const { lang, title, description, ogImage = '/images/logo/logo.png', canonicalUrl } = Astro.props;
+const resolvedOgImage = ogImage.startsWith('http') ? ogImage : url(ogImage);
 const isRtl = lang === 'ar';
-const altLang = lang === 'en' ? 'ar' : 'en';
-const altHref = lang === 'en' ? `/ar/` : `/`;
+const altHref = lang === 'en' ? url('/ar/') : url('/');
 const currentUrl = canonicalUrl || Astro.url.href;
 ---
 <!doctype html>
@@ -39,7 +40,7 @@ const currentUrl = canonicalUrl || Astro.url.href;
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={resolvedOgImage} />
     <meta property="og:url" content={currentUrl} />
     <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
     <meta property="og:site_name" content="SMITH Co. LTD" />
@@ -48,7 +49,7 @@ const currentUrl = canonicalUrl || Astro.url.href;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={resolvedOgImage} />
 
     <!-- Schema.org Organization -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -73,7 +74,7 @@ const currentUrl = canonicalUrl || Astro.url.href;
     })} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/logo/logo.png" />
+    <link rel="icon" type="image/png" href={url('/images/logo/logo.png')} />
 
     <!-- Fonts preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -101,10 +102,12 @@ const currentUrl = canonicalUrl || Astro.url.href;
       const toggle = document.getElementById('mobile-toggle');
       const navLinks = document.querySelector('.nav-links') as HTMLElement;
       toggle?.addEventListener('click', () => {
-        navLinks?.classList.toggle('open');
+        const isOpen = navLinks?.classList.toggle('open');
+        toggle?.classList.toggle('active', isOpen);
+        document.body.classList.toggle('nav-open', isOpen);
       });
 
-      // Mobile mega menu
+      // Mobile mega menu toggle
       document.querySelectorAll('.nav-item').forEach(item => {
         const link = item.querySelector('.nav-link');
         link?.addEventListener('click', (e) => {
@@ -113,6 +116,18 @@ const currentUrl = canonicalUrl || Astro.url.href;
             item.classList.toggle('open');
           }
         });
+      });
+
+      // Close menu when clicking backdrop/outside
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (window.innerWidth <= 768 && navLinks?.classList.contains('open')) {
+          if (!navLinks.contains(target) && !toggle?.contains(target)) {
+            navLinks.classList.remove('open');
+            toggle?.classList.remove('active');
+            document.body.classList.remove('nav-open');
+          }
+        }
       });
 
       // Hero slider

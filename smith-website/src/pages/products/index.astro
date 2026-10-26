@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { url } from '../../utils/paths';
 
 const lang = 'en';
 const categories = [
@@ -11,8 +12,8 @@ const categories = [
     title: 'Doors',
     subtitle: 'Entrance, Interior, Pivot & Garage Doors',
     desc: 'Premium entrance doors, interior doors, pivot doors, and garage doors. Crafted from wood, aluminum, WPC, and steel with custom finishes for any architectural style.',
-    img: '/images/doors/entrance door.jpg',
-    href: '/products/doors/',
+    img: url('/images/doors/entrance door.jpg'),
+    href: url('/products/#cat-doors'),
     count: '22+ models',
     subcats: ['Main Entrance', 'Interior Doors', 'Pivot Doors', 'Garage Doors', 'Custom Doors'],
   },
@@ -21,8 +22,8 @@ const categories = [
     title: 'Windows & Aluminum',
     subtitle: 'Sliding, Casement & Custom Systems',
     desc: 'Aluminum windows and custom window systems for residential and commercial projects. Durable, energy-efficient, and available in multiple configurations.',
-    img: '/images/windows/1.jpg',
-    href: '/products/windows/',
+    img: url('/images/windows/1.jpg'),
+    href: url('/products/#cat-windows'),
     count: '18+ models',
     subcats: ['Aluminum Windows', 'Sliding Windows', 'Casement Windows', 'Custom Systems'],
   },
@@ -31,8 +32,8 @@ const categories = [
     title: 'Outdoor Living',
     subtitle: 'Pergolas, Sunrooms & Outdoor Structures',
     desc: 'Enhance your outdoor spaces with custom pergolas, sunrooms, and outdoor structures. Designed for durability and elegance in any climate.',
-    img: '/images/windows/pergola.png',
-    href: '/products/outdoor/',
+    img: url('/images/windows/pergola.png'),
+    href: url('/products/#cat-outdoor'),
     count: '12+ models',
     subcats: ['Pergolas', 'Sunrooms', 'Outdoor Structures'],
   },
@@ -41,8 +42,8 @@ const categories = [
     title: 'Wrought Iron & Metalwork',
     subtitle: 'Gates, Railings, Fences & Grilles',
     desc: 'Custom wrought iron gates, fences, stair and balcony railings, decorative grilles, and iron pergolas. Handcrafted with precision for lasting elegance.',
-    img: '/images/metalwork/full-facade.png',
-    href: '/products/metalwork/',
+    img: url('/images/metalwork/full-facade.png'),
+    href: url('/products/#cat-metalwork'),
     count: '30+ models',
     subcats: ['Iron Gates', 'Fences', 'Stair Railings', 'Balcony Railings', 'Window Grilles'],
   },
@@ -51,8 +52,8 @@ const categories = [
     title: 'Kitchens & Interiors',
     subtitle: 'Cabinets, Countertops, Bars & Vanities',
     desc: 'Premium custom kitchens, home bar systems, bathroom vanities, and walk-in closets. High-end cabinetry engineered for luxury and durability.',
-    img: '/images/kitchens/Kitchen 1.png',
-    href: '/products/kitchens/',
+    img: url('/images/kitchens/Kitchen 1.png'),
+    href: url('/products/#cat-kitchens'),
     count: '15+ models',
     subcats: ['Kitchen Cabinets', 'Countertops', 'Bar Tops', 'Bathroom Vanities', 'Wardrobes'],
   },
@@ -61,8 +62,8 @@ const categories = [
     title: 'Stone Surfaces',
     subtitle: 'Quartz, Marble, Granite & Custom Stone',
     desc: 'Natural and engineered stone surfaces for floors, walls, countertops, and decorative applications. Premium marble, quartz, and granite sourced globally.',
-    img: '/images/marble/M 1.jpg',
-    href: '/products/stone/',
+    img: url('/images/marble/M 1.jpg'),
+    href: url('/products/#cat-stone'),
     count: '10+ varieties',
     subcats: ['Quartz', 'Marble', 'Granite', 'Custom Stone'],
   },
@@ -79,11 +80,11 @@ const categories = [
   <!-- Page Header -->
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src="/images/doors/projects.jpeg" alt="Our Products" />
+    <img src={url('/images/doors/projects.jpeg')} alt="Our Products" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href={url('/')}>Home</a>
           <span>›</span>
           <span>Products</span>
         </nav>
@@ -130,7 +131,7 @@ const categories = [
           <h2>Can't find what you're looking for?</h2>
           <p>We provide custom sourcing for a wide range of products. Share your specifications and we'll help you find the right supplier.</p>
         </div>
-        <a href="/contact/#quote" class="btn-primary" id="custom-sourcing-btn">Request Custom Sourcing →</a>
+        <a href={url('/contact/#quote')} class="btn-primary" id="custom-sourcing-btn">Request Custom Sourcing →</a>
       </div>
     </div>
   </section>
@@ -298,9 +299,13 @@ const categories = [
   max-width: 520px;
 }
 
-@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .page-hero { height: 260px; }
+}
 @media (max-width: 600px) {
-  .cat-grid { grid-template-columns: 1fr; }
-  .cta-banner { flex-direction: column; text-align: center; }
+  .cat-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .page-hero { height: 220px; }
+  .cta-banner { flex-direction: column; text-align: center; padding: 1.75rem; }
 }
 </style>
