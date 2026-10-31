@@ -94,14 +94,6 @@ const faqSchema = {
     </div>
     <div class="hero-eitco-overlay"></div>
 
-    <!-- Navigation Arrows -->
-    <button class="hero-arrow hero-arrow-prev" id="hero-prev-btn" aria-label="الشريحة السابقة">
-      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </button>
-    <button class="hero-arrow hero-arrow-next" id="hero-next-btn" aria-label="الشريحة التالية">
-      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-    </button>
-
     <div class="container">
       <div class="hero-eitco-content">
         <div class="hero-text-slides">
@@ -128,11 +120,19 @@ const faqSchema = {
       </div>
     </div>
 
-    <!-- Navigation Dots -->
-    <div class="hero-dots">
-      {heroSlides.map((_, i) => (
-        <button class={`hero-dot${i === 0 ? ' active' : ''}`} aria-label={`الشريحة ${i + 1}`} data-index={i} />
-      ))}
+    <!-- Hero Controls (Arrows + Dots) -->
+    <div class="hero-controls">
+      <button class="hero-arrow hero-arrow-prev" id="hero-prev-btn" aria-label="الشريحة السابقة">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <div class="hero-dots">
+        {heroSlides.map((_, i) => (
+          <button class={`hero-dot${i === 0 ? ' active' : ''}`} aria-label={`الشريحة ${i + 1}`} data-index={i} />
+        ))}
+      </div>
+      <button class="hero-arrow hero-arrow-next" id="hero-next-btn" aria-label="الشريحة التالية">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
     </div>
   </section>
 
