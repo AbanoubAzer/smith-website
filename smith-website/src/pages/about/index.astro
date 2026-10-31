@@ -17,21 +17,22 @@ const values = [
 
 <Base
   lang={lang}
-  title="About Us — Your Partner in Architectural Products & Global Trade | SMITH Co. LTD"
+  title="About Us — Your Partner in Architectural Products & Global Trade | EITCO Ltd"
   description="We are a general trading business based in China, serving customers seeking architectural products, building materials, and reliable sourcing solutions for international markets."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/about/"
 >
   <Header lang={lang} />
 
   <!-- Hero -->
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src={url('/images/doors/projects.jpeg')} alt="About SMITH Co. LTD" />
+    <img src={url('/images/mockup-assets/hero-bg.jpg')} alt="About EITCO Ltd" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href={url('/')}>Home</a><span>›</span><span>About Us</span>
         </nav>
-        <h1>About SMITH Co. LTD</h1>
+        <h1>About EITCO Ltd</h1>
         <p>Your Partner in Architectural Products and Global Trade</p>
       </div>
     </div>
@@ -43,28 +44,30 @@ const values = [
         <div class="about-text">
           <span class="section-tag">Who We Are</span>
           <h2>A Global Trading Partner You Can Rely On</h2>
-          <p>We are a general trading business based in China, serving customers and businesses seeking architectural products, building materials, and reliable sourcing solutions for international markets.</p>
-          <p>Our experience includes sourcing doors, aluminum windows, wrought ironwork, pergolas, kitchens, quartz, marble, and other products for residential and commercial projects. Beyond our product range, we support clients through supplier coordination, order follow-up, inspection arrangements, export documentation assistance, and international shipping coordination.</p>
-          <p>With our China-based operations, regional representatives, and U.S. installation partners, we aim to provide a more connected and convenient experience for customers across different markets.</p>
+          <p><strong>EITCO Ltd (Elena International Trading Co., Limited)</strong> is a general trading company based in Hangzhou, China, serving customers and businesses seeking architectural products, premium building materials, and reliable sourcing solutions for international markets.</p>
+          <p>Our core experience includes sourcing high-end entrance doors, aluminum window systems, ornamental wrought ironwork, bioclimatic pergolas, custom kitchen cabinetry, quartz surfaces, marble slabs, and architectural finishes for luxury residential and commercial projects.</p>
+          <p>Beyond our direct product catalog, we support clients end-to-end through supplier coordination, factory audits, order inspection, export documentation assistance, and international sea/air freight coordination.</p>
+          <p>With our China headquarters, regional office in Kuwait, and U.S. partner network centered in New Jersey, we provide a unified, transparent, and seamless cross-border trade experience.</p>
 
           <div class="about-mission">
             <h3>Our Mission</h3>
-            <p>To simplify international sourcing and trade by connecting customers with suitable products, suppliers, and logistics solutions.</p>
+            <p>To simplify international sourcing and cross-border trade by connecting customers with verified manufacturers, exceptional architectural products, and reliable logistics solutions.</p>
           </div>
 
-          <a href={url('/contact/')} class="btn-secondary" id="discuss-requirements-btn" style="margin-top:1.5rem; display:inline-flex;">
-            Let's Discuss Your Requirements →
+          <a href={url('/contact/')} class="btn-primary" id="discuss-requirements-btn" style="margin-top:1.75rem; display:inline-flex;">
+            <span>Let's Discuss Your Requirements</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
           </a>
         </div>
 
         <div class="about-side">
           <div class="about-img-stack">
-            <img src={url('/images/doors/entrance door.jpg')} alt="Our Products" class="about-img-main" />
-            <img src={url('/images/marble/M 1.jpg')} alt="Stone Surfaces" class="about-img-accent" />
+            <img src={url('/images/logo/elena-logo-full.png')} alt="Elena International Trading Co. Ltd" class="about-img-main" style="background:#fff; padding:1.5rem; object-fit:contain; border:1px solid #e2e8f0; border-radius:12px;" />
+            <img src={url('/images/mockup-assets/sourcing-ship.jpg')} alt="Global Shipping" class="about-img-accent" />
           </div>
 
           <div class="values-grid">
-            <h3 style="grid-column:1/-1; font-size:1.1rem; color:var(--green-800);">Our Approach</h3>
+            <h3 style="grid-column:1/-1; font-size:1.1rem; color:var(--navy-850); margin-top:1rem;">Our Core Approach</h3>
             {values.map((val, i) => (
               <div class="value-item" id={`value-${i}`}>
                 <span class="value-icon">{val.icon}</span>
@@ -85,44 +88,118 @@ const values = [
 
 <style>
 .page-hero {
-  position: relative; height: 320px; overflow: hidden; display: flex; align-items: flex-end;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
 }
-.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%); z-index: 1; }
-.page-hero .container { position: relative; z-index: 2; padding-bottom: 2.5rem; width: 100%; }
-.page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 100%);
+  z-index: 1;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.5rem;
+  width: 100%;
+}
+.page-hero-content h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--white); margin-bottom: 0.4rem; }
 .page-hero-content p { color: rgba(255,255,255,0.75); }
-.breadcrumb { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.65); }
-.breadcrumb a { color: var(--copper-300); }
-.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-.about-text h2 { font-size: clamp(1.5rem,2.5vw,2rem); margin-bottom: 1.25rem; margin-top: 0.5rem; }
-.about-text p { font-size: 0.9rem; color: var(--stone-600); line-height: 1.85; margin-bottom: 1rem; }
+.breadcrumb {
+  display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;
+  font-size: 0.8rem; color: rgba(255,255,255,0.65);
+}
+.breadcrumb a { color: var(--gold-400); }
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-text h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: var(--navy-850);
+  margin-bottom: 1.25rem;
+}
+.about-text p {
+  font-size: 0.92rem;
+  color: var(--stone-600);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
 .about-mission {
-  background: var(--green-900); border-radius: var(--radius-md); padding: 1.5rem;
-  border-left: 4px solid var(--copper-400); margin-top: 1.5rem;
+  background: #ffffff;
+  border-left: 4px solid var(--gold-400);
+  padding: 1.5rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
 }
-.about-mission h3 { color: var(--copper-300); font-size: 0.9rem; margin-bottom: 0.5rem; }
-.about-mission p { color: rgba(255,255,255,0.8); font-size: 0.88rem; margin: 0; }
-.about-img-stack { position: relative; margin-bottom: 2rem; }
-.about-img-main { border-radius: var(--radius-lg); aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+.about-mission h3 {
+  font-size: 1rem;
+  color: var(--navy-850);
+  margin-bottom: 0.5rem;
+}
+.about-mission p {
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  color: var(--stone-700);
+}
+
+.about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about-img-stack {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.about-img-main {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
 .about-img-accent {
-  position: absolute; bottom: -1.5rem; right: -1rem;
-  width: 45%; border-radius: var(--radius-md);
-  aspect-ratio: 1; object-fit: cover;
-  border: 4px solid var(--white);
-  box-shadow: var(--shadow-card);
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-top: 1rem;
 }
-.values-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
-.value-item { display: flex; gap: 1rem; align-items: flex-start; }
-.value-icon { font-size: 1.2rem; flex-shrink: 0; }
-.value-title { font-size: 0.88rem; font-weight: 700; color: var(--green-800); margin-bottom: 0.2rem; }
-.value-desc { font-size: 0.8rem; color: var(--stone-600); line-height: 1.5; }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+.value-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  background: #ffffff;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+}
+.value-icon { font-size: 1.3rem; flex-shrink: 0; }
+.value-title { font-size: 0.88rem; font-weight: 700; color: var(--navy-850); margin-bottom: 0.2rem; }
+.value-desc { font-size: 0.78rem; color: var(--stone-600); line-height: 1.5; }
+
 @media (max-width: 900px) {
   .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-  .page-hero { height: 260px; }
-}
-@media (max-width: 600px) {
-  .page-hero { height: 220px; }
-  .about-img-accent { right: 0; bottom: -1rem; width: 50%; }
 }
 </style>

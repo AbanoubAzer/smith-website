@@ -9,139 +9,150 @@ import { url } from '../utils/paths';
 const lang = 'en';
 const t = getLang(lang);
 const h = t.home;
+const b = t.brand;
 
-const heroSlides = [
-  {
-    img: url('/images/doors/entrance door.jpg'),
-    alt: 'Luxury Entrance Doors',
-    tagline: 'YOUR GLOBAL PARTNER IN',
-    headline: 'Architectural Products & Trade Solutions',
-    desc: 'We connect quality building materials and architectural products with customers, contractors, builders, and businesses across the United States and international markets.',
-  },
-  {
-    img: url('/images/windows/1.jpg'),
-    alt: 'Premium Aluminum Windows',
-    tagline: 'ENGINEERED EXCELLENCE',
-    headline: 'High-Performance Windows & Aluminum',
-    desc: 'Precision thermal break windows, panoramic sliding systems, and architectural facades engineered to meet high international building codes.',
-  },
-  {
-    img: url('/images/metalwork/full-facade.png'),
-    alt: 'Wrought Iron Metalwork',
-    tagline: 'ARTISAN CRAFTSMANSHIP',
-    headline: 'Custom Wrought Iron & Ornamental Metal',
-    desc: 'Bespoke grand entrance gates, decorative balcony railings, fences, and customized steel structures tailored to luxury residential and commercial projects.',
-  },
-  {
-    img: url('/images/kitchens/Kitchen 1.png'),
-    alt: 'Custom Kitchen Cabinets',
-    tagline: 'BESPOKE LIVING SPACES',
-    headline: 'Luxury Custom Kitchens & Interior Millwork',
-    desc: 'Modern and classic kitchen cabinetry, premium bathroom vanities, and custom walk-in closets built with fine craftsmanship and durable hardware.',
-  },
-  {
-    img: url('/images/marble/M 1.jpg'),
-    alt: 'Premium Marble & Stone',
-    tagline: 'FINE NATURAL SURFACES',
-    headline: 'Direct Quarry Marble, Granite & Stone',
-    desc: 'Exquisite natural stone slabs, engineered quartz countertops, and architectural stone surfaces sourced directly from premium global quarries.',
-  },
-];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": h.faq.items.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
 ---
 
 <Base
   lang={lang}
-  title="SMITH Co. LTD — Architectural Products & Global Trade Solutions"
-  description="We connect quality building materials and architectural products with customers across the United States and international markets. Doors, Windows, Kitchens, Marble, and more."
-  canonicalUrl="https://smithcoltd.com/"
+  title="EITCO Ltd — Global Sourcing, Building Materials & International Shipping"
+  description="We connect quality building materials, architectural products and reliable manufacturers with customers, contractors and businesses across the United States and international markets."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/"
+  keywords="building materials China, architectural products sourcing, custom doors China, aluminum windows manufacturer, import kitchen cabinets from China, sea freight China to USA, Hangzhou trading company, EITCO Ltd"
 >
+  <!-- SEO FAQ JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <Header lang={lang} />
 
-  <!-- HERO -->
-  <section class="hero" aria-label="Hero">
-    <div class="hero-slider">
-      {heroSlides.map((slide, i) => (
-        <div class={`hero-slide${i === 0 ? ' active' : ''}`}>
-          <img src={slide.img} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} />
-        </div>
-      ))}
-    </div>
-    <div class="hero-overlay"></div>
-
-    <!-- Navigation Arrows -->
-    <button class="hero-arrow hero-arrow-prev" id="hero-prev-btn" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-    </button>
-    <button class="hero-arrow hero-arrow-next" id="hero-next-btn" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </button>
-
+  <!-- 1. HERO SECTION -->
+  <section class="hero-eitco" aria-label="Hero Section" style={`background-image: url('${url('/images/mockup-assets/hero-bg.jpg')}');`}>
+    <div class="hero-eitco-overlay"></div>
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-text-slides">
-          {heroSlides.map((slide, i) => (
-            <div class={`hero-text-slide${i === 0 ? ' active' : ''}`} data-index={i}>
-              <p class="hero-tagline">{slide.tagline}</p>
-              <h1 class="hero-title">{slide.headline}</h1>
-              <p class="hero-desc">{slide.desc}</p>
-            </div>
-          ))}
+      <div class="hero-eitco-content">
+        <div class="hero-eitco-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <span>{h.hero.tagline}</span>
         </div>
-        <div class="hero-ctas">
+        <h1 class="hero-eitco-title">{h.hero.headline}</h1>
+        <p class="hero-eitco-desc">{h.hero.sub}</p>
+        <div class="hero-eitco-actions">
           <a href={url('/products/')} class="btn-primary" id="hero-explore-btn">
-            {h.hero.cta1} →
+            <span>{h.hero.cta1}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
           </a>
-          <a href={url('/contact/')} class="btn-outline" id="hero-quote-btn">
+          <a href={url('/global-sourcing/')} class="btn-outline" id="hero-services-btn">
             {h.hero.cta2}
           </a>
         </div>
       </div>
     </div>
-    <div class="hero-dots">
-      {heroSlides.map((_, i) => (
-        <button class={`hero-dot${i === 0 ? ' active' : ''}`} aria-label={`Slide ${i + 1}`} />
-      ))}
-    </div>
   </section>
 
-  <!-- FEATURES BAR -->
-  <section class="features-bar" aria-label="Key Features">
+  <!-- 2. VALUE PROPOSITION BAR (5 PILLARS) -->
+  <section class="pillars-bar" aria-label="Key Pillars">
     <div class="container">
-      <div class="features-grid">
-        {h.features.items.map((feat, i) => (
-          <div class="feature-item" id={`feature-${i}`}>
-            <span class="feature-icon">{feat.icon}</span>
-            <div class="feature-title">{feat.title}</div>
-            <div class="feature-desc">{feat.desc}</div>
+      <div class="pillars-grid">
+        <!-- Pillar 1: Quality Products -->
+        <div class="pillar-card" id="pillar-0">
+          <div class="pillar-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5M12 4.15L5.04 8.05L12 11.95L18.96 8.05L12 4.15Z"/></svg>
           </div>
-        ))}
+          <div class="pillar-title">{h.features.items[0].title}</div>
+          <div class="pillar-desc">{h.features.items[0].desc}</div>
+        </div>
+
+        <!-- Pillar 2: Global Sourcing -->
+        <div class="pillar-card" id="pillar-1">
+          <div class="pillar-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <div class="pillar-title">{h.features.items[1].title}</div>
+          <div class="pillar-desc">{h.features.items[1].desc}</div>
+        </div>
+
+        <!-- Pillar 3: Inspection & Documentation -->
+        <div class="pillar-card" id="pillar-2">
+          <div class="pillar-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <div class="pillar-title">{h.features.items[2].title}</div>
+          <div class="pillar-desc">{h.features.items[2].desc}</div>
+        </div>
+
+        <!-- Pillar 4: Sea & Air Freight -->
+        <div class="pillar-card" id="pillar-3">
+          <div class="pillar-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.33-.41-.6-.47L20 11V4c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v7l-1.28.27c-.27.06-.48.23-.6.47s-.14.52-.06.78L3.95 19zM6 5h12v6h-3.5L12 8.5 9.5 11H6V5z"/></svg>
+          </div>
+          <div class="pillar-title">{h.features.items[3].title}</div>
+          <div class="pillar-desc">{h.features.items[3].desc}</div>
+        </div>
+
+        <!-- Pillar 5: Local Partners -->
+        <div class="pillar-card" id="pillar-4">
+          <div class="pillar-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <div class="pillar-title">{h.features.items[4].title}</div>
+          <div class="pillar-desc">{h.features.items[4].desc}</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTS SHOWCASE -->
-  <section class="products-section" aria-labelledby="products-heading">
+  <!-- 3. OUR PRODUCTS (7-CARD MOCKUP GRID) -->
+  <section class="products-mockup-section" id="products" aria-labelledby="products-title">
     <div class="container">
-      <div class="products-layout">
-        <!-- Sidebar -->
-        <div class="products-sidebar">
+      <div class="products-mockup-header">
+        <div class="products-mockup-header-text">
           <span class="section-tag">{h.products.tag}</span>
-          <h2 id="products-heading">{h.products.title}</h2>
+          <h2 id="products-title">{h.products.title}</h2>
           <p>{h.products.desc}</p>
-          <a href={url('/products/')} class="btn-secondary" id="view-all-products-btn">
-            {h.products.viewAll} →
-          </a>
+        </div>
+        <a href={url('/products/')} class="btn-primary" id="view-all-products-btn">
+          <span>{h.products.viewAll}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+        </a>
+      </div>
+
+      <div class="products-mockup-grid">
+        <!-- Top Row (4 cards): Doors, Windows, Pergolas, Wrought Iron -->
+        <div class="prod-row-top">
+          {h.products.categories.slice(0, 4).map((cat, i) => (
+            <a href={cat.href} class="prod-mockup-card" id={`cat-card-${i}`}>
+              <img src={cat.img} alt={cat.title} loading="lazy" />
+              <div class="prod-mockup-overlay">
+                <div class="prod-mockup-meta">
+                  <span class="prod-mockup-title">{cat.title}</span>
+                  <span class="prod-mockup-arrow">→</span>
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
 
-        <!-- Product Cards Grid -->
-        <div class="products-grid">
-          {h.products.categories.map((cat, i) => (
-            <a href={url(cat.href)} class="product-card" id={`product-card-${i}`} aria-label={cat.title}>
-              <img src={url(cat.img)} alt={cat.title} loading="lazy" />
-              <div class="product-card-overlay">
-                <div class="product-card-title">
-                  {cat.title}
-                  <span class="arrow">→</span>
+        <!-- Bottom Row (3 cards): Kitchens & Bars, Bathroom Vanities, Quartz Marble & Stone -->
+        <div class="prod-row-bottom">
+          {h.products.categories.slice(4, 7).map((cat, i) => (
+            <a href={cat.href} class="prod-mockup-card" id={`cat-card-${i + 4}`}>
+              <img src={cat.img} alt={cat.title} loading="lazy" />
+              <div class="prod-mockup-overlay">
+                <div class="prod-mockup-meta">
+                  <span class="prod-mockup-title">{cat.title}</span>
+                  <span class="prod-mockup-arrow">→</span>
                 </div>
               </div>
             </a>
@@ -151,32 +162,167 @@ const heroSlides = [
     </div>
   </section>
 
-  <!-- GLOBAL SOURCING + PRESENCE -->
-  <section class="sourcing-section" aria-labelledby="sourcing-heading">
-    <div class="sourcing-layout">
-      <!-- Ship image -->
-      <div class="sourcing-image">
-        <img src={url('/images/metalwork/gate-1.jpg')} alt="Global Shipping" loading="lazy" />
-      </div>
+  <!-- 4. GLOBAL SOURCING & OUR GLOBAL PRESENCE -->
+  <section class="sourcing-presence-section" id="sourcing" aria-labelledby="sourcing-title">
+    <div class="container">
+      <div class="sourcing-presence-grid">
+        <!-- Left: Sourcing Card with Ship + Plane -->
+        <div class="sourcing-banner-card" style={`background-image: url('${url('/images/mockup-assets/sourcing-ship.jpg')}');`}>
+          <div class="sourcing-banner-overlay"></div>
+          <div class="sourcing-banner-content">
+            <span class="section-tag">{h.sourcing.tag}</span>
+            <h2 class="sourcing-banner-title" id="sourcing-title">{h.sourcing.title}</h2>
+            <p class="sourcing-banner-desc">{h.sourcing.desc}</p>
+            <a href={url('/global-sourcing/')} class="btn-primary" id="learn-more-sourcing-btn">
+              <span>{h.sourcing.cta}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+            </a>
+          </div>
+        </div>
 
-      <!-- Content -->
-      <div class="sourcing-content">
-        <span class="section-tag">{h.sourcing.tag}</span>
-        <h2 id="sourcing-heading">{h.sourcing.title}</h2>
-        <p>{h.sourcing.desc}</p>
-        <a href={url('/global-sourcing/')} class="btn-copper" id="learn-more-btn">
-          {h.sourcing.cta} →
+        <!-- Right: Our Global Presence List -->
+        <div class="presence-card">
+          <h3 class="presence-card-title">{h.presence.title}</h3>
+          <div class="presence-list">
+            {h.presence.locations.map((loc, i) => (
+              <div class="presence-row" id={`presence-item-${i}`}>
+                <div class="presence-row-icon">
+                  {loc.icon === 'building' && '🏢'}
+                  {loc.icon === 'pin' && '📍'}
+                  {loc.icon === 'wrench' && '🛠️'}
+                  {loc.icon === 'users' && '👥'}
+                </div>
+                <div>
+                  <div class="presence-row-name">{loc.name}</div>
+                  <div class="presence-row-details">{loc.details}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. OUR PROJECTS (REAL PROJECTS. REAL RESULTS.) -->
+  <section class="projects-mockup-section" id="projects" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="projects-header">
+        <div>
+          <span class="section-tag">{h.projects.tag}</span>
+          <h2 id="projects-title">{h.projects.title}</h2>
+          <p>{h.projects.desc}</p>
+        </div>
+        <a href={url('/our-network/')} class="btn-primary" id="view-all-projects-btn">
+          <span>{h.projects.viewAll}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
         </a>
       </div>
 
-      <!-- Global Presence -->
-      <div class="presence-content">
-        <div class="presence-title">{h.presence.title}</div>
-        <div class="presence-list">
-          {h.presence.locations.map((loc, i) => (
-            <div class="presence-item" id={`presence-${i}`}>
-              <div class="pi-icon">{loc.icon}</div>
-              <span>{loc.name}</span>
+      <div class="projects-grid">
+        {h.projects.items.map((item, i) => (
+          <a
+            href={item.href}
+            class="project-card"
+            id={`project-item-${i}`}
+            data-video-trigger={item.type === 'video' ? 'true' : undefined}
+            data-video-title={item.title}
+            data-video-tag="Completed Architectural Project"
+            data-video-desc={`Full project showcase for ${item.title} featuring ${item.category}. Manufactured, inspected, and delivered by EITCO.`}
+            data-video-client={item.badge}
+            data-video-poster={item.img}
+          >
+            <div class="project-card-media">
+              <img src={item.img} alt={item.title} loading="lazy" />
+              <span class="project-badge">{item.badge}</span>
+              {item.type === 'video' && (
+                <div class="project-play-icon">
+                  <span>▶</span>
+                </div>
+              )}
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">{item.title}</h3>
+              <p class="project-card-category">{item.category}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CLIENT REVIEWS & CASE STUDIES (WRITTEN + VIDEO TESTIMONIALS) -->
+  <section class="reviews-section" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-header-block">
+        <span class="section-tag">{h.reviews.tag}</span>
+        <h2 id="reviews-title">{h.reviews.title}</h2>
+        <p>{h.reviews.desc}</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="reviews-tabs" role="tablist">
+        <button class="reviews-tab-btn active" id="tab-btn-written" role="tab" aria-selected="true" aria-controls="pane-written">
+          ⭐ {h.reviews.tabs.written}
+        </button>
+        <button class="reviews-tab-btn" id="tab-btn-video" role="tab" aria-selected="false" aria-controls="pane-video">
+          🎬 {h.reviews.tabs.video}
+        </button>
+      </div>
+
+      <!-- Pane 1: Written Reviews Grid -->
+      <div class="reviews-pane active" id="pane-written" role="tabpanel">
+        <div class="written-reviews-grid">
+          {h.reviews.items.map((rev, i) => (
+            <article class="review-card-pro" id={`review-card-${i}`}>
+              <div class="review-card-top">
+                <span class="review-badge-verified">✓ {rev.verified}</span>
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-quote-p">“{rev.quote}”</p>
+              <div class="review-client-footer">
+                <img src={rev.avatar} alt={rev.name} class="review-client-avatar" loading="lazy" />
+                <div>
+                  <div class="review-client-name">{rev.name}</div>
+                  <div class="review-client-role">{rev.role}</div>
+                  <div class="review-client-project">{rev.project}</div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- Pane 2: Video Testimonials Grid -->
+      <div class="reviews-pane" id="pane-video" role="tabpanel">
+        <div class="video-reviews-grid">
+          {h.reviews.videoReviews.map((v, i) => (
+            <div
+              class="video-review-card"
+              id={`video-review-${i}`}
+              data-video-trigger="true"
+              data-video-title={v.title}
+              data-video-tag={v.category}
+              data-video-desc={v.quote}
+              data-video-client={`${v.client} (${v.location})`}
+              data-video-poster={v.img}
+            >
+              <div class="video-review-thumb">
+                <img src={v.img} alt={v.title} loading="lazy" />
+                <div class="video-review-play-btn">
+                  <div class="video-play-ring">▶</div>
+                </div>
+                <span class="video-duration-pill">{v.duration}</span>
+              </div>
+              <div class="video-review-body">
+                <span class="video-review-category">{v.category}</span>
+                <h3 class="video-review-title">{v.title}</h3>
+                <p class="video-review-quote">“{v.quote}”</p>
+                <div class="video-review-client">
+                  <span class="video-review-author">{v.client}</span>
+                  <span class="video-review-location">{v.location}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -184,5 +330,224 @@ const heroSlides = [
     </div>
   </section>
 
+  <!-- 7. DOWNLOADABLE PRODUCT CATALOGS & TECHNICAL SPECS -->
+  <section class="catalogs-section" id="catalogs" aria-labelledby="catalogs-title">
+    <div class="container">
+      <div class="catalogs-header">
+        <span class="section-tag">{h.catalogs.tag}</span>
+        <h2 id="catalogs-title">{h.catalogs.title}</h2>
+        <p>{h.catalogs.desc}</p>
+      </div>
+
+      <div class="catalogs-grid">
+        {h.catalogs.items.map((cat, i) => (
+          <div class="catalog-card" id={`catalog-card-${cat.id}`}>
+            <div class="catalog-cover-wrap">
+              <img src={cat.cover} alt={cat.title} loading="lazy" />
+              <span class="catalog-badge-edition">{cat.badge}</span>
+              <span class="catalog-pdf-badge">PDF</span>
+            </div>
+            <div class="catalog-body">
+              <h3 class="catalog-title">{cat.title}</h3>
+              <p class="catalog-subtitle">{cat.subtitle}</p>
+              <div class="catalog-specs-row">
+                <span>📋 {cat.specs}</span>
+              </div>
+              <div class="catalog-actions">
+                <button
+                  type="button"
+                  class="btn-catalog-dl"
+                  onclick={`showToast('Preparing download: ${cat.title} (PDF)...')`}
+                  aria-label={`Download ${cat.title}`}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                  <span>{h.catalogs.downloadBtn}</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn-catalog-preview"
+                  data-video-trigger="true"
+                  data-video-title={cat.title}
+                  data-video-tag="Digital Catalog Preview"
+                  data-video-desc={`Full architectural catalog preview for ${cat.title}. To receive technical CAD/BIM drawings or custom samples, contact our team.`}
+                  data-video-client="EITCO Technical Specs Library"
+                  data-video-poster={cat.cover}
+                >
+                  {h.catalogs.previewBtn}
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. INSIDE EITCO / OUR WORK IN ACTION -->
+  <section class="media-section" id="media" aria-labelledby="media-title">
+    <div class="container">
+      <div class="media-header">
+        <div>
+          <span class="section-tag">{h.media.tag}</span>
+          <h2 id="media-title">{h.media.title}</h2>
+          <p>{h.media.desc}</p>
+        </div>
+        <a href={url('/contact/')} class="btn-primary" id="view-media-btn">
+          <span>{h.media.viewAll}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+        </a>
+      </div>
+
+      <div class="media-grid">
+        {h.media.items.map((item, i) => (
+          <a
+            href={item.href}
+            class="media-card"
+            id={`media-item-${i}`}
+            data-video-trigger="true"
+            data-video-title={`${item.title} — ${item.location}`}
+            data-video-tag="Our Work in Action"
+            data-video-desc={`Direct operations footage showing ${item.title} conducted by EITCO inspection and logistics team in ${item.location}.`}
+            data-video-client="Verified Production Footage"
+            data-video-poster={item.img}
+          >
+            <img src={item.img} alt={item.title} loading="lazy" />
+            <div class="media-card-overlay">
+              <div class="media-play-pill">▶</div>
+              <div class="media-info">
+                <div class="media-card-title">{item.title}</div>
+                <div class="media-card-location">{item.location}</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. BUSINESS INSIGHTS / LATEST ARTICLES -->
+  <section class="insights-section" id="insights" aria-labelledby="insights-title">
+    <div class="container">
+      <div class="insights-header">
+        <div>
+          <span class="section-tag">{h.insights.tag}</span>
+          <h2 id="insights-title">{h.insights.title}</h2>
+          <p>{h.insights.desc}</p>
+        </div>
+        <a href={url('/global-sourcing/')} class="btn-primary" id="view-articles-btn">
+          <span>{h.insights.viewAll}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+        </a>
+      </div>
+
+      <div class="insights-grid">
+        {h.insights.items.map((article, i) => (
+          <a href={article.href} class="article-card" id={`article-item-${i}`}>
+            <div class="article-thumb">
+              <img src={article.img} alt={article.title} loading="lazy" />
+            </div>
+            <div class="article-body">
+              <span class="article-tag">{article.tag}</span>
+              <h3 class="article-title">{article.title}</h3>
+              <span class="article-link">Read Guide →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FREQUENTLY ASKED QUESTIONS (SEO FAQ ACCORDION) -->
+  <section class="faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="faq-header">
+        <span class="section-tag">{h.faq.tag}</span>
+        <h2 id="faq-title">{h.faq.title}</h2>
+        <p>{h.faq.desc}</p>
+      </div>
+
+      <div class="faq-list">
+        {h.faq.items.map((item, i) => (
+          <div class={`faq-item${i === 0 ? ' active' : ''}`} id={`faq-item-${i}`}>
+            <button type="button" class="faq-question-btn" aria-expanded={i === 0 ? 'true' : 'false'}>
+              <span>{item.q}</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FINAL CALL TO ACTION & MARKETS SERVED BANNER -->
+  <section class="cta-markets-section" id="quote" aria-labelledby="cta-title" style={`background-image: url('${url('/images/mockup-assets/cta-ship-bg.jpg')}');`}>
+    <div class="cta-markets-overlay"></div>
+    <div class="container">
+      <div class="cta-markets-grid">
+        <!-- Left Column: Free Quote CTA -->
+        <div class="cta-col-left">
+          <span class="section-tag">{h.ctaBanner.tag}</span>
+          <h2 id="cta-title">{h.ctaBanner.title}</h2>
+          <p>{h.ctaBanner.desc}</p>
+          <a href={url('/contact/#quote')} class="btn-primary" id="cta-request-quote-btn">
+            <span>{h.ctaBanner.button}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+          </a>
+        </div>
+
+        <!-- Right Column: Markets Served Badges -->
+        <div class="markets-col-right">
+          <h3>{h.ctaBanner.marketsTitle}</h3>
+          <div class="markets-badges-grid">
+            {h.ctaBanner.markets.map((m, i) => (
+              <div class="market-badge-pill" id={`market-pill-${i}`}>
+                <span class="market-flag">{m.flag}</span>
+                <span>{m.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <Footer lang={lang} />
+
+  <!-- Page Interactivity Scripts -->
+  <script>
+    // Tab switching for reviews
+    const tabWritten = document.getElementById('tab-btn-written');
+    const tabVideo = document.getElementById('tab-btn-video');
+    const paneWritten = document.getElementById('pane-written');
+    const paneVideo = document.getElementById('pane-video');
+
+    tabWritten?.addEventListener('click', () => {
+      tabWritten.classList.add('active');
+      tabVideo?.classList.remove('active');
+      paneWritten?.classList.add('active');
+      paneVideo?.classList.remove('active');
+    });
+
+    tabVideo?.addEventListener('click', () => {
+      tabVideo.classList.add('active');
+      tabWritten?.classList.remove('active');
+      paneVideo?.classList.add('active');
+      paneWritten?.classList.remove('active');
+    });
+
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-question-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isActive = item?.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+        if (!isActive) {
+          item?.classList.add('active');
+        }
+      });
+    });
+  </script>
 </Base>

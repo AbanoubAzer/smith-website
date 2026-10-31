@@ -22,7 +22,7 @@ const pages = [
   { url: '/ar/contact/', priority: '0.9', changefreq: 'monthly' },
 ];
 
-const baseUrl = 'https://smithcoltd.com';
+const baseUrl = 'https://abanoubazer.github.io/smith-website';
 const today = new Date().toISOString().split('T')[0];
 
 export const GET = () => {

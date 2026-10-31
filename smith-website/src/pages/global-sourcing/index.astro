@@ -9,38 +9,38 @@ const lang = 'en';
 const services = [
   {
     icon: '🔍',
-    title: 'Product Sourcing',
-    desc: 'We help you find the right products matching your specifications, design references, and budget from our supplier network.',
+    title: 'Global Product Sourcing',
+    desc: 'We help you find the right manufacturers and products matching your specifications, technical drawings, and target budget from China.',
     id: 'product-sourcing',
   },
   {
     icon: '🏭',
-    title: 'Supplier Coordination',
-    desc: 'We handle communication with suppliers on your behalf — from initial inquiry to order confirmation and production follow-up.',
+    title: 'Supplier Audits & Coordination',
+    desc: 'We manage direct communication with verified factories — from initial technical inquiries to sample approval, price negotiation, and production tracking.',
     id: 'supplier-coord',
   },
   {
     icon: '🔬',
-    title: 'Order Inspection',
-    desc: 'Pre-shipment inspection arrangements to verify product quality, specifications, and quantity before your order leaves the factory.',
+    title: 'Order Inspection & Quality Control',
+    desc: 'Rigorous pre-shipment inspections covering dimensions, materials, finish tolerances, packaging, and labeling before container loading.',
     id: 'order-inspection',
   },
   {
     icon: '📋',
-    title: 'Export Documentation',
-    desc: 'Assistance with export documentation, customs paperwork, and shipping documentation to support smooth international trade.',
+    title: 'Export Documentation & Customs Support',
+    desc: 'Assistance with commercial invoices, packing lists, bill of lading, certificates of origin, and compliance paperwork required for customs clearance.',
     id: 'export-docs',
   },
   {
     icon: '🚢',
-    title: 'Sea & Air Freight',
-    desc: 'Coordination of international shipping via sea or air freight from China to your destination country.',
+    title: 'Sea & Air Freight Coordination',
+    desc: 'End-to-end international freight coordination (FCL & LCL container shipping, air cargo) with dependable carrier options and competitive rates.',
     id: 'freight',
   },
   {
     icon: '🔧',
-    title: 'Installation Coordination',
-    desc: 'For selected products in the U.S., we coordinate installation discussions through our local installation partners.',
+    title: 'Local Handover & Partner Support',
+    desc: 'Through our U.S. partner network in New Jersey, New York, and Tennessee, we coordinate local handover and installation support for eligible orders.',
     id: 'installation',
   },
 ];
@@ -48,21 +48,22 @@ const services = [
 
 <Base
   lang={lang}
-  title="Global Sourcing Services — From China to Your Destination | SMITH Co. LTD"
+  title="Global Sourcing & Trade Services — From China to Your Destination | EITCO Ltd"
   description="We source products from China, coordinate with suppliers, arrange inspections, handle export documentation, and coordinate international shipping to your destination."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/global-sourcing/"
 >
   <Header lang={lang} />
 
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src={url('/images/metalwork/gate-1.jpg')} alt="Global Sourcing" />
+    <img src={url('/images/mockup-assets/sourcing-ship.jpg')} alt="Global Sourcing" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href={url('/')}>Home</a><span>›</span><span>Global Sourcing</span>
         </nav>
-        <h1>Global Sourcing Services</h1>
-        <p>Your Product. Our Network. From sourcing to delivery.</p>
+        <h1>Global Sourcing & Trade Services</h1>
+        <p>Your Product. Our Network. From supplier selection to final delivery.</p>
       </div>
     </div>
   </div>
@@ -71,9 +72,9 @@ const services = [
     <div class="container">
       <div style="text-align:center; max-width:640px; margin:0 auto 4rem;">
         <span class="section-tag">What We Do</span>
-        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem;">End-to-End Sourcing Support</h2>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem; color:var(--navy-850);">End-to-End Sourcing Support</h2>
         <p style="color:var(--stone-600); font-size:0.95rem; line-height:1.8;">
-          We source products according to your specifications, coordinate with trusted suppliers, and handle inspections, documentation, and shipping — so you can focus on your business.
+          We source products according to your exact specifications, coordinate with trusted suppliers, and handle inspections, documentation, and international shipping — so you can focus on growing your business.
         </p>
       </div>
 
@@ -89,14 +90,14 @@ const services = [
 
       <!-- Process -->
       <div class="process-section">
-        <h2 style="text-align:center; margin-bottom:3rem;">How It Works</h2>
+        <h2 style="text-align:center; margin-bottom:3rem; color:var(--navy-850);">Our 5-Step Sourcing Process</h2>
         <div class="process-steps">
           {[
-            { num: '01', title: 'Share Your Requirements', desc: 'Tell us what you need — product type, specifications, quantity, destination, and budget.' },
-            { num: '02', title: 'We Research & Source', desc: 'We review your requirements and help identify suitable suppliers and products from our network.' },
-            { num: '03', title: 'Supplier Coordination', desc: 'We handle supplier communication, sample requests, and order negotiations on your behalf.' },
-            { num: '04', title: 'Inspection & Confirmation', desc: 'Pre-shipment inspection is arranged to verify quality and specifications before shipment.' },
-            { num: '05', title: 'Export & Shipping', desc: 'We assist with export documentation and coordinate international shipping to your destination.' },
+            { num: '01', title: 'Share Your Requirements', desc: 'Tell us what you need — product type, dimensions, drawings, finish, quantity, target budget, and destination.' },
+            { num: '02', title: 'Supplier Research & Quotation', desc: 'We evaluate suitable manufacturers from our verified network and coordinate detailed quotations and material samples.' },
+            { num: '03', title: 'Order Follow-Up & Coordination', desc: 'We monitor factory production timelines, milestone schedules, and technical compliance.' },
+            { num: '04', title: 'Pre-Shipment Inspection', desc: 'Quality control inspectors verify dimensions, finish, quantity, packaging, and crate labeling before release.' },
+            { num: '05', title: 'Export, Shipping & Handover', desc: 'We assist with customs paperwork, coordinate ocean/air freight, and coordinate with our U.S. partner network for eligible orders.' },
           ].map((step, i) => (
             <div class="process-step" id={`step-${i}`}>
               <div class="step-num">{step.num}</div>
@@ -112,10 +113,13 @@ const services = [
       <!-- CTA -->
       <div class="cta-banner" style="margin-top:0;">
         <div class="cta-banner-content">
-          <h2>Ready to start sourcing?</h2>
-          <p>Share your product requirements and we'll review them and get back to you within 24 hours.</p>
+          <h2>Ready to start sourcing from China?</h2>
+          <p>Share your product requirements and specifications with our team and we'll get back to you within 24 hours.</p>
         </div>
-        <a href={url('/contact/')} class="btn-primary" id="start-sourcing-btn">Start Your Inquiry →</a>
+        <a href={url('/contact/')} class="btn-primary" id="start-sourcing-btn">
+          <span>Start Your Sourcing Request</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -124,53 +128,71 @@ const services = [
 </Base>
 
 <style>
-.page-hero { position: relative; height: 320px; overflow: hidden; display: flex; align-items: flex-end; }
+.page-hero { position: relative; height: 300px; overflow: hidden; display: flex; align-items: flex-end; }
 .page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%); z-index: 1; }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 100%); z-index: 1; }
 .page-hero .container { position: relative; z-index: 2; padding-bottom: 2.5rem; width: 100%; }
 .page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
 .page-hero-content p { color: rgba(255,255,255,0.75); }
 .breadcrumb { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.65); }
-.breadcrumb a { color: var(--copper-300); }
+.breadcrumb a { color: var(--gold-400); }
 
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
 .service-card {
-  background: var(--white); border-radius: var(--radius-lg); padding: 2rem;
-  border: 1px solid var(--stone-100); transition: all var(--transition);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid #e2e8f0;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-.service-card:hover { border-color: var(--green-300); transform: translateY(-3px); box-shadow: var(--shadow-card); }
-.service-icon { font-size: 2rem; margin-bottom: 1rem; }
-.service-card h3 { font-size: 1.05rem; color: var(--green-800); margin-bottom: 0.6rem; }
-.service-card p { font-size: 0.85rem; color: var(--stone-600); line-height: 1.7; }
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-deep); }
+.service-icon { font-size: 2.2rem; margin-bottom: 1.25rem; }
+.service-card h3 { font-size: 1.15rem; color: var(--navy-850); margin-bottom: 0.75rem; }
+.service-card p { font-size: 0.88rem; color: var(--stone-600); line-height: 1.7; }
 
-.process-section { margin-bottom: 4rem; }
-.process-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
-.process-step { display: flex; gap: 1.5rem; align-items: flex-start; }
-.step-num {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: var(--green-800); color: var(--copper-300);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.8rem; font-weight: 800; flex-shrink: 0;
+.process-section {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 4rem 3rem;
+  margin-bottom: 5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  border: 1px solid #e2e8f0;
 }
-.step-content h4 { font-size: 1rem; color: var(--green-800); margin-bottom: 0.35rem; }
-.step-content p { font-size: 0.85rem; color: var(--stone-600); line-height: 1.6; }
+.process-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+.process-step { display: flex; gap: 2rem; align-items: flex-start; padding-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; }
+.process-step:last-child { border: none; padding-bottom: 0; }
+.step-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gold-400);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 50px;
+}
+.step-content h4 { font-size: 1.1rem; color: var(--navy-850); margin-bottom: 0.4rem; }
+.step-content p { font-size: 0.88rem; color: var(--stone-600); line-height: 1.6; }
 
 .cta-banner {
-  background: var(--green-800); border-radius: var(--radius-xl); padding: 3rem;
-  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  background: #0b1e36;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
-.cta-banner-content h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.4rem; }
-.cta-banner-content p { font-size: 0.88rem; color: rgba(255,255,255,0.7); max-width: 520px; }
+.cta-banner-content h2 { font-size: 1.6rem; color: var(--white); margin-bottom: 0.4rem; }
+.cta-banner-content p { font-size: 0.9rem; color: #cbd5e1; max-width: 540px; }
 
 @media (max-width: 900px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); margin-bottom: 3rem; }
-  .page-hero { height: 260px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-section { padding: 2.5rem 1.5rem; }
 }
 @media (max-width: 600px) {
-  .services-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .page-hero { height: 220px; }
-  .cta-banner { flex-direction: column; text-align: center; padding: 1.75rem; }
+  .services-grid { grid-template-columns: 1fr; }
   .process-step { gap: 1rem; }
-  .step-num { width: 42px; height: 42px; font-size: 0.75rem; }
+  .cta-banner { flex-direction: column; text-align: center; padding: 2rem; }
 }
 </style>

@@ -3,9 +3,13 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { getLang } from '../../i18n/translations';
 import { url } from '../../utils/paths';
 
 const lang = 'en';
+const t = getLang(lang);
+const b = t.brand;
+
 const offices = [
   {
     id: 'china',
@@ -13,26 +17,30 @@ const offices = [
     location: 'China',
     type: 'Company Office',
     title: 'Sourcing & Supplier Coordination',
-    desc: 'Our China-based office supports supplier communication, product sourcing, order follow-up, inspection coordination, and export preparation.',
-    color: 'var(--green-700)',
+    address: b.chinaAddress,
+    desc: 'Our China-based headquarters supports supplier communication, comprehensive product sourcing, order follow-up, quality control, inspection coordination, and container export preparation.',
+    color: '#0f233d',
   },
   {
     id: 'usa',
     flag: '🇺🇸',
     location: 'New Jersey, USA',
     type: 'Partner Office',
-    title: 'Local Partner Office',
-    desc: 'Our partner in New Jersey provides a local point of contact for coordinating eligible product orders, project requirements, and agreed collection or payment arrangements.',
-    color: 'var(--copper-600)',
+    title: b.usPartnerName,
+    address: 'New Jersey, USA',
+    phone: b.usPartnerPhone,
+    website: b.usPartnerWebsite,
+    desc: 'Our partner in New Jersey provides a local point of contact for coordinating eligible architectural product orders, project requirements, client consultations, and agreed collection or payment arrangements.',
+    color: '#b88a24',
   },
   {
     id: 'usa-install',
-    flag: '🔧',
+    flag: '🛠️',
     location: 'Tennessee, New York & New Jersey',
     type: 'Installation Partners',
     title: 'Installation Partners',
-    desc: 'Through our local partners, we can coordinate installation-related discussions for selected architectural products and projects in these markets.',
-    color: 'var(--stone-600)',
+    desc: 'Through our local installation partners, we coordinate installation-related discussions for selected architectural products and projects. Scope, scheduling, pricing, and handover arrangements are confirmed individually before order finalization.',
+    color: '#334155',
   },
   {
     id: 'kuwait',
@@ -40,8 +48,8 @@ const offices = [
     location: 'Kuwait',
     type: 'Company Office',
     title: 'Regional Presence',
-    desc: 'Our Kuwait-based office and sourcing representative network help coordinate client inquiries and sourcing requirements in the region.',
-    color: 'var(--green-700)',
+    desc: 'Our Kuwait-based office and sourcing representative network help coordinate client inquiries and sourcing requirements across Kuwait and the Arabian Gulf region.',
+    color: '#0f233d',
   },
   {
     id: 'egypt-saudi',
@@ -49,40 +57,41 @@ const offices = [
     location: 'Egypt & Saudi Arabia',
     type: 'Local Representatives',
     title: 'Sourcing Representatives',
-    desc: 'Our representatives help facilitate communication, collect product requirements, and coordinate sourcing inquiries in these markets.',
-    color: 'var(--copper-600)',
+    desc: 'Our dedicated representatives help facilitate client communication, gather specific product requirements, and coordinate sourcing inquiries directly with our China office.',
+    color: '#b88a24',
   },
 ];
 ---
 
 <Base
   lang={lang}
-  title="Our Network — Global Presence | SMITH Co. LTD"
+  title="Our Network — Global Presence | EITCO Ltd"
   description="Our business network connects sourcing operations in China with regional representatives and local project partners across the USA, Kuwait, Egypt, and Saudi Arabia."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/our-network/"
 >
   <Header lang={lang} />
 
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src={url('/images/metalwork/fence-1.png')} alt="Our Global Network" />
+    <img src={url('/images/mockup-assets/hero-bg.jpg')} alt="EITCO Global Network" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href={url('/')}>Home</a><span>›</span><span>Our Network</span>
         </nav>
-        <h1>Our Network</h1>
-        <p>A Connected Network for Global Trade</p>
+        <h1>Our Global Network</h1>
+        <p>A Connected Network for Global Trade and Architectural Solutions</p>
       </div>
     </div>
   </div>
 
   <section class="section" style="background: var(--off-white);">
     <div class="container">
-      <div style="text-align:center; max-width:600px; margin:0 auto 4rem;">
-        <span class="section-tag">Global Presence</span>
-        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem;">Connecting Markets. Coordinating Solutions.</h2>
+      <div style="text-align:center; max-width:640px; margin:0 auto 3.5rem;">
+        <span class="section-tag">Global Presence & Hubs</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem; color:var(--navy-850);">Connecting Markets. Coordinating Solutions.</h2>
         <p style="color:var(--stone-600); font-size:0.95rem; line-height:1.8;">
-          Wherever your business operates, our goal is to make sourcing, purchasing, and cross-border trade more organized and accessible.
+          Wherever your business operates, our goal is to make sourcing, purchasing, and cross-border trade organized, reliable, and accessible.
         </p>
       </div>
 
@@ -98,7 +107,10 @@ const offices = [
             </div>
             <div class="network-card-body">
               <h3>{office.title}</h3>
-              <p>{office.desc}</p>
+              {office.address && <p class="nc-address">📍 {office.address}</p>}
+              {office.phone && <p class="nc-phone">📞 <a href={`tel:${office.phone.replace(/[^0-9+]/g, '')}`}>{office.phone}</a></p>}
+              {office.website && <p class="nc-web">🌐 <a href={office.website} target="_blank" rel="noopener">Visit Partner Website</a></p>}
+              <p class="nc-desc">{office.desc}</p>
             </div>
           </div>
         ))}
@@ -106,10 +118,13 @@ const offices = [
 
       <div class="cta-banner" style="margin-top:4rem;">
         <div class="cta-banner-content">
-          <h2>Contact Our Team</h2>
-          <p>Reach out to discuss your project requirements, get sourcing assistance, or learn more about how we can support your business.</p>
+          <h2>Contact Our Global Team</h2>
+          <p>Reach out to discuss your project requirements, request a free quotation, or learn how we can support your business.</p>
         </div>
-        <a href={url('/contact/')} class="btn-primary" id="contact-team-btn">Get in Touch →</a>
+        <a href={url('/contact/')} class="btn-primary" id="contact-team-btn">
+          <span>Get in Touch</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -118,35 +133,92 @@ const offices = [
 </Base>
 
 <style>
-.page-hero { position: relative; height: 320px; overflow: hidden; display: flex; align-items: flex-end; }
-.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%); z-index: 1; }
-.page-hero .container { position: relative; z-index: 2; padding-bottom: 2.5rem; width: 100%; }
+.page-hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 100%);
+  z-index: 1;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.5rem;
+  width: 100%;
+}
 .page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
 .page-hero-content p { color: rgba(255,255,255,0.75); }
-.breadcrumb { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.65); }
-.breadcrumb a { color: var(--copper-300); }
-
-.network-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.network-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); transition: transform var(--transition), box-shadow var(--transition); }
-.network-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-deep); }
-.network-card-header { padding: 1.5rem; display: flex; gap: 1rem; align-items: center; }
-.nc-flag { font-size: 2rem; }
-.nc-location { font-size: 0.95rem; font-weight: 700; color: var(--white); }
-.nc-type { font-size: 0.72rem; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 0.2rem; }
-.network-card-body { padding: 1.5rem; }
-.network-card-body h3 { font-size: 1rem; color: var(--green-800); margin-bottom: 0.6rem; }
-.network-card-body p { font-size: 0.83rem; color: var(--stone-600); line-height: 1.7; }
-.cta-banner { background: var(--green-800); border-radius: var(--radius-xl); padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.cta-banner-content h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.4rem; }
-.cta-banner-content p { font-size: 0.88rem; color: rgba(255,255,255,0.7); max-width: 520px; }
-@media (max-width: 900px) {
-  .network-grid { grid-template-columns: repeat(2, 1fr); }
-  .page-hero { height: 260px; }
+.breadcrumb {
+  display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;
+  font-size: 0.8rem; color: rgba(255,255,255,0.65);
 }
-@media (max-width: 600px) {
-  .network-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .page-hero { height: 220px; }
-  .cta-banner { flex-direction: column; text-align: center; padding: 1.75rem; }
+.breadcrumb a { color: var(--gold-400); }
+
+.network-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.network-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid #e2e8f0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.network-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-deep);
+}
+.network-card-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.nc-flag { font-size: 1.8rem; }
+.nc-location { font-size: 0.95rem; font-weight: 700; color: #ffffff; }
+.nc-type { font-size: 0.72rem; color: #d4a843; font-weight: 600; text-transform: uppercase; margin-top: 0.15rem; }
+.network-card-body { padding: 1.5rem; }
+.network-card-body h3 { font-size: 1.05rem; color: var(--navy-850); margin-bottom: 0.5rem; }
+.nc-address { font-size: 0.78rem; color: #1e4574; font-weight: 600; margin-bottom: 0.4rem; }
+.nc-phone { font-size: 0.78rem; color: #334155; margin-bottom: 0.4rem; }
+.nc-phone a { color: #2563eb; font-weight: 600; }
+.nc-web { font-size: 0.78rem; color: #2563eb; font-weight: 600; margin-bottom: 0.6rem; }
+.nc-desc { font-size: 0.83rem; color: #64748b; line-height: 1.7; }
+
+.cta-banner {
+  background: #0b1e36;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-banner-content h2 { font-size: 1.6rem; color: var(--white); margin-bottom: 0.4rem; }
+.cta-banner-content p { font-size: 0.9rem; color: #cbd5e1; max-width: 540px; }
+
+@media (max-width: 990px) {
+  .network-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .network-grid { grid-template-columns: 1fr; }
+  .cta-banner { flex-direction: column; text-align: center; padding: 2rem; }
 }
 </style>

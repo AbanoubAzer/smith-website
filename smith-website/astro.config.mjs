@@ -5,6 +5,11 @@ export default defineConfig({
   base: '/smith-website',
   output: 'static',
   trailingSlash: 'always',
+  vite: {
+    css: {
+      postcss: {},
+    },
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ar'],

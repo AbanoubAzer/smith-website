@@ -3,29 +3,34 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { getLang } from '../../i18n/translations';
 import { url } from '../../utils/paths';
 
 const lang = 'en';
+const t = getLang(lang);
+const b = t.brand;
+
 const productOptions = [
-  'Main Entrance Doors', 'Interior Doors', 'Pivot Doors', 'Garage Doors',
+  'Main Entrance Doors', 'Interior Doors', 'Pivot Doors', 'Custom Doors',
   'Aluminum Windows', 'Pergolas & Sunrooms', 'Wrought Iron & Metalwork',
   'Kitchens & Bathroom Vanities', 'Quartz, Marble & Stone',
-  'Global Sourcing', 'Order Inspection', 'Export Documentation',
-  'Sea & Air Freight', 'Other Products',
+  'Global Sourcing', 'Order Inspection', 'Export & Customs Documentation',
+  'Sea & Air Freight', 'Other Products / Custom Project',
 ];
 ---
 
 <Base
   lang={lang}
-  title="Contact Us | SMITH Co. LTD"
-  description="Contact SMITH Co. LTD for architectural products, building materials, or global sourcing services. Reach our international team directly via WhatsApp, email, or our offices."
+  title="Contact Us | EITCO Ltd — Elena International Trading Co., Limited"
+  description="Contact EITCO Ltd for architectural products, building materials, or global sourcing services. Reach our international team directly via WhatsApp, email, or our offices."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/contact/"
 >
   <Header lang={lang} />
 
   <!-- Page Hero -->
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src={url('/images/marble/M 2.jpg')} alt="Contact Us" />
+    <img src={url('/images/mockup-assets/hero-bg.jpg')} alt="Contact EITCO Ltd" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -34,7 +39,7 @@ const productOptions = [
           <span>Contact Us</span>
         </nav>
         <h1>Let's Talk About Your Project</h1>
-        <p>Share your requirements and we'll follow up to discuss suitable options</p>
+        <p>Share your requirements and our team will follow up to discuss suitable options.</p>
       </div>
     </div>
   </div>
@@ -45,60 +50,82 @@ const productOptions = [
 
         <!-- LEFT: Info -->
         <div class="contact-info">
-          <span class="section-tag">Our Offices</span>
+          <span class="section-tag">Global Presence & Offices</span>
           <h2>Get in Touch</h2>
           <p>Whether you need architectural products for a construction project or sourcing support for your business, we are ready to review your requirements.</p>
 
           <div class="office-cards">
+            <!-- China -->
             <div class="office-card" id="office-china">
               <div class="office-icon">🏢</div>
               <div>
                 <div class="office-name">China — Company Office</div>
-                <div class="office-desc">Supplier coordination, sourcing, order follow-up, and export support</div>
+                <div class="office-address">{b.chinaAddress}</div>
+                <div class="office-desc">Supplier coordination, sourcing, order follow-up, inspection, and export preparation.</div>
               </div>
             </div>
+
+            <!-- USA Partner -->
             <div class="office-card" id="office-usa">
               <div class="office-icon">📍</div>
               <div>
                 <div class="office-name">New Jersey, USA — Partner Office</div>
-                <div class="office-desc">Local inquiries and agreed order collection for eligible orders</div>
+                <div class="office-partner-title">{b.usPartnerName}</div>
+                <div class="office-desc">Local inquiries and agreed order collection for eligible orders.</div>
+                <div class="office-links">
+                  <span>Tel: <a href={`tel:${b.usPartnerPhone.replace(/[^0-9+]/g, '')}`}>{b.usPartnerPhone}</a></span> •
+                  <span><a href={b.usPartnerWebsite} target="_blank" rel="noopener">Website</a></span>
+                </div>
               </div>
             </div>
+
+            <!-- Installation Partners -->
+            <div class="office-card" id="office-install">
+              <div class="office-icon">🛠️</div>
+              <div>
+                <div class="office-name">Tennessee, New York & New Jersey — Installation Partners</div>
+                <div class="office-desc">Installation-related coordination for selected architectural products for eligible projects.</div>
+              </div>
+            </div>
+
+            <!-- Kuwait -->
             <div class="office-card" id="office-kuwait">
               <div class="office-icon">🏢</div>
               <div>
-                <div class="office-name">Kuwait — Company Office</div>
-                <div class="office-desc">Regional business inquiries and sourcing coordination</div>
+                <div class="office-name">Kuwait — Regional Presence</div>
+                <div class="office-desc">Regional business inquiries and sourcing coordination across the Gulf.</div>
               </div>
             </div>
+
+            <!-- Egypt & Saudi Arabia -->
             <div class="office-card" id="office-egypt">
               <div class="office-icon">👥</div>
               <div>
-                <div class="office-name">Egypt & Saudi Arabia</div>
-                <div class="office-desc">Local representatives for product inquiries and sourcing coordination</div>
+                <div class="office-name">Egypt & Saudi Arabia — Sourcing Representatives</div>
+                <div class="office-desc">Local representatives for product inquiries and sourcing communication.</div>
               </div>
             </div>
           </div>
 
-          <!-- WhatsApp -->
-          <a href="https://wa.me/8617132060963" class="whatsapp-contact-btn" target="_blank" rel="noopener" id="whatsapp-contact-link">
+          <!-- Direct WhatsApp Button -->
+          <a href={`https://wa.me/${b.whatsappRaw}`} class="whatsapp-contact-btn" target="_blank" rel="noopener noreferrer" id="whatsapp-contact-link">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Contact via WhatsApp: +86 171 3206 0963
+            <span>WhatsApp Business: {b.whatsapp}</span>
           </a>
         </div>
 
         <!-- RIGHT: Direct Inquiry Form -->
         <div class="quote-form-wrap">
           <div class="form-header" id="form-header-area">
-            <h2>Send an Inquiry</h2>
-            <p>Connect directly with our international team. Share your requirements and send them instantly via WhatsApp or Email.</p>
+            <h2>Request a Quote</h2>
+            <p>Tell us what you are looking for. Send your project requirements instantly via WhatsApp or direct email.</p>
           </div>
 
           <form class="quote-form" id="inquiry-form" name="inquiry-request" onsubmit="return false;">
             <div class="form-row">
               <div class="form-group">
                 <label for="full-name">Full Name *</label>
-                <input type="text" id="full-name" name="fullName" placeholder="John Smith" required />
+                <input type="text" id="full-name" name="fullName" placeholder="Your Name" required />
               </div>
               <div class="form-group">
                 <label for="company-name">Company Name</label>
@@ -117,12 +144,12 @@ const productOptions = [
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="country">Country</label>
-                <input type="text" id="country" name="country" placeholder="United States" />
+                <label for="country">Country *</label>
+                <input type="text" id="country" name="country" placeholder="United States, Kuwait, etc." required />
               </div>
               <div class="form-group">
-                <label for="product-service">Product or Service Needed</label>
-                <select id="product-service" name="productService">
+                <label for="product-service">Product or Service Needed *</label>
+                <select id="product-service" name="productService" required>
                   <option value="">Select a category...</option>
                   {productOptions.map(opt => <option value={opt}>{opt}</option>)}
                 </select>
@@ -131,7 +158,7 @@ const productOptions = [
             <div class="form-row">
               <div class="form-group">
                 <label for="quantity">Estimated Quantity</label>
-                <input type="text" id="quantity" name="quantity" placeholder="e.g. 50 units" />
+                <input type="text" id="quantity" name="quantity" placeholder="e.g. 50 doors, 2 containers" />
               </div>
               <div class="form-group">
                 <label for="project-location">Project Location</label>
@@ -140,16 +167,16 @@ const productOptions = [
             </div>
             <div class="form-group form-group-full">
               <label for="message">Product Specifications or Message *</label>
-              <textarea id="message" name="message" rows="5" placeholder="Please describe the product, dimensions, finish, design reference, or any other relevant details..." required></textarea>
+              <textarea id="message" name="message" rows="5" placeholder="Please describe dimensions, materials, design preferences, destination port, or specific questions..." required></textarea>
             </div>
 
-            <div class="inquiry-actions-row" style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem;">
-              <button type="button" class="whatsapp-contact-btn" id="send-wa-inquiry-btn" style="width:100%; justify-content:center; font-size:1rem; padding:1rem; cursor:pointer;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Send Inquiry via WhatsApp
+            <div class="inquiry-actions-row">
+              <button type="button" class="btn-whatsapp-action" id="send-wa-inquiry-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span>Send via WhatsApp Business</span>
               </button>
-              <button type="button" class="btn-primary" id="send-email-inquiry-btn" style="width:100%; justify-content:center; font-size:1rem; padding:1rem; background:var(--green-800); cursor:pointer;">
-                ✉️ Send Inquiry via Email
+              <button type="button" class="btn-email-action" id="send-email-inquiry-btn">
+                <span>✉️ Send via Email to eliagadallah@eit-co.com</span>
               </button>
             </div>
           </form>
@@ -164,7 +191,7 @@ const productOptions = [
 <style>
 .page-hero {
   position: relative;
-  height: 320px;
+  height: 300px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -179,7 +206,7 @@ const productOptions = [
 .page-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%);
+  background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 100%);
   z-index: 1;
 }
 .page-hero .container {
@@ -188,37 +215,108 @@ const productOptions = [
   padding-bottom: 2.5rem;
   width: 100%;
 }
-.page-hero-content h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--white); margin-bottom: 0.4rem; }
-.page-hero-content p { color: rgba(255,255,255,0.75); }
-.breadcrumb {
-  display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;
-  font-size: 0.8rem; color: rgba(255,255,255,0.65);
+.page-hero-content h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: #ffffff;
+  margin-bottom: 0.4rem;
 }
-.breadcrumb a { color: var(--copper-300); }
+.page-hero-content p {
+  color: #cbd5e1;
+}
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+.breadcrumb a {
+  color: #d4a843;
+}
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 3rem;
+  grid-template-columns: 420px 1fr;
+  gap: 3.5rem;
   align-items: start;
 }
-.contact-info h2 { font-size: 1.8rem; margin-bottom: 0.75rem; margin-top: 0.5rem; }
-.contact-info > p { font-size: 0.88rem; color: var(--stone-600); line-height: 1.8; margin-bottom: 2rem; }
-.office-cards { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
-.office-card {
-  display: flex; gap: 1rem; align-items: flex-start;
-  padding: 1rem 1.25rem;
-  background: var(--white);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--stone-100);
-  transition: border-color var(--transition);
+.contact-info h2 {
+  font-size: 1.8rem;
+  color: #0f233d;
+  margin-bottom: 0.75rem;
+  margin-top: 0.4rem;
 }
-.office-card:hover { border-color: var(--green-300); }
-.office-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-.office-name { font-size: 0.85rem; font-weight: 700; color: var(--green-800); margin-bottom: 0.25rem; }
-.office-desc { font-size: 0.78rem; color: var(--stone-600); line-height: 1.5; }
+.contact-info > p {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.office-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.office-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: all var(--transition);
+}
+.office-card:hover {
+  border-color: #d4a843;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.office-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.office-name {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0f233d;
+  margin-bottom: 0.2rem;
+}
+.office-address {
+  font-size: 0.76rem;
+  color: #1e4574;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.office-partner-title {
+  font-size: 0.78rem;
+  color: #d4a843;
+  font-weight: 700;
+}
+.office-desc {
+  font-size: 0.76rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+.office-links {
+  font-size: 0.74rem;
+  color: #64748b;
+  margin-top: 0.35rem;
+}
+.office-links a {
+  color: #2563eb;
+  font-weight: 600;
+}
+
 .whatsapp-contact-btn {
-  display: inline-flex; align-items: center; gap: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 0.9rem 1.5rem;
   background: #25d366;
   color: white;
@@ -228,95 +326,87 @@ const productOptions = [
   transition: all var(--transition);
   width: 100%;
   justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
 }
-.whatsapp-contact-btn:hover { background: #20ba5a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.35); }
+.whatsapp-contact-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+}
 
-/* Form */
+/* Quote Form */
 .quote-form-wrap {
-  background: var(--white);
-  border-radius: var(--radius-xl);
+  background: #ffffff;
+  border-radius: var(--radius-lg);
   padding: 2.5rem;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--stone-100);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
 }
-.form-header { margin-bottom: 2rem; }
-.form-header h2 { font-size: 1.5rem; margin-bottom: 0.4rem; }
-.form-header p { font-size: 0.85rem; color: var(--stone-600); }
-.quote-form { display: flex; flex-direction: column; gap: 1.25rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-group-full { grid-column: 1 / -1; }
-.form-group label { font-size: 0.78rem; font-weight: 700; color: var(--stone-700); }
+.form-header h2 {
+  font-size: 1.5rem;
+  color: #0f233d;
+  margin-bottom: 0.4rem;
+}
+.form-header p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-group-full {
+  grid-column: 1 / -1;
+}
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+}
 .form-group input,
 .form-group select,
 .form-group textarea {
   padding: 0.75rem 1rem;
-  border: 1.5px solid var(--stone-100);
-  border-radius: var(--radius-sm);
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
   font-size: 0.88rem;
   font-family: inherit;
-  color: var(--stone-900);
-  background: var(--white);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  color: #0f172a;
+  background: #ffffff;
+  transition: all var(--transition);
   outline: none;
 }
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--green-400);
-  box-shadow: 0 0 0 3px rgba(42, 96, 73, 0.12);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
-.form-group textarea { resize: vertical; min-height: 120px; }
-.file-upload-area {
-  position: relative;
-  border: 2px dashed var(--stone-200);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color var(--transition), background var(--transition);
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
 }
-.file-upload-area:hover { border-color: var(--green-400); background: var(--green-100); }
-.file-upload-area input[type="file"] {
-  position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
-}
-.file-upload-inner { display: flex; flex-direction: column; gap: 0.4rem; align-items: center; }
-.file-icon { font-size: 1.5rem; }
-.file-upload-inner span { font-size: 0.85rem; color: var(--stone-600); }
 
-/* Form Success State */
-.form-success-card {
-  text-align: center;
-  padding: 2.5rem 1rem;
-  animation: fadeIn 0.4s ease;
-}
-.success-icon {
-  width: 68px;
-  height: 68px;
-  background: var(--green-100);
-  color: var(--green-700);
-  border-radius: 50%;
+.inquiry-actions-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 800;
-  margin: 0 auto 1.5rem;
-  border: 2px solid var(--green-300);
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
 }
-.form-success-card h3 {
-  font-size: 1.6rem;
-  color: var(--green-800);
-  margin-bottom: 0.75rem;
-}
-.form-success-card p {
-  color: var(--stone-600);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  max-width: 480px;
-  margin: 0 auto 2rem;
-}
-.btn-whatsapp-direct {
+.btn-whatsapp-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -324,33 +414,55 @@ const productOptions = [
   width: 100%;
   padding: 0.95rem 1.5rem;
   background: #25d366;
-  color: #fff;
+  color: #ffffff;
   border-radius: 50px;
   font-weight: 700;
   font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
   transition: all var(--transition);
-  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
 }
-.btn-whatsapp-direct:hover {
+.btn-whatsapp-action:hover {
   background: #20ba5a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.btn-email-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background: #0b1e36;
+  color: #ffffff;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+}
+.btn-email-action:hover {
+  background: #163356;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 30, 54, 0.3);
 }
 
 @media (max-width: 960px) {
-  .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
-  .page-hero { height: 260px; }
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 }
 @media (max-width: 600px) {
-  .page-hero { height: 220px; }
-  .form-row { grid-template-columns: 1fr; }
-  .quote-form-wrap { padding: 1.25rem; border-radius: var(--radius-lg); }
-  .contact-info h2 { font-size: 1.5rem; }
-  .form-success-card { padding: 1.5rem 0.5rem; }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .quote-form-wrap {
+    padding: 1.5rem;
+  }
 }
 </style>
 
@@ -393,19 +505,19 @@ const productOptions = [
     if (!data) return;
 
     const waText = encodeURIComponent(
-      `Hello SMITH Co. LTD,\n\nI have an inquiry from your website:\n• Name: ${data.fullName}\n• Company: ${data.companyName || 'N/A'}\n• Email: ${data.email || 'N/A'}\n• Phone: ${data.phone}\n• Country: ${data.country || 'N/A'}\n• Product/Service: ${data.productService || 'N/A'}\n• Quantity: ${data.quantity || 'N/A'}\n• Location: ${data.projectLocation || 'N/A'}\n• Message: ${data.message}`
+      `Hello EITCO Ltd (Elena International Trading Co., Limited),\n\nI have an inquiry from your website:\n• Name: ${data.fullName}\n• Company: ${data.companyName || 'N/A'}\n• Email: ${data.email || 'N/A'}\n• Phone: ${data.phone}\n• Country: ${data.country || 'N/A'}\n• Product/Service: ${data.productService || 'N/A'}\n• Quantity: ${data.quantity || 'N/A'}\n• Project Location: ${data.projectLocation || 'N/A'}\n• Message: ${data.message}`
     );
-    window.open(`https://wa.me/8617132060963?text=${waText}`, '_blank');
+    window.open(`https://wa.me/8618616232842?text=${waText}`, '_blank');
   });
 
   sendEmailBtn?.addEventListener('click', () => {
     const data = getInquiryData();
     if (!data) return;
 
-    const subject = encodeURIComponent(`Project Inquiry from ${data.fullName} — SMITH Co. LTD`);
+    const subject = encodeURIComponent(`Project Inquiry from ${data.fullName} — EITCO Ltd`);
     const body = encodeURIComponent(
-      `Hello SMITH Co. LTD,\n\nI would like to inquire about your architectural products and services:\n\n• Full Name: ${data.fullName}\n• Company: ${data.companyName || 'N/A'}\n• Email: ${data.email || 'N/A'}\n• Phone: ${data.phone}\n• Country: ${data.country || 'N/A'}\n• Product/Service: ${data.productService || 'N/A'}\n• Quantity: ${data.quantity || 'N/A'}\n• Location: ${data.projectLocation || 'N/A'}\n\nProject Specifications / Message:\n${data.message}\n\nThank you!`
+      `Hello EITCO Ltd,\n\nI would like to inquire about your architectural products and services:\n\n• Full Name: ${data.fullName}\n• Company: ${data.companyName || 'N/A'}\n• Email: ${data.email || 'N/A'}\n• Phone: ${data.phone}\n• Country: ${data.country || 'N/A'}\n• Product/Service: ${data.productService || 'N/A'}\n• Quantity: ${data.quantity || 'N/A'}\n• Location: ${data.projectLocation || 'N/A'}\n\nProject Specifications / Message:\n${data.message}\n\nThank you!`
     );
-    window.location.href = `mailto:info@smithcoltd.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:eliagadallah@eit-co.com?subject=${subject}&body=${body}`;
   });
 </script>
