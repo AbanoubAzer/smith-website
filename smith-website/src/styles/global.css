@@ -1946,8 +1946,8 @@ html[dir="rtl"] .whatsapp-btn {
   .section {
     padding: 3.5rem 0;
   }
-  .hero-slide:first-child img {
-    object-position: 70% center;
+  .hero-slide img {
+    object-position: center;
   }
   .hero-eitco-overlay,
   body.rtl .hero-eitco-overlay,
