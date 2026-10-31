@@ -1,0 +1,381 @@
+---
+// src/pages/ar/products/index.astro
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { url } from '../../../utils/paths';
+
+const lang = 'ar';
+const categories = [
+  {
+    id: 'doors',
+    title: 'الأبواب المعمارية',
+    subtitle: 'أبواب المداخل، الأبواب الداخلية، أبواب البيفوت والأنظمة المخصصة',
+    desc: 'أبواب مداخل رئيسية فاخرة، أبواب خشبية وWPC، أبواب بيفوت محورية عملاقة بتشطيبات وتصاميم هندسية تناسب كافة الطرز المعمارية.',
+    img: url('/images/doors/enterance door.jpg'),
+    href: url('/ar/#products'),
+    subcats: ['أبواب المداخل', 'أبواب داخلية', 'أبواب بيفوت', 'أبواب جراج', 'تصاميم مخصصة'],
+  },
+  {
+    id: 'windows',
+    title: 'النوافذ والألومنيوم',
+    subtitle: 'أنظمة حرارية، منزلقة، كازمنت وواجهات زجاجية بانورامية',
+    desc: 'نوافذ ألومنيوم حرارية عازلة للصوت والحرارة، واجهات زجاجية وسحابات بانورامية للمشاريع السكنية والتجارية بمواصفات قياسية.',
+    img: url('/images/windows/W1.png'),
+    href: url('/ar/#products'),
+    subcats: ['ألومنيوم حراري', 'نوافذ منزلقة', 'نوافذ قلاب', 'واجهات زجاجية'],
+  },
+  {
+    id: 'outdoor',
+    title: 'البرجولات والغرف الشمسية',
+    subtitle: 'برجولات عصرية، صن روم وهياكل خارجية ذكية',
+    desc: 'تصاميم خارجية مبتكرة للحدائق والأسطح، تشمل البرجولات الذكية المقاومة للعوامل الجوية والغرف الزجاجية المعزولة بأحدث التقنيات.',
+    img: url('/images/windows/pergola.png'),
+    href: url('/ar/#products'),
+    subcats: ['برجولات ذكية', 'غرف شمسية', 'هياكل تظليل'],
+  },
+  {
+    id: 'metalwork',
+    title: 'الحديد المطروق والمشغولات الفنية',
+    subtitle: 'بوابات رئيسية، درابزينات، أسوار وحواجز نوافذ مشغولة يدوياً',
+    desc: 'بوابات حديد مشغول فاخرة، درابزينات سلالم وشرفات، وأسوار أمنية تجمع بين الإتقان الحرفي والصلابة مع معالجة كاملة ضد الصدأ.',
+    img: url('/images/metalwork/gate-1.jpg'),
+    href: url('/ar/#products'),
+    subcats: ['بوابات قصور', 'أسوار حماية', 'درابزين سلالم', 'درابزين شرفات', 'شبكات نوافذ'],
+  },
+  {
+    id: 'kitchens',
+    title: 'المطابخ والديكور الداخلي',
+    subtitle: 'خزائن المطابخ العصرية، أسطح الجزيرة، وحدات الحمامات وخزائن الملابس',
+    desc: 'مطابخ مخصصة بأحدث الآليات العالمية، تشكيلات بارات منزلية راقية، وحدات مغاسل وحمامات فاخرة، ودواليب ملابس تفصيلية متكاملة.',
+    img: url('/images/kitchens/Kitchen 1.png'),
+    href: url('/ar/#products'),
+    subcats: ['خزائن مطابخ', 'أسطح جزيرة', 'وحدات حمامات', 'دواليب وخزائن'],
+  },
+  {
+    id: 'stone',
+    title: 'الأسطح الحجرية والرخام',
+    subtitle: 'رخام طبيعي فاخر، ألواح كوارتز وجرانيت عالي التحمل',
+    desc: 'ألواح رخام طبيعي منتقاة مباشرة من المحاجر، كوارتز صناعي مقاوم للبقع والحرارة، وتشكيلات جرانيت متينة للمطابخ والواجهات والأرضيات.',
+    img: url('/images/marble/M 10.png'),
+    href: url('/ar/#products'),
+    subcats: ['رخام طبيعي', 'كوارتز معالج', 'جرانيت صلب', 'أحجار معمارية'],
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="كافة المنتجات المعمارية ومواد البناء | شركة إيتكو المحدودة"
+  description="تصفح مجموعتنا الكاملة من المنتجات المعمارية: الأبواب، النوافذ، البرجولات، الحديد المطروق، المطابخ، وحدات الحمامات، والرخام الطبيعي."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/ar/products/"
+>
+  <Header lang={lang} />
+
+  <!-- Page Header -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src={url('/images/mockup-assets/hero-bg.jpg')} alt="منتجات شركة إيتكو" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href={url('/ar/')}>الرئيسية</a>
+          <span>‹</span>
+          <span>المنتجات المعمارية</span>
+        </nav>
+        <h1>حلول معمارية متكاملة لكل مساحة</h1>
+        <p>من أبواب المداخل الفاخرة إلى المطابخ المجهزة بأحدث التقنيات — مواد بناء راقية من مصانع الصين مباشرة</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div class="cat-grid">
+        {categories.map(cat => (
+          <article class="cat-card" id={`cat-ar-${cat.id}`}>
+            <a href={cat.href} class="cat-img-wrap" aria-label={cat.title}>
+              <img src={cat.img} alt={cat.title} loading="lazy" />
+            </a>
+            <div class="cat-body">
+              <div class="cat-subtitle">{cat.subtitle}</div>
+              <h2 class="cat-title">
+                <a href={cat.href}>{cat.title}</a>
+              </h2>
+              <p class="cat-desc">{cat.desc}</p>
+              <div class="cat-subcats">
+                {cat.subcats.map(sub => (
+                  <span class="cat-sub-tag">{sub}</span>
+                ))}
+              </div>
+              <a href={cat.href} class="cat-cta" id={`explore-ar-${cat.id}-btn`}>
+                استعراض {cat.title} ←
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <h2>هل تبحث عن مواصفات أو تصاميم خاصة؟</h2>
+          <p>نوفر خدمات التوريد والتصنيع المخصص حسب المخططات الهندسية. شاركنا متطلباتك وسنساعدك في مطابقتها مع أفضل المصانع المعتمدة.</p>
+        </div>
+        <a href={url('/ar/#quote')} class="btn-primary" id="custom-sourcing-btn-ar">طلب استشارة توريد مخصص ←</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+/* Page Hero */
+.page-hero {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 5rem;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 30, 54, 0.95) 0%, rgba(11, 30, 54, 0.6) 60%, rgba(11, 30, 54, 0.35) 100%);
+  z-index: 1;
+}
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.75rem;
+  color: #ffffff;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 0.85rem;
+}
+.breadcrumb a {
+  color: #d4a843;
+  text-decoration: none;
+}
+.page-hero-content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+.page-hero-content p {
+  color: #cbd5e1;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* Category Grid */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+.cat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+.cat-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 200px;
+  overflow: hidden;
+  display: block;
+  background: #0b1e36;
+}
+.cat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+.cat-card:hover .cat-img-wrap img {
+  transform: scale(1.06);
+}
+.cat-body {
+  padding: 1.6rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.cat-subtitle {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #d4a843;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+.cat-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+}
+.cat-title a {
+  color: #0b1e36;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.cat-title a:hover {
+  color: #d4a843;
+}
+.cat-desc {
+  color: #64748b;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+.cat-subcats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+.cat-sub-tag {
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  line-height: 1.2;
+}
+.cat-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0b1e36;
+  text-decoration: none;
+  margin-top: auto;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.cat-cta:hover {
+  color: #d4a843;
+  transform: translateX(-4px);
+}
+
+/* CTA Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #0b1e36 0%, #162f50 100%);
+  border-radius: 16px;
+  padding: 2.75rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(11, 30, 54, 0.15);
+}
+.cta-banner h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+.cta-banner p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 620px;
+}
+.cta-banner .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .cta-banner {
+    padding: 2.25rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 250px;
+    padding-top: 4.5rem;
+  }
+  .page-hero-content {
+    padding-bottom: 2rem;
+  }
+  .cat-grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    margin-bottom: 2.5rem;
+  }
+  .cat-img-wrap {
+    aspect-ratio: 16 / 10;
+    min-height: 190px;
+  }
+  .cat-body {
+    padding: 1.25rem 1.15rem 1.4rem;
+  }
+  .cat-title {
+    font-size: 1.22rem;
+  }
+  .cat-cta {
+    padding-top: 0.35rem;
+    font-size: 0.88rem;
+  }
+  .cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.25rem;
+    gap: 1.35rem;
+    border-radius: 12px;
+  }
+  .cta-banner .btn-primary {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+</style>
+

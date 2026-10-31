@@ -11,6 +11,51 @@ const t = getLang(lang);
 const h = t.home;
 const b = t.brand;
 
+const heroSlides = [
+  {
+    img: url('/images/mockup-assets/hero-bg.jpg'),
+    alt: 'التوريد العالمي ومواد البناء الفاخرة',
+    tagline: 'شريكك الموثوق في',
+    headline: 'التوريد العالمي،\nمواد البناء و\nالشحن الدولي',
+    desc: 'نربط مواد البناء عالية الجودة والمنتجات المعمارية والمصانع المعتمدة بالعملاء والمقاولين والشركات في الولايات المتحدة والأسواق الدولية.',
+  },
+  {
+    img: url('/images/doors/enterance door.jpg'),
+    alt: 'أبواب المداخل الفاخرة والبيفوت',
+    tagline: 'أبواب معمارية راقية',
+    headline: 'أبواب المداخل الفاخرة\nوأنظمة البيفوت المحورية',
+    desc: 'أبواب محورية عملاقة، أبواب ألومنيوم حرارية، وتصاميم خشبية متقنة مصممة خصيصاً للقصور والفلل والمشاريع الراقية.',
+  },
+  {
+    img: url('/images/windows/W1.png'),
+    alt: 'أنظمة النوافذ والألومنيوم المتطورة',
+    tagline: 'هندسة دقيقة وعزل متقدم',
+    headline: 'نوافذ ألومنيوم متطورة\nوواجهات زجاجية بانورامية',
+    desc: 'أنظمة ألومنيوم حرارية عازلة للصوت والحرارة، واجهات زجاجية وسحابات عملاقة مطابقة لأعلى المعايير والمواصفات العالمية.',
+  },
+  {
+    img: url('/images/kitchens/Kitchen 1.png'),
+    alt: 'مطابخ مخصصة وخزائن راقية',
+    tagline: 'أناقة المساحات الداخلية',
+    headline: 'مطابخ مخصصة وخزائن\nمعمارية راقية',
+    desc: 'خزائن مطابخ عصرية وكلاسيكية، أسطح جزر رخامية، وحدات حمامات متكاملة ودواليب ملابس تفصيلية بأحدث الآليات العالمية.',
+  },
+  {
+    img: url('/images/metalwork/gate-1.jpg'),
+    alt: 'أعمال الحديد المطروق وبوابات القصور',
+    tagline: 'حرفية يدوية وإتقان هندسي',
+    headline: 'أعمال الحديد المطروق\nوبوابات القصور الملكية',
+    desc: 'بوابات حديد مشغول فاخرة، درابزينات سلالم وشرفات، وأسوار حماية تجمع بين الفخامة التاريخية والصلابة العالية مع عزل ضد الصدأ.',
+  },
+  {
+    img: url('/images/marble/M 10.png'),
+    alt: 'رخام طبيعي وألواح كوارتز',
+    tagline: 'فخامة الأحجار الطبيعية',
+    headline: 'رخام طبيعي وألواح كوارتز\nمباشرة من المصانع والمحاجر',
+    desc: 'توريد مباشر لأجود أنواع الرخام الطبيعي، الكوارتز الصناعي، والجرانيت الصلب للأرضيات والمطابخ والواجهات المعمارية الفاخرة.',
+  },
+];
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -37,17 +82,40 @@ const faqSchema = {
 
   <Header lang={lang} />
 
-  <!-- 1. HERO SECTION -->
-  <section class="hero-eitco" aria-label="القسم الرئيسي" style={`background-image: url('${url('/images/mockup-assets/hero-bg.jpg')}');`}>
+  <!-- 1. HERO SECTION WITH SLIDER -->
+  <section class="hero-eitco" aria-label="القسم الرئيسي">
+    <!-- Background Slider -->
+    <div class="hero-slider">
+      {heroSlides.map((slide, i) => (
+        <div class={`hero-slide${i === 0 ? ' active' : ''}`} data-index={i}>
+          <img src={slide.img} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+        </div>
+      ))}
+    </div>
     <div class="hero-eitco-overlay"></div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero-arrow hero-arrow-prev" id="hero-prev-btn" aria-label="الشريحة السابقة">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+    <button class="hero-arrow hero-arrow-next" id="hero-next-btn" aria-label="الشريحة التالية">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+
     <div class="container">
       <div class="hero-eitco-content">
-        <div class="hero-eitco-tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          <span>{h.hero.tagline}</span>
+        <div class="hero-text-slides">
+          {heroSlides.map((slide, i) => (
+            <div class={`hero-text-slide${i === 0 ? ' active' : ''}`} data-index={i}>
+              <div class="hero-eitco-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <span>{slide.tagline}</span>
+              </div>
+              <h1 class="hero-eitco-title">{slide.headline}</h1>
+              <p class="hero-eitco-desc">{slide.desc}</p>
+            </div>
+          ))}
         </div>
-        <h1 class="hero-eitco-title">{h.hero.headline}</h1>
-        <p class="hero-eitco-desc">{h.hero.sub}</p>
         <div class="hero-eitco-actions">
           <a href={url('/ar/#products')} class="btn-primary" id="hero-explore-btn-ar">
             <span>{h.hero.cta1}</span>
@@ -58,6 +126,13 @@ const faqSchema = {
           </a>
         </div>
       </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="hero-dots">
+      {heroSlides.map((_, i) => (
+        <button class={`hero-dot${i === 0 ? ' active' : ''}`} aria-label={`الشريحة ${i + 1}`} data-index={i} />
+      ))}
     </div>
   </section>
 
@@ -195,6 +270,20 @@ const faqSchema = {
                 <div>
                   <div class="presence-row-name">{loc.name}</div>
                   <div class="presence-row-details">{loc.details}</div>
+                  {loc.email && (
+                    <div class="presence-office-links" style="margin-top:0.35rem; display:flex; flex-wrap:wrap; gap:0.75rem; font-size:0.8rem;">
+                      <a href={`mailto:${loc.email}`} style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.25rem;">
+                        <span>✉️</span>
+                        <span>{loc.email}</span>
+                      </a>
+                      {loc.whatsapp && (
+                        <a href={`https://wa.me/${loc.whatsappRaw}`} target="_blank" rel="noopener noreferrer" style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.25rem;">
+                          <span>💬</span>
+                          <span>{loc.whatsapp}</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -482,34 +571,18 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- 11. FINAL CALL TO ACTION & MARKETS SERVED BANNER -->
+  <!-- 11. FINAL CALL TO ACTION BANNER -->
   <section class="cta-markets-section" id="quote" aria-labelledby="cta-title-ar" style={`background-image: url('${url('/images/mockup-assets/cta-ship-bg.jpg')}');`}>
     <div class="cta-markets-overlay"></div>
     <div class="container">
-      <div class="cta-markets-grid">
-        <!-- Left Column: Free Quote CTA -->
-        <div class="cta-col-left">
-          <span class="section-tag">{h.ctaBanner.tag}</span>
-          <h2 id="cta-title-ar">{h.ctaBanner.title}</h2>
-          <p>{h.ctaBanner.desc}</p>
-          <a href={url('/ar/#quote')} class="btn-primary" id="cta-request-quote-btn-ar">
-            <span>{h.ctaBanner.button}</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 11H7.14l5.43-5.43L11.14 4.14 2.86 12.43l8.28 8.29 1.43-1.42L7.14 13H19v-2z"/></svg>
-          </a>
-        </div>
-
-        <!-- Right Column: Markets Served Badges -->
-        <div class="markets-col-right">
-          <h3>{h.ctaBanner.marketsTitle}</h3>
-          <div class="markets-badges-grid">
-            {h.ctaBanner.markets.map((m, i) => (
-              <div class="market-badge-pill" id={`market-pill-ar-${i}`}>
-                <span class="market-flag">{m.flag}</span>
-                <span>{m.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div class="cta-col-center">
+        <span class="section-tag">{h.ctaBanner.tag}</span>
+        <h2 id="cta-title-ar">{h.ctaBanner.title}</h2>
+        <p>{h.ctaBanner.desc}</p>
+        <a href={url('/ar/#quote')} class="btn-primary" id="cta-request-quote-btn-ar">
+          <span>{h.ctaBanner.button}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 11H7.14l5.43-5.43L11.14 4.14 2.86 12.43l8.28 8.29 1.43-1.42L7.14 13H19v-2z"/></svg>
+        </a>
       </div>
     </div>
   </section>

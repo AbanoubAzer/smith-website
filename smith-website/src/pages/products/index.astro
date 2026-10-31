@@ -12,9 +12,8 @@ const categories = [
     title: 'Doors',
     subtitle: 'Entrance, Interior, Pivot & Garage Doors',
     desc: 'Premium entrance doors, interior doors, pivot doors, and garage doors. Crafted from wood, aluminum, WPC, and steel with custom finishes for any architectural style.',
-    img: url('/images/doors/entrance door.jpg'),
-    href: url('/products/#cat-doors'),
-    count: '22+ models',
+    img: url('/images/doors/enterance door.jpg'),
+    href: url('/#products'),
     subcats: ['Main Entrance', 'Interior Doors', 'Pivot Doors', 'Garage Doors', 'Custom Doors'],
   },
   {
@@ -22,9 +21,8 @@ const categories = [
     title: 'Windows & Aluminum',
     subtitle: 'Sliding, Casement & Custom Systems',
     desc: 'Aluminum windows and custom window systems for residential and commercial projects. Durable, energy-efficient, and available in multiple configurations.',
-    img: url('/images/windows/1.jpg'),
-    href: url('/products/#cat-windows'),
-    count: '18+ models',
+    img: url('/images/windows/W1.png'),
+    href: url('/#products'),
     subcats: ['Aluminum Windows', 'Sliding Windows', 'Casement Windows', 'Custom Systems'],
   },
   {
@@ -33,8 +31,7 @@ const categories = [
     subtitle: 'Pergolas, Sunrooms & Outdoor Structures',
     desc: 'Enhance your outdoor spaces with custom pergolas, sunrooms, and outdoor structures. Designed for durability and elegance in any climate.',
     img: url('/images/windows/pergola.png'),
-    href: url('/products/#cat-outdoor'),
-    count: '12+ models',
+    href: url('/#products'),
     subcats: ['Pergolas', 'Sunrooms', 'Outdoor Structures'],
   },
   {
@@ -42,9 +39,8 @@ const categories = [
     title: 'Wrought Iron & Metalwork',
     subtitle: 'Gates, Railings, Fences & Grilles',
     desc: 'Custom wrought iron gates, fences, stair and balcony railings, decorative grilles, and iron pergolas. Handcrafted with precision for lasting elegance.',
-    img: url('/images/metalwork/full-facade.png'),
-    href: url('/products/#cat-metalwork'),
-    count: '30+ models',
+    img: url('/images/metalwork/gate-1.jpg'),
+    href: url('/#products'),
     subcats: ['Iron Gates', 'Fences', 'Stair Railings', 'Balcony Railings', 'Window Grilles'],
   },
   {
@@ -53,8 +49,7 @@ const categories = [
     subtitle: 'Cabinets, Countertops, Bars & Vanities',
     desc: 'Premium custom kitchens, home bar systems, bathroom vanities, and walk-in closets. High-end cabinetry engineered for luxury and durability.',
     img: url('/images/kitchens/Kitchen 1.png'),
-    href: url('/products/#cat-kitchens'),
-    count: '15+ models',
+    href: url('/#products'),
     subcats: ['Kitchen Cabinets', 'Countertops', 'Bar Tops', 'Bathroom Vanities', 'Wardrobes'],
   },
   {
@@ -62,9 +57,8 @@ const categories = [
     title: 'Stone Surfaces',
     subtitle: 'Quartz, Marble, Granite & Custom Stone',
     desc: 'Natural and engineered stone surfaces for floors, walls, countertops, and decorative applications. Premium marble, quartz, and granite sourced globally.',
-    img: url('/images/marble/M 1.jpg'),
-    href: url('/products/#cat-stone'),
-    count: '10+ varieties',
+    img: url('/images/marble/M 10.png'),
+    href: url('/#products'),
     subcats: ['Quartz', 'Marble', 'Granite', 'Custom Stone'],
   },
 ];
@@ -101,11 +95,8 @@ const categories = [
       <div class="cat-grid">
         {categories.map(cat => (
           <article class="cat-card" id={`cat-${cat.id}`}>
-            <a href={cat.href} class="cat-img-wrap">
+            <a href={cat.href} class="cat-img-wrap" aria-label={cat.title}>
               <img src={cat.img} alt={cat.title} loading="lazy" />
-              <div class="cat-img-overlay">
-                <span class="cat-count">{cat.count}</span>
-              </div>
             </a>
             <div class="cat-body">
               <div class="cat-subtitle">{cat.subtitle}</div>
@@ -130,7 +121,7 @@ const categories = [
       <div class="cta-banner">
         <div class="cta-banner-content">
           <h2>Can't find what you're looking for?</h2>
-          <p>We provide custom sourcing for a wide range of products. Share your specifications and we'll help you find the right supplier.</p>
+          <p>We provide custom sourcing for a wide range of architectural products. Share your specifications and we'll connect you directly with top certified manufacturers.</p>
         </div>
         <a href={url('/contact/')} class="btn-primary" id="custom-sourcing-btn">Inquire About Custom Sourcing →</a>
       </div>
@@ -144,10 +135,11 @@ const categories = [
 /* Page Hero */
 .page-hero {
   position: relative;
-  height: 360px;
+  min-height: 340px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  padding-top: 5rem;
 }
 .page-hero img {
   position: absolute;
@@ -159,154 +151,231 @@ const categories = [
 .page-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13,31,26,0.85) 0%, rgba(13,31,26,0.3) 100%);
+  background: linear-gradient(to top, rgba(11, 30, 54, 0.95) 0%, rgba(11, 30, 54, 0.6) 60%, rgba(11, 30, 54, 0.35) 100%);
   z-index: 1;
 }
-.page-hero .container {
+.page-hero-content {
   position: relative;
   z-index: 2;
-  padding-bottom: 3rem;
-  width: 100%;
-}
-.page-hero-content h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--white);
-  margin-bottom: 0.5rem;
-}
-.page-hero-content p {
-  color: rgba(255,255,255,0.75);
-  font-size: 1rem;
+  padding-bottom: 2.75rem;
+  color: #ffffff;
 }
 .breadcrumb {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.65);
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 0.85rem;
 }
-.breadcrumb a { color: var(--copper-300); }
-.breadcrumb a:hover { color: var(--copper-200); }
+.breadcrumb a {
+  color: #d4a843;
+  text-decoration: none;
+}
+.page-hero-content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+.page-hero-content p {
+  color: #cbd5e1;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  max-width: 680px;
+  line-height: 1.6;
+}
 
 /* Category Grid */
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
 }
 .cat-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .cat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-deep);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
 }
 .cat-img-wrap {
   position: relative;
-  display: block;
-  aspect-ratio: 4/3;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 200px;
   overflow: hidden;
+  display: block;
+  background: #0b1e36;
 }
 .cat-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.45s ease;
 }
-.cat-card:hover .cat-img-wrap img { transform: scale(1.06); }
-.cat-img-overlay {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-.cat-count {
-  background: rgba(13,31,26,0.75);
-  color: var(--copper-300);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
+.cat-card:hover .cat-img-wrap img {
+  transform: scale(1.06);
 }
 .cat-body {
-  padding: 1.5rem;
+  padding: 1.6rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .cat-subtitle {
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  color: #d4a843;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--copper-400);
   margin-bottom: 0.4rem;
+  line-height: 1.4;
 }
 .cat-title {
   font-size: 1.3rem;
-  margin-bottom: 0.75rem;
+  font-weight: 800;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
 }
-.cat-title a { color: var(--green-800); }
-.cat-title a:hover { color: var(--green-600); }
+.cat-title a {
+  color: #0b1e36;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.cat-title a:hover {
+  color: #d4a843;
+}
 .cat-desc {
-  font-size: 0.83rem;
-  color: var(--stone-600);
-  line-height: 1.7;
-  margin-bottom: 1rem;
+  color: #64748b;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  flex: 1;
 }
 .cat-subcats {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 .cat-sub-tag {
-  font-size: 0.72rem;
-  padding: 0.25rem 0.65rem;
-  background: var(--green-100);
-  color: var(--green-700);
-  border-radius: 20px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.76rem;
   font-weight: 500;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  line-height: 1.2;
 }
 .cat-cta {
-  font-size: 0.83rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: var(--green-600);
-  transition: color var(--transition);
+  color: #0b1e36;
+  text-decoration: none;
+  margin-top: auto;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
-.cat-cta:hover { color: var(--copper-500); }
+.cat-cta:hover {
+  color: #d4a843;
+  transform: translateX(4px);
+}
 
 /* CTA Banner */
 .cta-banner {
-  background: var(--green-800);
-  border-radius: var(--radius-xl);
-  padding: 3rem;
+  background: linear-gradient(135deg, #0b1e36 0%, #162f50 100%);
+  border-radius: 16px;
+  padding: 2.75rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  flex-wrap: wrap;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(11, 30, 54, 0.15);
 }
-.cta-banner-content h2 {
-  font-size: 1.5rem;
-  color: var(--white);
+.cta-banner h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 800;
   margin-bottom: 0.5rem;
+  color: #ffffff;
 }
-.cta-banner-content p {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.7);
-  max-width: 520px;
+.cta-banner p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 620px;
+}
+.cta-banner .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 700;
 }
 
-@media (max-width: 900px) {
-  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .page-hero { height: 260px; }
+@media (max-width: 1024px) {
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .cta-banner {
+    padding: 2.25rem 2rem;
+  }
 }
-@media (max-width: 600px) {
-  .cat-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-  .page-hero { height: 220px; }
-  .cta-banner { flex-direction: column; text-align: center; padding: 1.75rem; }
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 250px;
+    padding-top: 4.5rem;
+  }
+  .page-hero-content {
+    padding-bottom: 2rem;
+  }
+  .cat-grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    margin-bottom: 2.5rem;
+  }
+  .cat-img-wrap {
+    aspect-ratio: 16 / 10;
+    min-height: 190px;
+  }
+  .cat-body {
+    padding: 1.25rem 1.15rem 1.4rem;
+  }
+  .cat-title {
+    font-size: 1.22rem;
+  }
+  .cat-cta {
+    padding-top: 0.35rem;
+    font-size: 0.88rem;
+  }
+  .cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.25rem;
+    gap: 1.35rem;
+    border-radius: 12px;
+  }
+  .cta-banner .btn-primary {
+    width: 100%;
+    max-width: 340px;
+  }
 }
 </style>

@@ -35,6 +35,7 @@ const currentUrl = canonicalUrl || Astro.url.href;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0b1e36" />
+    <link rel="icon" type="image/png" href={url('/images/logo/globe-emblem-transparent.png')} />
 
     <!-- SEO Primary -->
     <title>{title}</title>
@@ -258,6 +259,82 @@ const currentUrl = canonicalUrl || Astro.url.href;
           toast.classList.remove('show');
         }, 3200);
       };
+
+      // Hero Slider with Synchronized Text, Arrows & Dots
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.hero-dot');
+      const textSlides = document.querySelectorAll('.hero-text-slide');
+      const prevBtn = document.getElementById('hero-prev-btn');
+      const nextBtn = document.getElementById('hero-next-btn');
+      let currentSlide = 0;
+      let slideInterval: ReturnType<typeof setInterval>;
+
+      function goToSlide(idx: number) {
+        if (!slides.length) return;
+        slides[currentSlide]?.classList.remove('active');
+        dots[currentSlide]?.classList.remove('active');
+        textSlides[currentSlide]?.classList.remove('active');
+
+        currentSlide = (idx + slides.length) % slides.length;
+
+        slides[currentSlide]?.classList.add('active');
+        dots[currentSlide]?.classList.add('active');
+        textSlides[currentSlide]?.classList.add('active');
+      }
+
+      function nextSlide() { goToSlide(currentSlide + 1); }
+      function prevSlide() { goToSlide(currentSlide - 1); }
+
+      function resetSlideInterval() {
+        if (slideInterval) clearInterval(slideInterval);
+        if (slides.length > 1) {
+          slideInterval = setInterval(nextSlide, 5500);
+        }
+      }
+
+      if (slides.length > 1) {
+        resetSlideInterval();
+
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlide(i);
+            resetSlideInterval();
+          });
+        });
+
+        prevBtn?.addEventListener('click', (e) => {
+          e.preventDefault();
+          prevSlide();
+          resetSlideInterval();
+        });
+
+        nextBtn?.addEventListener('click', (e) => {
+          e.preventDefault();
+          nextSlide();
+          resetSlideInterval();
+        });
+
+        // Touch swipe support for mobile
+        const heroSection = document.querySelector('.hero-eitco');
+        let touchStartX = 0;
+        heroSection?.addEventListener('touchstart', (e: any) => {
+          touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        heroSection?.addEventListener('touchend', (e: any) => {
+          const diffX = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(diffX) > 40) {
+            const isRTL = document.documentElement.dir === 'rtl' || document.body.classList.contains('rtl');
+            if (diffX < 0) {
+              isRTL ? prevSlide() : nextSlide();
+            } else {
+              isRTL ? nextSlide() : prevSlide();
+            }
+            resetSlideInterval();
+          }
+        }, { passive: true });
+      }
     </script>
   </body>
 </html>

@@ -112,24 +112,42 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
         </div>
       </div>
 
-      <!-- Global Sourcing -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/#sourcing')} class="nav-link" id="nav-sourcing">{t.nav.globalSourcing}</a>
-      </div>
-
-      <!-- Order Inspection -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/global-sourcing/#order-inspection') : url('/ar/#sourcing')} class="nav-link" id="nav-inspection">{t.nav.orderInspection}</a>
-      </div>
-
-      <!-- Export & Customs -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/global-sourcing/#export-docs') : url('/ar/#sourcing')} class="nav-link" id="nav-export">{t.nav.exportDocs}</a>
-      </div>
-
-      <!-- Sea & Air Freight -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/global-sourcing/#freight') : url('/ar/#sourcing')} class="nav-link" id="nav-freight">{t.nav.seaAirFreight}</a>
+      <!-- Services & Sourcing Dropdown -->
+      <div class="nav-item has-dropdown" id="nav-services-item">
+        <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/#sourcing')} class="nav-link" id="nav-services">
+          <span>{t.nav.services}</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </a>
+        <div class="dropdown-menu" id="dropdown-menu-services">
+          <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/#sourcing')} class="dropdown-link">
+            <span class="dropdown-icon">🌐</span>
+            <div>
+              <div class="dropdown-title">{t.nav.globalSourcing}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'Factory matching & custom procurement' : 'البحث عن المصانع والتوريد المباشر'}</div>
+            </div>
+          </a>
+          <a href={lang === 'en' ? url('/global-sourcing/#order-inspection') : url('/ar/#sourcing')} class="dropdown-link">
+            <span class="dropdown-icon">🛡️</span>
+            <div>
+              <div class="dropdown-title">{t.nav.orderInspection}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'On-site audits & quality control' : 'الفحص الميداني ومراقبة الجودة'}</div>
+            </div>
+          </a>
+          <a href={lang === 'en' ? url('/global-sourcing/#export-docs') : url('/ar/#sourcing')} class="dropdown-link">
+            <span class="dropdown-icon">📋</span>
+            <div>
+              <div class="dropdown-title">{t.nav.exportDocs}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'Customs compliance & documentation' : 'التخليص الجمركي وتجهيز المستندات'}</div>
+            </div>
+          </a>
+          <a href={lang === 'en' ? url('/global-sourcing/#freight') : url('/ar/#sourcing')} class="dropdown-link">
+            <span class="dropdown-icon">🚢</span>
+            <div>
+              <div class="dropdown-title">{t.nav.seaAirFreight}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'FCL, LCL & international logistics' : 'الشحن البحري والجوي الدولي'}</div>
+            </div>
+          </a>
+        </div>
       </div>
 
       <!-- Projects -->
@@ -137,29 +155,47 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
         <a href={lang === 'en' ? url('/our-network/') : url('/ar/#projects')} class="nav-link" id="nav-projects">{t.nav.projects}</a>
       </div>
 
-      <!-- Reviews -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/#reviews') : url('/ar/#reviews')} class="nav-link" id="nav-reviews">{t.nav.reviews}</a>
-      </div>
-
-      <!-- Media -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/#media') : url('/ar/#media')} class="nav-link" id="nav-media">{t.nav.media}</a>
-      </div>
-
       <!-- Catalogs -->
       <div class="nav-item">
         <a href={lang === 'en' ? url('/#catalogs') : url('/ar/#catalogs')} class="nav-link" id="nav-catalogs">{t.nav.catalogs}</a>
       </div>
 
-      <!-- Insights -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/#insights') : url('/ar/#insights')} class="nav-link" id="nav-insights">{t.nav.insights}</a>
-      </div>
-
-      <!-- About Us -->
-      <div class="nav-item">
-        <a href={lang === 'en' ? url('/about/') : url('/ar/#sourcing')} class="nav-link" id="nav-about">{t.nav.aboutUs}</a>
+      <!-- Company Dropdown -->
+      <div class="nav-item has-dropdown" id="nav-company-item">
+        <a href={lang === 'en' ? url('/about/') : url('/ar/#sourcing')} class="nav-link" id="nav-company">
+          <span>{t.nav.company}</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </a>
+        <div class="dropdown-menu" id="dropdown-menu-company">
+          <a href={lang === 'en' ? url('/about/') : url('/ar/#sourcing')} class="dropdown-link">
+            <span class="dropdown-icon">🏢</span>
+            <div>
+              <div class="dropdown-title">{t.nav.aboutUs}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'Our story, mission & global offices' : 'عن الشركة ومكاتبنا حول العالم'}</div>
+            </div>
+          </a>
+          <a href={lang === 'en' ? url('/#reviews') : url('/ar/#reviews')} class="dropdown-link">
+            <span class="dropdown-icon">⭐</span>
+            <div>
+              <div class="dropdown-title">{t.nav.reviews}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'Verified client feedback & videos' : 'آراء وتقييمات العملاء وتجاربهم'}</div>
+            </div>
+          </a>
+          <a href={lang === 'en' ? url('/#media') : url('/ar/#media')} class="dropdown-link">
+            <span class="dropdown-icon">🎬</span>
+            <div>
+              <div class="dropdown-title">{t.nav.media}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'Production footage & on-site media' : 'لقطات وثائقية لعمليات الإنتاج'}</div>
+            </div>
+          </a>
+          <a href={lang === 'en' ? url('/#insights') : url('/ar/#insights')} class="dropdown-link">
+            <span class="dropdown-icon">💡</span>
+            <div>
+              <div class="dropdown-title">{t.nav.insights}</div>
+              <div class="dropdown-desc">{lang === 'en' ? 'Industry news & sourcing guides' : 'دليل الاستيراد والمقالات الفنية'}</div>
+            </div>
+          </a>
+        </div>
       </div>
 
       <!-- Contact Us -->
@@ -308,7 +344,7 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 .nav-item {
   position: relative;
@@ -316,9 +352,9 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.5rem 0.65rem;
-  font-size: 0.82rem;
+  gap: 0.3rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.94rem;
   font-weight: 600;
   color: #e2e8f0;
   text-decoration: none;
@@ -389,6 +425,75 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
   transform: translateX(-4px);
 }
 
+/* Standard Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 290px;
+  background: #0f233d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  padding: 0.6rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+:global(body.rtl) .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.dropdown-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+:global(body.rtl) .dropdown-link:hover {
+  transform: translateX(-4px);
+}
+.dropdown-icon {
+  font-size: 1.15rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+.dropdown-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+.dropdown-desc {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.dropdown-link:hover .dropdown-title {
+  color: #d4a843;
+}
+
 /* Actions */
 .header-actions {
   display: flex;
@@ -399,10 +504,10 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.55rem 1.15rem;
+  padding: 0.58rem 1.25rem;
   background: linear-gradient(135deg, #d4a843 0%, #b88a24 100%);
   color: #0b1a2d;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 700;
   border-radius: 50px;
   text-decoration: none;
@@ -441,8 +546,8 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
 
 @media (max-width: 1200px) {
   .nav-link {
-    padding: 0.45rem 0.5rem;
-    font-size: 0.78rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.88rem;
   }
   .mega-menu {
     grid-template-columns: repeat(3, 180px);
@@ -472,6 +577,13 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
     transition: transform 0.3s ease;
     z-index: 99;
   }
+  .nav-links .nav-link {
+    font-size: 1.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+    justify-content: space-between;
+  }
   :global(body.rtl) .nav-links {
     transform: translateX(-100%);
   }
@@ -489,6 +601,17 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
     margin-top: 0.5rem;
     box-shadow: none !important;
     background: #071526 !important;
+  }
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    box-shadow: none !important;
+    background: #071526 !important;
+    padding: 0.5rem !important;
+    margin-top: 0.35rem;
   }
 }
 </style>

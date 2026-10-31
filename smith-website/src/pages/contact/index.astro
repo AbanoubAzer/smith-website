@@ -62,6 +62,16 @@ const productOptions = [
                 <div class="office-name">China — Company Office</div>
                 <div class="office-address">{b.chinaAddress}</div>
                 <div class="office-desc">Supplier coordination, sourcing, order follow-up, inspection, and export preparation.</div>
+                <div class="office-links" style="margin-top:0.4rem; display:flex; flex-wrap:wrap; gap:0.75rem; font-size:0.84rem;">
+                  <a href={`mailto:${b.email}`} style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.25rem;">
+                    <span>✉️</span>
+                    <span>{b.email}</span>
+                  </a>
+                  <a href={`https://wa.me/${b.whatsappRaw}`} target="_blank" rel="noopener noreferrer" style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.25rem;">
+                    <span>💬</span>
+                    <span>{b.whatsapp}</span>
+                  </a>
+                </div>
               </div>
             </div>
 

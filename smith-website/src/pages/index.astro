@@ -11,6 +11,51 @@ const t = getLang(lang);
 const h = t.home;
 const b = t.brand;
 
+const heroSlides = [
+  {
+    img: url('/images/mockup-assets/hero-bg.jpg'),
+    alt: 'Global Sourcing & Building Materials',
+    tagline: 'YOUR TRUSTED PARTNER FOR',
+    headline: 'Global Sourcing,\nBuilding Materials &\nInternational Shipping',
+    desc: 'We connect quality building materials, architectural products and reliable manufacturers with customers, contractors and businesses across the United States and international markets.',
+  },
+  {
+    img: url('/images/doors/enterance door.jpg'),
+    alt: 'Luxury Architectural Entrance Doors',
+    tagline: 'ARCHITECTURAL DOORS',
+    headline: 'Luxury Grand Entrance &\nPivot Door Systems',
+    desc: 'Bespoke grand entrance doors, pivot systems, and solid wood designs engineered with security and architectural elegance.',
+  },
+  {
+    img: url('/images/windows/W1.png'),
+    alt: 'High-Performance Windows & Facades',
+    tagline: 'ENGINEERED EXCELLENCE',
+    headline: 'High-Performance Windows &\nPanoramic Facades',
+    desc: 'Precision thermal break windows, panoramic sliding systems, and architectural facades engineered to meet high international building codes.',
+  },
+  {
+    img: url('/images/kitchens/Kitchen 1.png'),
+    alt: 'Luxury Custom Kitchens & Cabinetry',
+    tagline: 'BESPOKE LIVING SPACES',
+    headline: 'Luxury Custom Kitchens &\nInterior Millwork',
+    desc: 'Modern and classic kitchen cabinetry, premium bathroom vanities, and custom walk-in closets built with fine craftsmanship and durable hardware.',
+  },
+  {
+    img: url('/images/metalwork/gate-1.jpg'),
+    alt: 'Hand-Forged Wrought Iron & Gates',
+    tagline: 'ARTISAN CRAFTSMANSHIP',
+    headline: 'Custom Wrought Iron &\nOrnamental Metalwork',
+    desc: 'Bespoke grand entrance gates, decorative balcony railings, fences, and customized steel structures tailored to luxury residential and commercial projects.',
+  },
+  {
+    img: url('/images/marble/M 10.png'),
+    alt: 'Direct Quarry Marble & Natural Stone',
+    tagline: 'FINE NATURAL SURFACES',
+    headline: 'Direct Quarry Marble,\nGranite & Engineered Stone',
+    desc: 'Exquisite natural stone slabs, engineered quartz countertops, and architectural stone surfaces sourced directly from premium certified factories.',
+  },
+];
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -37,17 +82,40 @@ const faqSchema = {
 
   <Header lang={lang} />
 
-  <!-- 1. HERO SECTION -->
-  <section class="hero-eitco" aria-label="Hero Section" style={`background-image: url('${url('/images/mockup-assets/hero-bg.jpg')}');`}>
+  <!-- 1. HERO SECTION WITH SLIDER -->
+  <section class="hero-eitco" aria-label="Hero Section">
+    <!-- Background Slider -->
+    <div class="hero-slider">
+      {heroSlides.map((slide, i) => (
+        <div class={`hero-slide${i === 0 ? ' active' : ''}`} data-index={i}>
+          <img src={slide.img} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+        </div>
+      ))}
+    </div>
     <div class="hero-eitco-overlay"></div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero-arrow hero-arrow-prev" id="hero-prev-btn" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="hero-arrow hero-arrow-next" id="hero-next-btn" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+
     <div class="container">
       <div class="hero-eitco-content">
-        <div class="hero-eitco-tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          <span>{h.hero.tagline}</span>
+        <div class="hero-text-slides">
+          {heroSlides.map((slide, i) => (
+            <div class={`hero-text-slide${i === 0 ? ' active' : ''}`} data-index={i}>
+              <div class="hero-eitco-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <span>{slide.tagline}</span>
+              </div>
+              <h1 class="hero-eitco-title">{slide.headline}</h1>
+              <p class="hero-eitco-desc">{slide.desc}</p>
+            </div>
+          ))}
         </div>
-        <h1 class="hero-eitco-title">{h.hero.headline}</h1>
-        <p class="hero-eitco-desc">{h.hero.sub}</p>
         <div class="hero-eitco-actions">
           <a href={url('/products/')} class="btn-primary" id="hero-explore-btn">
             <span>{h.hero.cta1}</span>
@@ -58,6 +126,13 @@ const faqSchema = {
           </a>
         </div>
       </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="hero-dots">
+      {heroSlides.map((_, i) => (
+        <button class={`hero-dot${i === 0 ? ' active' : ''}`} aria-label={`Slide ${i + 1}`} data-index={i} />
+      ))}
     </div>
   </section>
 
@@ -195,6 +270,20 @@ const faqSchema = {
                 <div>
                   <div class="presence-row-name">{loc.name}</div>
                   <div class="presence-row-details">{loc.details}</div>
+                  {loc.email && (
+                    <div class="presence-office-links" style="margin-top:0.35rem; display:flex; flex-wrap:wrap; gap:0.75rem; font-size:0.8rem;">
+                      <a href={`mailto:${loc.email}`} style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.25rem;">
+                        <span>✉️</span>
+                        <span>{loc.email}</span>
+                      </a>
+                      {loc.whatsapp && (
+                        <a href={`https://wa.me/${loc.whatsappRaw}`} target="_blank" rel="noopener noreferrer" style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.25rem;">
+                          <span>💬</span>
+                          <span>{loc.whatsapp}</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -482,34 +571,18 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- 11. FINAL CALL TO ACTION & MARKETS SERVED BANNER -->
+  <!-- 11. FINAL CALL TO ACTION BANNER -->
   <section class="cta-markets-section" id="quote" aria-labelledby="cta-title" style={`background-image: url('${url('/images/mockup-assets/cta-ship-bg.jpg')}');`}>
     <div class="cta-markets-overlay"></div>
     <div class="container">
-      <div class="cta-markets-grid">
-        <!-- Left Column: Free Quote CTA -->
-        <div class="cta-col-left">
-          <span class="section-tag">{h.ctaBanner.tag}</span>
-          <h2 id="cta-title">{h.ctaBanner.title}</h2>
-          <p>{h.ctaBanner.desc}</p>
-          <a href={url('/contact/#quote')} class="btn-primary" id="cta-request-quote-btn">
-            <span>{h.ctaBanner.button}</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
-          </a>
-        </div>
-
-        <!-- Right Column: Markets Served Badges -->
-        <div class="markets-col-right">
-          <h3>{h.ctaBanner.marketsTitle}</h3>
-          <div class="markets-badges-grid">
-            {h.ctaBanner.markets.map((m, i) => (
-              <div class="market-badge-pill" id={`market-pill-${i}`}>
-                <span class="market-flag">{m.flag}</span>
-                <span>{m.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div class="cta-col-center">
+        <span class="section-tag">{h.ctaBanner.tag}</span>
+        <h2 id="cta-title">{h.ctaBanner.title}</h2>
+        <p>{h.ctaBanner.desc}</p>
+        <a href={url('/contact/#quote')} class="btn-primary" id="cta-request-quote-btn">
+          <span>{h.ctaBanner.button}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+        </a>
       </div>
     </div>
   </section>
