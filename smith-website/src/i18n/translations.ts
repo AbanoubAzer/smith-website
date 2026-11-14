@@ -127,7 +127,7 @@ export const translations = {
           { icon: 'globe', title: 'Global Sourcing', desc: 'From China and beyond' },
           { icon: 'shield', title: 'Inspection & Documentation', desc: 'Quality control and customs support' },
           { icon: 'ship', title: 'Sea & Air Freight', desc: 'Reliable and cost-effective shipping' },
-          { icon: 'users', title: 'Local Partners', desc: 'Installation and handover support in the U.S.' },
+          { icon: 'users', title: 'Local Partners', desc: 'Local coordination and handover support in the U.S.' },
         ],
       },
       products: {
@@ -590,7 +590,7 @@ export const translations = {
           { icon: 'globe', title: 'التوريد العالمي', desc: 'من كبرى المصانع في الصين وما بعدها' },
           { icon: 'shield', title: 'الفحص والتوثيق', desc: 'مراقبة جودة صارمة ودعم التخليص الجمركي' },
           { icon: 'ship', title: 'الشحن البحري والجوي', desc: 'شحن موثوق، مدروس التكلفة، وجداول زمنية منضبطة' },
-          { icon: 'users', title: 'شركاء محليون', desc: 'دعم التركيب والتسليم داخل الولايات المتحدة' },
+          { icon: 'users', title: 'شركاء محليون', desc: 'دعم التنسيق والتسليم المحلي داخل الولايات المتحدة' },
         ],
       },
       products: {
