@@ -1,0 +1,1 @@
+import"./hoisted.DwxMXx-7.js";document.querySelectorAll(".faq-question-btn").forEach(e=>{e.addEventListener("click",()=>{const t=e.closest(".faq-item"),c=t?.classList.contains("active");document.querySelectorAll(".faq-item").forEach(i=>i.classList.remove("active")),c||t?.classList.add("active")})});
