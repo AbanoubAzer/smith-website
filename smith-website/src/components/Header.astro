@@ -72,6 +72,7 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
       <div class="nav-item has-dropdown" id="nav-products-item">
         <a href={lang === 'en' ? url('/products/') : url('/ar/products/')} class="nav-link" id="nav-products">
           <span>{t.nav.products}</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </a>
         <div class="products-dropdown-menu" id="dropdown-menu-products">
           {t.productNav.map(item => (
