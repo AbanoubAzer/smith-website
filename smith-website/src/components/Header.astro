@@ -68,49 +68,15 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
         <a href={lang === 'en' ? url('/') : url('/ar/')} class="nav-link" id="nav-home">{t.nav.home}</a>
       </div>
 
-      <!-- Products Mega Menu -->
+      <!-- Products Dropdown (Matching Client Screenshot) -->
       <div class="nav-item has-dropdown" id="nav-products-item">
-        <a href={lang === 'en' ? url('/products/') : url('/ar/#products')} class="nav-link" id="nav-products">
+        <a href={lang === 'en' ? url('/products/') : url('/ar/products/')} class="nav-link" id="nav-products">
           <span>{t.nav.products}</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </a>
-        <div class="mega-menu" id="mega-menu-products">
-          <div class="mega-col">
-            <div class="mega-col-title">{t.megaMenu.doors.title}</div>
-            {t.megaMenu.doors.items.map(item => (
-              <a href={item.href} class="mega-link">{item.label}</a>
-            ))}
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">{t.megaMenu.windows.title}</div>
-            {t.megaMenu.windows.items.map(item => (
-              <a href={item.href} class="mega-link">{item.label}</a>
-            ))}
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">{t.megaMenu.outdoor.title}</div>
-            {t.megaMenu.outdoor.items.map(item => (
-              <a href={item.href} class="mega-link">{item.label}</a>
-            ))}
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">{t.megaMenu.metalwork.title}</div>
-            {t.megaMenu.metalwork.items.map(item => (
-              <a href={item.href} class="mega-link">{item.label}</a>
-            ))}
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">{t.megaMenu.kitchens.title}</div>
-            {t.megaMenu.kitchens.items.map(item => (
-              <a href={item.href} class="mega-link">{item.label}</a>
-            ))}
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">{t.megaMenu.stone.title}</div>
-            {t.megaMenu.stone.items.map(item => (
-              <a href={item.href} class="mega-link">{item.label}</a>
-            ))}
-          </div>
+        <div class="products-dropdown-menu" id="dropdown-menu-products">
+          {t.productNav.map(item => (
+            <a href={item.href} class="products-dropdown-link">{item.label}</a>
+          ))}
         </div>
       </div>
 
@@ -374,56 +340,76 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
   transform: rotate(180deg);
 }
 
-/* Mega Menu */
-.mega-menu {
+/* Products Dropdown (Exact Match to Client Screenshot) */
+.products-dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  background: #0f233d;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
-  padding: 1.75rem;
-  display: grid;
-  grid-template-columns: repeat(6, 175px);
-  gap: 1.5rem;
+  left: 0;
+  min-width: 260px;
+  background: #002343;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  padding: 1.25rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: translateY(8px);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 110;
+  z-index: 120;
 }
-.nav-item:hover .mega-menu {
+:global(body.rtl) .products-dropdown-menu {
+  left: auto;
+  right: 0;
+}
+.nav-item:hover .products-dropdown-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
-.mega-col-title {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #d4a843;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid rgba(212, 168, 67, 0.2);
-}
-.mega-link {
+.products-dropdown-link {
   display: block;
-  font-size: 0.8rem;
-  color: #cbd5e1;
-  padding: 0.35rem 0;
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-.mega-link:hover {
+  font-size: 1.05rem;
+  font-weight: 500;
   color: #ffffff;
-  transform: translateX(4px);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
-:global(body.rtl) .mega-link:hover {
-  transform: translateX(-4px);
+.products-dropdown-link:hover {
+  color: #d4a843;
+  transform: translateX(5px);
+}
+:global(body.rtl) .products-dropdown-link:hover {
+  transform: translateX(-5px);
+}
+
+/* Gold active indicator below Products (Matching Screenshot) */
+#nav-products-item {
+  position: relative;
+}
+#nav-products-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0.85rem;
+  right: 0.85rem;
+  height: 3.5px;
+  background: #d4a843;
+  border-radius: 2px 2px 0 0;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+#nav-products-item:hover::after,
+#nav-products-item.active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 /* Standard Dropdown Menu */
@@ -550,9 +536,6 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
     padding: 0.5rem 0.65rem;
     font-size: 0.95rem;
   }
-  .mega-menu {
-    grid-template-columns: repeat(3, 180px);
-  }
 }
 
 @media (max-width: 1024px) {
@@ -591,17 +574,19 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
   .nav-links.open {
     transform: translateX(0) !important;
   }
-  .mega-menu {
+  .products-dropdown-menu {
     position: static !important;
     transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    grid-template-columns: 1fr !important;
+    min-width: 0 !important;
+    width: 100% !important;
     padding: 0.75rem 1rem !important;
-    margin-top: 0.5rem;
+    margin-top: 0.35rem;
     box-shadow: none !important;
     background: #071526 !important;
+    border-radius: 8px !important;
   }
   .dropdown-menu {
     position: static !important;
