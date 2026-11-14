@@ -156,19 +156,11 @@ export const translations = {
             icon: 'building',
             name: 'China — Company Office',
             details: 'Innovation China Industrial Park, 4 Xingxian Road, Gongshu District, Hangzhou City',
-            email: 'eliagadallah@eit-co.com',
-            whatsapp: '+86 186 1623 2842',
-            whatsappRaw: '8618616232842',
           },
           {
             icon: 'pin',
             name: 'New Jersey (USA) — Partner Office',
-            details: 'Modish Kitchen Reno · Tel: +1(551)-285-8187 · info@modishkitchenreno.com',
-          },
-          {
-            icon: 'wrench',
-            name: 'Tennessee, New York & New Jersey — Installation Partners',
-            details: 'Installation and handover support for eligible architectural orders',
+            details: 'Modish Kitchen Reno',
           },
           {
             icon: 'building',
@@ -627,19 +619,11 @@ export const translations = {
             icon: 'building',
             name: 'الصين — المكتب الرئيسي للشركة',
             details: 'حديقة إبداع الصين الصناعية، 4 طريق شينغ شيان، حي قونغ شو، مدينة هانغتشو',
-            email: 'eliagadallah@eit-co.com',
-            whatsapp: '+86 186 1623 2842',
-            whatsappRaw: '8618616232842',
           },
           {
             icon: 'pin',
             name: 'نيو جيرسي (الولايات المتحدة) — مكتب الشريك',
-            details: 'موديش كيتشن رينو (Modish Kitchen Reno) · هاتف: 8187-285-(551)+1 · info@modishkitchenreno.com',
-          },
-          {
-            icon: 'wrench',
-            name: 'تينيسي، نيويورك ونيو جيرسي — شركاء التركيب',
-            details: 'تنسيق التركيب الميداني والدعم اللوجستي للمشاريع والطلبات المؤهلة',
+            details: 'موديش كيتشن رينو (Modish Kitchen Reno)',
           },
           {
             icon: 'building',
