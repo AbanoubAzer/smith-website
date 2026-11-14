@@ -32,12 +32,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://abanoubazer.github.io/smith-website/products/outdoor/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://abanoubazer.github.io/smith-website/products/metalwork/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -111,6 +105,30 @@
   </url>
   <url>
     <loc>https://abanoubazer.github.io/smith-website/ar/products/doors/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/products/windows/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/products/metalwork/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/products/kitchens/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/products/stone/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
