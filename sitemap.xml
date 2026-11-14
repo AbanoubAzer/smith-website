@@ -80,6 +80,30 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://abanoubazer.github.io/smith-website/articles/reliable-manufacturers-china/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/articles/china-to-usa-shipping/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/articles/inspect-building-materials-china/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/articles/lcl-vs-fcl-shipping/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://abanoubazer.github.io/smith-website/ar/products/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -114,5 +138,29 @@
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/articles/reliable-manufacturers-china/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/articles/china-to-usa-shipping/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/articles/inspect-building-materials-china/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abanoubazer.github.io/smith-website/ar/articles/lcl-vs-fcl-shipping/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
