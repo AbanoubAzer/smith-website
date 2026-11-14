@@ -1,0 +1,408 @@
+---
+// src/pages/ar/products/kitchens.astro
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { url } from '../../../utils/paths';
+
+const lang = 'ar';
+
+const categories = [
+  {
+    id: 'kitchens',
+    title: 'مطابخ مخصصة فاخرة (Bespoke Kitchens)',
+    tagline: 'فخامة الطهي، بساطة النمط الأوروبي وعراقة الكلاسيك الأمريكي',
+    desc: 'اكتشف فن الرفاهية في تصميم وتصنيع المطابخ المخصصة، المصممة خصيصاً لتناسب بساطة المينيمال الأوروبي العصري أو فخامة الطراز الأمريكي الكلاسيكي الخالد. مجهزة بخزائن مسطحة فاخرة وأسطح كوارتز ورخام صلبة وتكامل ذكي مع أحدث الأجهزة المدمجة.',
+    models: [
+      { name: 'مطبخ مودرن أوروبي بدون إطارات (Frameless)', img: url('/images/kitchens/frameless-modern-european-style.png') },
+      { name: 'مطبخ كلاسيكي أمريكي فخم مع جزيرة مركزية', img: url('/images/kitchens/american-style.png') },
+      { name: 'مطبخ ترانزيشنال عصري بلمسات خشبية دافئة', img: url('/images/kitchens/warm-modern-transitional-style.png') },
+      { name: 'ركن بار ضيافة منزلي متكامل وفخم', img: url('/images/kitchens/home-bar.png') },
+    ],
+    highlights: ['إكسسوارات بلوم وهيبيتش هيدروليكية', 'إضاءة LED مدمجة موجهة لأسطح العمل', 'أسطح كوارتز وحجر ملبد عالية التحمل', 'تخطيط مخصص للجزر والخزائن'],
+  },
+  {
+    id: 'vanities',
+    title: 'وحدات وخزائن الحمامات الفاخرة',
+    tagline: 'ملاذ فندقي فاخر، وتصنيع متقن مقاوم للرطوبة',
+    desc: 'أعد ابتكار ملاذك الخاص مع وحدات وخزائن الحمامات الفاخرة، المصممة بتوازن يجمع بين المظهر الأنيق والوظائف الذكية. من الكتل الرخامية المصمتة إلى التصاميم المعلقة العصرية، تتميز كل قطعة بمقاومة استثنائية للرطوبة وإضاءة مدمجة.',
+    models: [
+      { name: 'وحدة حمام معلقة مودرن عائمة', img: url('/images/kitchens/vanities/wall-mounted-luxury.png') },
+      { name: 'وحدة حمام رخامية من كتلة حجرية مصمتة', img: url('/images/kitchens/vanities/solid-block-elegance.png') },
+      { name: 'وحدة حمام خشب طبيعي دافئة بنمط السبا', img: url('/images/kitchens/vanities/spa-inspired-warmth.png') },
+      { name: 'خزانة حمام كلاسيكية ملكية بطراز أوروبي', img: url('/images/kitchens/vanities/timeless-european-royalty.png') },
+    ],
+    highlights: ['عزل فائق ومقاومة تامة للرطوبة والمياه', 'أحواض مدمجة سفلية مصقولة بدقة', 'مرايا ذكية بإضاءة LED ومانع للتكثف', 'أدراج هيدروليكية بمفصلات مخفية'],
+  },
+  {
+    id: 'closets',
+    title: 'غرف وخزائن الملابس (Walk-In Closets)',
+    tagline: 'تنظيم ذكي، أبواب زجاجية مظللة وترتيب مخصص متكامل',
+    desc: 'ارتقِ بتخزين وتنظيم أزيائك مع غرف الملابس الفاخرة والخزائن المودرن، المرتبة بعناية فائقة لتعكس ذوقك الرفيع. بمزيج من أخشاب القشرة الطبيعية، الزجاج الملون الفاخر، والإضاءة الذكية الموزعة بانسيابية.',
+    models: [
+      { name: 'غرفة ملابس بزجاج ملون مظلل وإضاءة داخلية', img: url('/images/kitchens/closets/luxury-glass-walk-in-closets.jpg') },
+      { name: 'خزانة خشب طبيعي فاخرة بنظام Walk-In', img: url('/images/kitchens/closets/premium-wooden-walk-in.jpg') },
+      { name: 'خزائن ملابس بنمط كلاسيكي ونيوكلاسيكي', img: url('/images/kitchens/closets/classic-and-neo-classical-closets.jpg') },
+      { name: 'دولاب ملابس مودرن مينيمال بدون مقابض', img: url('/images/kitchens/closets/minimalist-modern-wardrobes.jpg') },
+    ],
+    highlights: ['أنظمة إضاءة LED مدمجة بحساسات ذكية', 'تقسيمات داخلية مخصصة للإكسسوارات', 'أبواب ألومنيوم بزجاج مقسى مظلل', 'صواني قطيفة مخصصة للساعات والمجوهرات'],
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="المطابخ المخصصة، وحدات الحمامات وغرف الملابس | شركة إيتكو"
+  description="اكتشف حلول الأثاث الداخلي والتفصيل المعماري: مطابخ أوروبية وأمريكية مخصصة، وحدات حمامات فاخرة، وغرف ملابس Walk-In بأعلى معايير الجودة الألمانية والإيطالية."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/ar/products/kitchens/"
+>
+  <Header lang={lang} />
+
+  <!-- Breadcrumb & Hero -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src={url('/images/kitchens/european-style.jpg')} alt="المطابخ المخصصة والأثاث الداخلي الفاخر" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href={url('/ar/')}>الرئيسية</a>
+          <span>›</span>
+          <a href={url('/ar/products/')}>المنتجات</a>
+          <span>›</span>
+          <span>المطابخ والأعمال الداخلية</span>
+        </nav>
+        <h1>المطابخ والأعمال الداخلية</h1>
+        <p>تفصيل معماري راقٍ، أسطح رخامية مصمتة، وحلول تخزين ذكية فائقة التنظيم</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subcategories Navigation Cards -->
+  <section class="section" style="background: #f8fafc; padding-top: 3.5rem;">
+    <div class="container">
+      <div class="subcat-nav-grid">
+        {categories.map(cat => (
+          <a href={`#cat-${cat.id}`} class="subcat-nav-card" id={`nav-${cat.id}`}>
+            <div class="subcat-nav-thumb">
+              <img src={cat.models[0].img} alt={cat.title} loading="lazy" />
+            </div>
+            <div class="subcat-nav-info">
+              <h3>{cat.title}</h3>
+              <span>استكشف التشكيلة ↓</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Request Catalogue CTA Banner -->
+      <div class="catalogue-request-banner">
+        <div class="cat-banner-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <div class="cat-banner-text">
+          <h2>طلب كتالوج المطابخ والديكور الداخلي</h2>
+          <p>احصل على أحدث كتالوج للمطابخ ووحدات الحمامات وغرف الملابس للاطلاع على خامات الأخشاب، الكوارتز، والإكسسوارات الهيدروليكية ومخططات التوزيع.</p>
+        </div>
+        <a href={url('/ar/contact/#quote')} class="btn-primary" id="request-catalogue-btn-ar">
+          <span>اطلب الكتالوج الآن</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 11H7.14l5.43-5.43L11.14 4.14 2.86 12.43l8.28 8.29 1.43-1.42L7.14 13H19v-2z"/></svg>
+        </a>
+      </div>
+
+      <!-- Detailed Categories Breakdown -->
+      <div class="cat-sections-list">
+        {categories.map(cat => (
+          <article class="cat-category-block" id={`cat-${cat.id}`}>
+            <div class="cat-header-block">
+              <span class="section-tag">{cat.title}</span>
+              <h2>{cat.title}</h2>
+              <p class="cat-tagline">{cat.tagline}</p>
+              <p class="cat-desc">{cat.desc}</p>
+              <div class="cat-highlights">
+                {cat.highlights.map(h => (
+                  <span class="highlight-pill">✓ {h}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="cat-models-grid">
+              {cat.models.map(m => (
+                <div class="cat-model-card">
+                  <div class="cat-model-thumb">
+                    <img src={m.img} alt={m.name} loading="lazy" />
+                  </div>
+                  <div class="cat-model-body">
+                    <h4>{m.name}</h4>
+                    <a href={url('/ar/contact/#quote')} class="cat-model-inquire">
+                      طلب المواصفات والأسعار ←
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 21, 38, 0.92) 0%, rgba(7, 21, 38, 0.45) 60%, transparent 100%);
+  z-index: 1;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.75rem;
+  width: 100%;
+}
+.page-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.page-hero-content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  max-width: 680px;
+}
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+.breadcrumb a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb a:hover {
+  color: #d4a843;
+}
+
+.subcat-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.subcat-nav-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.85rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+.subcat-nav-card:hover {
+  transform: translateY(-3px);
+  border-color: #d4a843;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.subcat-nav-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0f233d;
+}
+.subcat-nav-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.subcat-nav-info h3 {
+  font-size: 0.95rem;
+  color: #0b1e36;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
+}
+.subcat-nav-info span {
+  font-size: 0.78rem;
+  color: #b88a24;
+  font-weight: 600;
+}
+
+.catalogue-request-banner {
+  background: linear-gradient(135deg, #071526 0%, #102a4c 100%);
+  border-radius: 16px;
+  padding: 2.25rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: #ffffff;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 16px 36px rgba(7, 21, 38, 0.15);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+}
+.cat-banner-icon {
+  color: #d4a843;
+  flex-shrink: 0;
+}
+.cat-banner-text {
+  flex-grow: 1;
+}
+.cat-banner-text h2 {
+  font-size: 1.45rem;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+  font-weight: 800;
+}
+.cat-banner-text p {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cat-sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  padding-bottom: 2rem;
+}
+.cat-category-block {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+.cat-header-block {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 1.5rem;
+}
+.cat-header-block h2 {
+  font-size: 1.75rem;
+  color: #0b1e36;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+.cat-tagline {
+  color: #b88a24;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.cat-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 820px;
+  margin-bottom: 1.25rem;
+}
+.cat-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.highlight-pill {
+  background: #f1f5f9;
+  color: #0f233d;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.cat-models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.cat-model-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.cat-model-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+.cat-model-thumb {
+  height: 220px;
+  background: #0f233d;
+  position: relative;
+  overflow: hidden;
+}
+.cat-model-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.cat-model-card:hover .cat-model-thumb img {
+  transform: scale(1.05);
+}
+.cat-model-body {
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.cat-model-body h4 {
+  font-size: 1rem;
+  color: #0b1e36;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+.cat-model-inquire {
+  color: #b88a24;
+  font-weight: 700;
+  font-size: 0.84rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cat-model-inquire:hover {
+  color: #0b1e36;
+}
+
+@media (max-width: 900px) {
+  .catalogue-request-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+}
+</style>

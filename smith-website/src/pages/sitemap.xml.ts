@@ -6,7 +6,6 @@ const pages = [
   { url: '/products/', priority: '0.9', changefreq: 'weekly' },
   { url: '/products/doors/', priority: '0.8', changefreq: 'monthly' },
   { url: '/products/windows/', priority: '0.8', changefreq: 'monthly' },
-  { url: '/products/outdoor/', priority: '0.8', changefreq: 'monthly' },
   { url: '/products/metalwork/', priority: '0.8', changefreq: 'monthly' },
   { url: '/products/kitchens/', priority: '0.8', changefreq: 'monthly' },
   { url: '/products/stone/', priority: '0.8', changefreq: 'monthly' },
@@ -22,6 +21,10 @@ const pages = [
   // Arabic versions
   { url: '/ar/products/', priority: '0.9', changefreq: 'weekly' },
   { url: '/ar/products/doors/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/ar/products/windows/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/ar/products/metalwork/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/ar/products/kitchens/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/ar/products/stone/', priority: '0.8', changefreq: 'monthly' },
   { url: '/ar/global-sourcing/', priority: '0.8', changefreq: 'monthly' },
   { url: '/ar/our-network/', priority: '0.7', changefreq: 'monthly' },
   { url: '/ar/about/', priority: '0.7', changefreq: 'monthly' },

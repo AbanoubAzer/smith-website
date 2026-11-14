@@ -45,10 +45,10 @@ export const translations = {
     // PRODUCTS SIMPLE DROPDOWN MENU (MATCHING EXACT 5 CLIENT CATEGORIES)
     productNav: [
       { label: 'Doors', href: url('/products/doors/') },
-      { label: 'Windows & Aluminum', href: url('/products/#cat-windows') },
-      { label: 'Wrought Iron & Metal Work', href: url('/products/#cat-metalwork') },
-      { label: 'Kitchens & Interiors', href: url('/products/#cat-kitchens') },
-      { label: 'Stone Surfaces', href: url('/products/#cat-stone') },
+      { label: 'Windows & Aluminum', href: url('/products/windows/') },
+      { label: 'Wrought Iron & Metal Work', href: url('/products/metalwork/') },
+      { label: 'Kitchens & Interiors', href: url('/products/kitchens/') },
+      { label: 'Stone Surfaces', href: url('/products/stone/') },
     ],
 
     // MEGA MENU PRODUCT CATEGORIES
@@ -67,45 +67,45 @@ export const translations = {
       windows: {
         title: 'Windows & Aluminum',
         items: [
-          { label: 'Fixed Glass Facades & Smart Systems', href: url('/products/#cat-windows') },
-          { label: 'Sliding Windows', href: url('/products/#cat-windows') },
-          { label: 'Single & Double Hung Windows', href: url('/products/#cat-windows') },
-          { label: 'Ventilation & Fly-Screen Facades', href: url('/products/#cat-windows') },
+          { label: 'Fixed Glass Facades & Smart Systems', href: url('/products/windows/#cat-facades') },
+          { label: 'Sliding Windows', href: url('/products/windows/#cat-sliding') },
+          { label: 'Single & Double Hung Windows', href: url('/products/windows/#cat-sliding') },
+          { label: 'Ventilation & Fly-Screen Facades', href: url('/products/windows/#cat-facades') },
         ],
       },
       outdoor: {
         title: 'Outdoor Living',
         items: [
-          { label: 'Motorized Pergolas', href: url('/products/#cat-outdoor') },
-          { label: 'Thermal-Break Sunrooms', href: url('/products/#cat-outdoor') },
-          { label: 'Architectural Canopies & Gazebos', href: url('/products/#cat-outdoor') },
+          { label: 'Motorized Pergolas', href: url('/products/windows/#cat-outdoor') },
+          { label: 'Thermal-Break Sunrooms', href: url('/products/windows/#cat-outdoor') },
+          { label: 'Architectural Canopies & Gazebos', href: url('/products/metalwork/#cat-balconies-canopies') },
         ],
       },
       metalwork: {
         title: 'Wrought Iron & Metal Work',
         items: [
-          { label: 'Grand Estate Gates', href: url('/products/#cat-metalwork') },
-          { label: 'Luxury Entry Doors', href: url('/products/#cat-metalwork') },
-          { label: 'Decorative & French Balconies', href: url('/products/#cat-metalwork') },
-          { label: 'Decorative Window Grilles', href: url('/products/#cat-metalwork') },
+          { label: 'Grand Estate Gates', href: url('/products/metalwork/#cat-gates') },
+          { label: 'Luxury Entry Doors', href: url('/products/metalwork/#cat-doors') },
+          { label: 'Decorative & French Balconies', href: url('/products/metalwork/#cat-balconies-canopies') },
+          { label: 'Decorative Window Grilles', href: url('/products/metalwork/#cat-balconies-canopies') },
         ],
       },
       kitchens: {
         title: 'Kitchens & Interiors',
         items: [
-          { label: 'Bespoke Kitchen Systems', href: url('/products/#cat-kitchens') },
-          { label: 'Bathroom Vanities & Cabinets', href: url('/products/#cat-kitchens') },
-          { label: 'Luxury Walk-In Closets', href: url('/products/#cat-kitchens') },
-          { label: 'Home Bars & Millwork', href: url('/products/#cat-kitchens') },
+          { label: 'Bespoke Kitchen Systems', href: url('/products/kitchens/#cat-kitchens') },
+          { label: 'Bathroom Vanities & Cabinets', href: url('/products/kitchens/#cat-vanities') },
+          { label: 'Luxury Walk-In Closets', href: url('/products/kitchens/#cat-closets') },
+          { label: 'Home Bars & Millwork', href: url('/products/kitchens/#cat-kitchens') },
         ],
       },
       stone: {
         title: 'Stone Surfaces',
         items: [
-          { label: 'Calacatta Gold & Natural Marble', href: url('/products/#cat-stone') },
-          { label: 'Dark & Black Marble', href: url('/products/#cat-stone') },
-          { label: 'Green Marble & Verde Guatemala', href: url('/products/#cat-stone') },
-          { label: 'Solid & Veined Quartz', href: url('/products/#cat-stone') },
+          { label: 'Calacatta Gold & Natural Marble', href: url('/products/stone/#cat-marble') },
+          { label: 'Dark & Black Marble', href: url('/products/stone/#cat-marble') },
+          { label: 'Green Marble & Verde Guatemala', href: url('/products/stone/#cat-marble') },
+          { label: 'Solid & Veined Quartz', href: url('/products/stone/#cat-quartz') },
         ],
       },
     },
@@ -137,10 +137,10 @@ export const translations = {
         viewAll: 'View All Products',
         categories: [
           { title: 'Doors', img: url('/images/doors/entrance/luxury-modern.jpg'), href: url('/products/doors/') },
-          { title: 'Windows & Aluminum', img: url('/images/windows/fixed-glass-facades-and-smart-systems.jpg'), href: url('/products/#cat-windows') },
-          { title: 'Wrought Iron & Metal Work', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/products/#cat-metalwork') },
-          { title: 'Kitchens & Interiors', img: url('/images/kitchens/european-style.jpg'), href: url('/products/#cat-kitchens') },
-          { title: 'Stone Surfaces', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/products/#cat-stone') },
+          { title: 'Windows & Aluminum', img: url('/images/windows/fixed-glass-facades-and-smart-systems.jpg'), href: url('/products/windows/') },
+          { title: 'Wrought Iron & Metal Work', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/products/metalwork/') },
+          { title: 'Kitchens & Interiors', img: url('/images/kitchens/european-style.jpg'), href: url('/products/kitchens/') },
+          { title: 'Stone Surfaces', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/products/stone/') },
         ],
       },
       sourcing: {
@@ -508,10 +508,10 @@ export const translations = {
     // PRODUCTS SIMPLE DROPDOWN MENU (MATCHING EXACT 5 CLIENT CATEGORIES)
     productNav: [
       { label: 'الأبواب', href: url('/ar/products/doors/') },
-      { label: 'النوافذ والألومنيوم', href: url('/ar/products/#cat-windows') },
-      { label: 'الحديد المطروق والمعادن', href: url('/ar/products/#cat-metalwork') },
-      { label: 'المطابخ والديكور الداخلي', href: url('/ar/products/#cat-kitchens') },
-      { label: 'الأسطح الحجرية والرخام', href: url('/ar/products/#cat-stone') },
+      { label: 'النوافذ والألومنيوم', href: url('/ar/products/windows/') },
+      { label: 'الحديد المطروق والمعادن', href: url('/ar/products/metalwork/') },
+      { label: 'المطابخ والديكور الداخلي', href: url('/ar/products/kitchens/') },
+      { label: 'الأسطح الحجرية والرخام', href: url('/ar/products/stone/') },
     ],
 
     // MEGA MENU
@@ -530,45 +530,45 @@ export const translations = {
       windows: {
         title: 'النوافذ والألومنيوم',
         items: [
-          { label: 'واجهات زجاجية وأنظمة ذكية', href: url('/ar/products/#cat-windows') },
-          { label: 'نوافذ ألومنيوم منزلقة', href: url('/ar/products/#cat-windows') },
-          { label: 'نوافذ سحاب وتدلي مفردة ومزدوجة', href: url('/ar/products/#cat-windows') },
-          { label: 'واجهات تهوية وشبكات حماية متكاملة', href: url('/ar/products/#cat-windows') },
+          { label: 'واجهات زجاجية وأنظمة ذكية', href: url('/ar/products/windows/#cat-facades') },
+          { label: 'نوافذ ألومنيوم منزلقة', href: url('/ar/products/windows/#cat-sliding') },
+          { label: 'نوافذ سحاب وتدلي مفردة ومزدوجة', href: url('/ar/products/windows/#cat-sliding') },
+          { label: 'واجهات تهوية وشبكات حماية متكاملة', href: url('/ar/products/windows/#cat-facades') },
         ],
       },
       outdoor: {
         title: 'المعيشة الخارجية',
         items: [
-          { label: 'برجولات ألومنيوم ذكية متحركة', href: url('/ar/products/#cat-outdoor') },
-          { label: 'غرف زجاجية معزولة حرارياً (صن روم)', href: url('/ar/products/#cat-outdoor') },
-          { label: 'مظلات معمارية وجلسات خارجية', href: url('/ar/products/#cat-outdoor') },
+          { label: 'برجولات ألومنيوم ذكية متحركة', href: url('/ar/products/windows/#cat-outdoor') },
+          { label: 'غرف زجاجية معزولة حرارياً (صن روم)', href: url('/ar/products/windows/#cat-outdoor') },
+          { label: 'مظلات معمارية وجلسات خارجية', href: url('/ar/products/metalwork/#cat-balconies-canopies') },
         ],
       },
       metalwork: {
         title: 'الحديد المطروق والمعادن',
         items: [
-          { label: 'بوابات القصور والمداخل الكبرى', href: url('/ar/products/#cat-metalwork') },
-          { label: 'أبواب مداخل حديد مشغول فاخرة', href: url('/ar/products/#cat-metalwork') },
-          { label: 'شرفات ودرابزينات فرنسية مزخرفة', href: url('/ar/products/#cat-metalwork') },
-          { label: 'شبكات وحمايات نوافذ زخرفية', href: url('/ar/products/#cat-metalwork') },
+          { label: 'بوابات القصور والمداخل الكبرى', href: url('/ar/products/metalwork/#cat-gates') },
+          { label: 'أبواب مداخل حديد مشغول فاخرة', href: url('/ar/products/metalwork/#cat-doors') },
+          { label: 'شرفات ودرابزينات فرنسية مزخرفة', href: url('/ar/products/metalwork/#cat-balconies-canopies') },
+          { label: 'شبكات وحمايات نوافذ زخرفية', href: url('/ar/products/metalwork/#cat-balconies-canopies') },
         ],
       },
       kitchens: {
         title: 'المطابخ والديكور الداخلي',
         items: [
-          { label: 'مطابخ مخصصة (طراز أمريكي وأوروبي)', href: url('/ar/products/#cat-kitchens') },
-          { label: 'وحدات ومغاسل حمامات فاخرة', href: url('/ar/products/#cat-kitchens') },
-          { label: 'خزائن ملابس ودواليب Walk-in', href: url('/ar/products/#cat-kitchens') },
-          { label: 'بارات منزلية وأعمال خشبية مدمجة', href: url('/ar/products/#cat-kitchens') },
+          { label: 'مطابخ مخصصة (طراز أمريكي وأوروبي)', href: url('/ar/products/kitchens/#cat-kitchens') },
+          { label: 'وحدات ومغاسل حمامات فاخرة', href: url('/ar/products/kitchens/#cat-vanities') },
+          { label: 'خزائن ملابس ودواليب Walk-in', href: url('/ar/products/kitchens/#cat-closets') },
+          { label: 'بارات منزلية وأعمال خشبية مدمجة', href: url('/ar/products/kitchens/#cat-kitchens') },
         ],
       },
       stone: {
         title: 'الأسطح الحجرية والرخام',
         items: [
-          { label: 'رخام كلاكتا جولد ورخام طبيعي', href: url('/ar/products/#cat-stone') },
-          { label: 'رخام أسود وداكن فاخر', href: url('/ar/products/#cat-stone') },
-          { label: 'رخام أخضر وفيردي غواتيمالا', href: url('/ar/products/#cat-stone') },
-          { label: 'ألواح كوارتز صناعي معرق ومقاوم', href: url('/ar/products/#cat-stone') },
+          { label: 'رخام كلاكتا جولد ورخام طبيعي', href: url('/ar/products/stone/#cat-marble') },
+          { label: 'رخام أسود وداكن فاخر', href: url('/ar/products/stone/#cat-marble') },
+          { label: 'رخام أخضر وفيردي غواتيمالا', href: url('/ar/products/stone/#cat-marble') },
+          { label: 'ألواح كوارتز صناعي معرق ومقاوم', href: url('/ar/products/stone/#cat-quartz') },
         ],
       },
     },
@@ -600,10 +600,10 @@ export const translations = {
         viewAll: 'عرض جميع المنتجات',
         categories: [
           { title: 'الأبواب', img: url('/images/doors/entrance/luxury-modern.jpg'), href: url('/ar/products/doors/') },
-          { title: 'النوافذ والألومنيوم', img: url('/images/windows/fixed-glass-facades-and-smart-systems.jpg'), href: url('/ar/products/#cat-windows') },
-          { title: 'الحديد المطروق والمعادن', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/ar/products/#cat-metalwork') },
-          { title: 'المطابخ والديكور الداخلي', img: url('/images/kitchens/european-style.jpg'), href: url('/ar/products/#cat-kitchens') },
-          { title: 'الأسطح الحجرية والرخام', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/ar/products/#cat-stone') },
+          { title: 'النوافذ والألومنيوم', img: url('/images/windows/fixed-glass-facades-and-smart-systems.jpg'), href: url('/ar/products/windows/') },
+          { title: 'الحديد المطروق والمعادن', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/ar/products/metalwork/') },
+          { title: 'المطابخ والديكور الداخلي', img: url('/images/kitchens/european-style.jpg'), href: url('/ar/products/kitchens/') },
+          { title: 'الأسطح الحجرية والرخام', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/ar/products/stone/') },
         ],
       },
       sourcing: {
