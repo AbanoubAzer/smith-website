@@ -14,6 +14,11 @@ const pages = [
   { url: '/our-network/', priority: '0.7', changefreq: 'monthly' },
   { url: '/about/', priority: '0.7', changefreq: 'monthly' },
   { url: '/contact/', priority: '0.9', changefreq: 'monthly' },
+  // Articles & Guides (EN)
+  { url: '/articles/reliable-manufacturers-china/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/articles/china-to-usa-shipping/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/articles/inspect-building-materials-china/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/articles/lcl-vs-fcl-shipping/', priority: '0.8', changefreq: 'monthly' },
   // Arabic versions
   { url: '/ar/products/', priority: '0.9', changefreq: 'weekly' },
   { url: '/ar/products/doors/', priority: '0.8', changefreq: 'monthly' },
@@ -21,6 +26,11 @@ const pages = [
   { url: '/ar/our-network/', priority: '0.7', changefreq: 'monthly' },
   { url: '/ar/about/', priority: '0.7', changefreq: 'monthly' },
   { url: '/ar/contact/', priority: '0.9', changefreq: 'monthly' },
+  // Articles & Guides (AR)
+  { url: '/ar/articles/reliable-manufacturers-china/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/ar/articles/china-to-usa-shipping/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/ar/articles/inspect-building-materials-china/', priority: '0.8', changefreq: 'monthly' },
+  { url: '/ar/articles/lcl-vs-fcl-shipping/', priority: '0.8', changefreq: 'monthly' },
 ];
 
 const baseUrl = 'https://abanoubazer.github.io/smith-website';
