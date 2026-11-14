@@ -46,7 +46,6 @@ export const translations = {
     productNav: [
       { label: 'Doors', href: url('/products/doors/') },
       { label: 'Windows & Aluminum', href: url('/products/#cat-windows') },
-      { label: 'Outdoor Living', href: url('/products/#cat-outdoor') },
       { label: 'Wrought Iron & Metal Work', href: url('/products/#cat-metalwork') },
       { label: 'Kitchens & Interiors', href: url('/products/#cat-kitchens') },
       { label: 'Stone Surfaces', href: url('/products/#cat-stone') },
@@ -520,7 +519,6 @@ export const translations = {
     productNav: [
       { label: 'الأبواب', href: url('/ar/products/doors/') },
       { label: 'النوافذ والألومنيوم', href: url('/ar/products/#cat-windows') },
-      { label: 'المعيشة الخارجية', href: url('/ar/products/#cat-outdoor') },
       { label: 'الحديد المطروق والمعادن', href: url('/ar/products/#cat-metalwork') },
       { label: 'المطابخ والديكور الداخلي', href: url('/ar/products/#cat-kitchens') },
       { label: 'الأسطح الحجرية والرخام', href: url('/ar/products/#cat-stone') },
