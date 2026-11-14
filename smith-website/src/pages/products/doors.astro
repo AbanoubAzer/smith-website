@@ -1,0 +1,481 @@
+---
+// src/pages/products/doors.astro
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { url } from '../../utils/paths';
+
+const lang = 'en';
+
+const doorCategories = [
+  {
+    id: 'custom',
+    title: 'Custom Doors',
+    tagline: 'Designed Around Your Vision',
+    desc: 'Make a lasting first impression with a custom entrance door tailored to your architecture, style, and functional requirements. From contemporary glass combinations to elegant wood finishes and unique geometric designs, we bring your ideas to life.',
+    models: [
+      { name: 'Black Double Glass Door', img: url('/images/doors/custom/black-double-glass-door.jpg') },
+      { name: 'Modern Fluted Wood Entrance Door', img: url('/images/doors/custom/modern-fluted-wood-entrance-door.jpeg') },
+      { name: 'Steel Wood Composite Door', img: url('/images/doors/custom/steel-wood-door.jpg') },
+      { name: 'Architectural Geometric Door', img: url('/images/doors/custom/interior-door-3.jpeg') },
+    ],
+    highlights: ['Bespoke Dimensions', 'Custom Glass & Metal', 'Tailored Finishes', 'Full CAD/BIM Support'],
+  },
+  {
+    id: 'entrance',
+    title: 'Entrance Doors',
+    tagline: 'Make a Lasting First Impression',
+    desc: 'Engineered for ultimate security and architectural grandeur. Crafted from high-end materials, they combine sleek modern aesthetics with heavy-duty durability to provide a grand welcome to any luxury villa or commercial estate.',
+    models: [
+      { name: 'Luxury Modern Entrance Door', img: url('/images/doors/entrance/luxury-modern.jpg') },
+      { name: 'Modern Armored Entrance Door', img: url('/images/doors/entrance/modern-armored-entrance-doors.png') },
+      { name: 'Aluminum Luxury Architectural Door', img: url('/images/doors/entrance/aluminum-luxry.jpg') },
+      { name: 'Classic Solid Wooden Entrance Door', img: url('/images/doors/entrance/classic-wooden.jpg') },
+      { name: 'French Double Entry Door', img: url('/images/doors/entrance/french-double-entry.jpg') },
+      { name: 'Modern Vertical Slatted Entrance Door', img: url('/images/doors/entrance/modern-vertical-slatted.jpg') },
+    ],
+    highlights: ['Multi-Point Locking', 'Reinforced Armored Core', 'Weatherproof Coatings', 'Smart Lock Ready'],
+  },
+  {
+    id: 'fire-rated',
+    title: 'Fire Rated Doors',
+    tagline: 'Engineered to Protect Lives & Properties',
+    desc: 'Fully compliant with international safety standards without compromising on design. Featuring advanced thermal insulation and smoke-seal systems, these doors offer robust fire resistance (30 to 120 mins) for residential complexes and commercial buildings.',
+    models: [
+      { name: 'Commercial Metal Fire-Rated Door', img: url('/images/doors/fire-rated/metal---fire-rated.jpg') },
+      { name: 'Architectural Wooden Fire-Rated Door', img: url('/images/doors/fire-rated/wooden-fire-rated-door.jpg') },
+      { name: 'Wood Finish Fire-Resistant System', img: url('/images/doors/fire-rated/wood--fire-rated.jpg') },
+    ],
+    highlights: ['UL & BS Compliant', '30–120 Min Rating', 'Smoke Seal Gaskets', 'Acoustic & Fire Tested'],
+  },
+  {
+    id: 'garage',
+    title: 'Garage Doors',
+    tagline: 'Smooth, Silent & Secure Access',
+    desc: 'Elevate your home’s exterior with our smart sectional garage doors, designed for smooth, silent operation and maximum weather resistance. Combining heavy-duty reinforced tracks with elegant modern finishes, they offer seamless vehicle access alongside top-tier security.',
+    models: [
+      { name: 'Carriage House Sectional Door', img: url('/images/doors/garage/carriage-house.png') },
+      { name: 'Wood-Look Slatted Garage Door', img: url('/images/doors/garage/wood-look-slatted.png') },
+      { name: 'Full-View Panoramic Glass Garage Door', img: url('/images/doors/garage/full-view-glass.png') },
+      { name: 'Modern Flush Panel Garage Door', img: url('/images/doors/garage/modern-flush-panel.png') },
+      { name: 'Traditional Raised Panel Door', img: url('/images/doors/garage/traditional-raised-panel.png') },
+      { name: 'Panoramic Anodized Aluminum Garage Door', img: url('/images/doors/garage/panoramic-glass.png') },
+    ],
+    highlights: ['Thermal Insulated Panels', 'Ultra-Quiet Belt Drive', 'Anti-Pinch Finger Design', 'Smart Phone Control'],
+  },
+  {
+    id: 'interior',
+    title: 'Interior Doors',
+    tagline: 'Acoustic Comfort & Modern Elegance',
+    desc: 'Transform your living spaces with our sophisticated collection of interior doors, tailored to enhance the flow and acoustic comfort of your home. Available in seamless minimalist styles, rich wood grains, and bespoke modern textures.',
+    models: [
+      { name: 'Modern Solid Wood Interior Door', img: url('/images/doors/interior/modern-solid-wood.jpg') },
+      { name: 'Concealed Frame Hidden Door', img: url('/images/doors/interior/hidden-doors.jpg') },
+      { name: 'High-Density MDF & HDF Interior Door', img: url('/images/doors/interior/mdfandhdf-doors.jpg') },
+      { name: 'Eco-Friendly WPC Waterproof Door', img: url('/images/doors/interior/wpc-doors.jpg') },
+      { name: 'High-Durability PVC Interior Door', img: url('/images/doors/interior/pvc-doors.jpg') },
+    ],
+    highlights: ['Acoustic Core Filling', 'Concealed Magnetic Hinges', 'Zero-Formaldehyde Finishes', 'Scratch Resistant'],
+  },
+  {
+    id: 'pivot',
+    title: 'Pivot Doors',
+    tagline: 'Pinnacle of Architectural Luxury',
+    desc: 'Experience grand architectural luxury with our oversized pivot doors, designed to swing effortlessly on a heavy-duty hidden pivot axle. Ideal for wide, high-ceiling entryways, these oversized doors create a dramatic visual impact through sleek aluminum, solid wood, and glass integration.',
+    models: [
+      { name: 'Wood & Metal Combination Pivot Door', img: url('/images/doors/pivot/wood-and-metal-combination.png') },
+      { name: 'Contemporary Minimalist Pivot Door', img: url('/images/doors/pivot/contemporary-pivot.png') },
+      { name: 'Modern Aluminum Thermal Pivot Door', img: url('/images/doors/pivot/modern-aluminum-pivot-door.jpg') },
+    ],
+    highlights: ['Oversized Up to 4m High', 'Heavy-Duty 500kg Axle', 'Soft-Closing Buffer', 'Thermal-Break Insulation'],
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="Architectural Doors Collection — Custom, Pivot, Entrance & Interior | EITCO Ltd"
+  description="Discover our complete architectural door systems: custom luxury doors, oversized pivot doors, entrance doors, fire rated doors, smart garage doors, and interior collections."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/products/doors/"
+>
+  <Header lang={lang} />
+
+  <!-- Breadcrumb & Hero -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src={url('/images/doors/entrance/luxury-modern.jpg')} alt="Architectural Doors" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href={url('/')}>Home</a>
+          <span>›</span>
+          <a href={url('/products/')}>Products</a>
+          <span>›</span>
+          <span>Doors</span>
+        </nav>
+        <h1>Doors</h1>
+        <p>Stylish, Durable and Customized Solutions for Luxury Architecture</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 Subcategories Grid Matching صفحة الابواب.png -->
+  <section class="section" style="background: #f8fafc; padding-top: 3.5rem;">
+    <div class="container">
+      <div class="doors-nav-grid">
+        {doorCategories.map(cat => (
+          <a href={`#cat-${cat.id}`} class="door-subcat-nav-card" id={`nav-door-${cat.id}`}>
+            <div class="door-nav-thumb">
+              <img src={cat.models[0].img} alt={cat.title} loading="lazy" />
+            </div>
+            <div class="door-nav-info">
+              <h3>{cat.title}</h3>
+              <span>Explore Collection ↓</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Request Door Catalogue CTA Banner Matching صفحة الابواب.png -->
+      <div class="catalogue-request-banner">
+        <div class="cat-banner-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <div class="cat-banner-text">
+          <h2>Request Door Catalogue</h2>
+          <p>Get our latest door catalogue for more details and designs, material specifications, and CAD drawings.</p>
+        </div>
+        <a href={url('/contact/#quote')} class="btn-primary" id="request-catalogue-btn">
+          <span>Request Catalogue</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+        </a>
+      </div>
+
+      <!-- Detailed Categories Breakdown -->
+      <div class="door-sections-list">
+        {doorCategories.map(cat => (
+          <article class="door-category-block" id={`cat-${cat.id}`}>
+            <div class="door-cat-header">
+              <span class="section-tag">{cat.title.toUpperCase()}</span>
+              <h2>{cat.title}</h2>
+              <p class="door-cat-tagline">{cat.tagline}</p>
+              <p class="door-cat-desc">{cat.desc}</p>
+              <div class="door-highlights">
+                {cat.highlights.map(h => (
+                  <span class="highlight-pill">✓ {h}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="door-models-grid">
+              {cat.models.map(m => (
+                <div class="door-model-card">
+                  <div class="door-model-thumb">
+                    <img src={m.img} alt={m.name} loading="lazy" />
+                  </div>
+                  <div class="door-model-body">
+                    <h4>{m.name}</h4>
+                    <a href={url('/contact/#quote')} class="door-model-inquire">
+                      Inquire About Specifications →
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+/* Page Hero */
+.page-hero {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 5rem;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 30, 54, 0.95) 0%, rgba(11, 30, 54, 0.65) 60%, rgba(11, 30, 54, 0.35) 100%);
+  z-index: 1;
+}
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.75rem;
+  color: #ffffff;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 0.85rem;
+}
+.breadcrumb a {
+  color: #d4a843;
+  text-decoration: none;
+}
+.page-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.page-hero-content p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  max-width: 650px;
+}
+
+/* 6 Subcategories Nav Grid */
+.doors-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.door-subcat-nav-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+.door-subcat-nav-card:hover {
+  transform: translateY(-4px);
+  border-color: #d4a843;
+  box-shadow: 0 12px 24px rgba(212, 168, 67, 0.15);
+}
+.door-nav-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0f233d;
+}
+.door-nav-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.door-subcat-nav-card:hover .door-nav-thumb img {
+  transform: scale(1.06);
+}
+.door-nav-info {
+  padding: 0.9rem 0.75rem;
+  text-align: center;
+}
+.door-nav-info h3 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0b1e36;
+  margin-bottom: 0.25rem;
+}
+.door-nav-info span {
+  font-size: 0.72rem;
+  color: #d4a843;
+  font-weight: 600;
+}
+
+/* Catalogue Request Banner */
+.catalogue-request-banner {
+  background: linear-gradient(135deg, #0b1e36 0%, #153358 100%);
+  border: 1px solid rgba(212, 168, 67, 0.35);
+  border-radius: 14px;
+  padding: 1.75rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  color: #ffffff;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 10px 30px rgba(11, 30, 54, 0.15);
+}
+.cat-banner-icon {
+  color: #d4a843;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 168, 67, 0.12);
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+}
+.cat-banner-text {
+  flex-grow: 1;
+}
+.cat-banner-text h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+.cat-banner-text p {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.5;
+}
+.catalogue-request-banner .btn-primary {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Detailed Category Block */
+.door-category-block {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.25rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+.door-cat-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 1.75rem;
+}
+.door-cat-header h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0b1e36;
+  margin-top: 0.35rem;
+  margin-bottom: 0.25rem;
+}
+.door-cat-tagline {
+  font-size: 1.05rem;
+  color: #d4a843;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.door-cat-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 860px;
+  margin-bottom: 1.25rem;
+}
+.door-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.highlight-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0b1e36;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+}
+
+/* Models Grid */
+.door-models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.door-model-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fafafa;
+  transition: all 0.25s ease;
+}
+.door-model-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+.door-model-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0b1e36;
+}
+.door-model-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.door-model-card:hover .door-model-thumb img {
+  transform: scale(1.05);
+}
+.door-model-body {
+  padding: 1rem 1.15rem;
+}
+.door-model-body h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0b1e36;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.door-model-inquire {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d4a843;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+.door-model-inquire:hover {
+  color: #0b1e36;
+}
+
+@media (max-width: 1100px) {
+  .doors-nav-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .doors-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .catalogue-request-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.75rem 1.25rem;
+    gap: 1.25rem;
+  }
+  .catalogue-request-banner .btn-primary {
+    width: 100%;
+    max-width: 320px;
+  }
+  .cat-banner-icon {
+    display: none;
+  }
+  .door-category-block {
+    padding: 1.35rem;
+  }
+  .door-models-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

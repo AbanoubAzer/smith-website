@@ -16,6 +16,7 @@ const pages = [
   { url: '/contact/', priority: '0.9', changefreq: 'monthly' },
   // Arabic versions
   { url: '/ar/products/', priority: '0.9', changefreq: 'weekly' },
+  { url: '/ar/products/doors/', priority: '0.8', changefreq: 'monthly' },
   { url: '/ar/global-sourcing/', priority: '0.8', changefreq: 'monthly' },
   { url: '/ar/our-network/', priority: '0.7', changefreq: 'monthly' },
   { url: '/ar/about/', priority: '0.7', changefreq: 'monthly' },

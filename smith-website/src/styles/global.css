@@ -263,10 +263,10 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(5, 13, 24, 0.82) 0%,
-    rgba(5, 13, 24, 0.52) 35%,
-    rgba(5, 13, 24, 0.12) 65%,
-    rgba(5, 13, 24, 0) 80%
+    rgba(5, 13, 24, 0.75) 0%,
+    rgba(5, 13, 24, 0.45) 38%,
+    rgba(5, 13, 24, 0.08) 70%,
+    rgba(5, 13, 24, 0) 100%
   );
   z-index: 1;
   pointer-events: none;
@@ -275,10 +275,10 @@ body.rtl .hero-eitco-overlay,
 html[dir="rtl"] .hero-eitco-overlay {
   background: linear-gradient(
     270deg,
-    rgba(5, 13, 24, 0.82) 0%,
-    rgba(5, 13, 24, 0.52) 35%,
-    rgba(5, 13, 24, 0.12) 65%,
-    rgba(5, 13, 24, 0) 80%
+    rgba(5, 13, 24, 0.75) 0%,
+    rgba(5, 13, 24, 0.45) 38%,
+    rgba(5, 13, 24, 0.08) 70%,
+    rgba(5, 13, 24, 0) 100%
   );
 }
 .hero-eitco .container {
@@ -1954,35 +1954,44 @@ html[dir="rtl"] .whatsapp-btn {
   html[dir="rtl"] .hero-eitco-overlay {
     background: linear-gradient(
       180deg,
-      rgba(5, 13, 24, 0.35) 0%,
-      rgba(5, 13, 24, 0.18) 25%,
-      rgba(5, 13, 24, 0.6) 65%,
-      rgba(5, 13, 24, 0.9) 100%
+      rgba(5, 13, 24, 0.45) 0%,
+      rgba(5, 13, 24, 0.2) 40%,
+      rgba(5, 13, 24, 0.6) 100%
     ) !important;
   }
   .hero-eitco {
-    min-height: 540px;
-    padding: 3rem 0 5.5rem;
+    min-height: 520px;
+    padding: 2.75rem 0 5.25rem;
   }
   .hero-eitco-content {
     max-width: 100%;
     padding: 0;
+  }
+  .hero-text-slides {
+    background: rgba(7, 21, 38, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.25rem 1.15rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    margin-bottom: 1.25rem;
   }
   .hero-eitco-tag {
     font-size: 0.72rem;
     margin-bottom: 0.45rem;
   }
   .hero-eitco-title {
-    font-size: clamp(1.45rem, 5.2vw, 1.95rem);
-    line-height: 1.22;
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.4rem, 5vw, 1.85rem);
+    line-height: 1.25;
+    margin-bottom: 0.65rem;
     word-break: break-word;
     overflow-wrap: break-word;
   }
   .hero-eitco-desc {
     font-size: 0.88rem;
-    line-height: 1.5;
-    margin-bottom: 1.35rem;
+    line-height: 1.55;
+    margin-bottom: 0;
     max-width: 100%;
   }
   .hero-eitco-actions {
