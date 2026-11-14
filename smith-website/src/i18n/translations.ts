@@ -42,7 +42,7 @@ export const translations = {
       requestQuote: 'Request a Quote',
     },
 
-    // PRODUCTS SIMPLE DROPDOWN MENU
+    // PRODUCTS SIMPLE DROPDOWN MENU (MATCHING EXACT 5 CLIENT CATEGORIES)
     productNav: [
       { label: 'Doors', href: url('/products/doors/') },
       { label: 'Windows & Aluminum', href: url('/products/#cat-windows') },
@@ -515,7 +515,7 @@ export const translations = {
       requestQuote: 'طلب عرض سعر',
     },
 
-    // PRODUCTS SIMPLE DROPDOWN MENU
+    // PRODUCTS SIMPLE DROPDOWN MENU (MATCHING EXACT 5 CLIENT CATEGORIES)
     productNav: [
       { label: 'الأبواب', href: url('/ar/products/doors/') },
       { label: 'النوافذ والألومنيوم', href: url('/ar/products/#cat-windows') },

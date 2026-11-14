@@ -60,12 +60,9 @@ const b = t.brand;
       <div class="footer-col">
         <div class="footer-col-title">{lang === 'en' ? 'Architectural Products' : 'المنتجات المعمارية'}</div>
         <ul>
-          <li><a href={url(lang === 'en' ? '/products/#cat-doors' : '/ar/products/#cat-doors')}>{lang === 'en' ? 'Doors' : 'الأبواب'}</a></li>
-          <li><a href={url(lang === 'en' ? '/products/#cat-windows' : '/ar/products/#cat-windows')}>{lang === 'en' ? 'Windows & Aluminum' : 'النوافذ والألومنيوم'}</a></li>
-          <li><a href={url(lang === 'en' ? '/products/#cat-outdoor' : '/ar/products/#cat-outdoor')}>{lang === 'en' ? 'Pergolas & Sunrooms' : 'البرجولات والغرف الشمسية'}</a></li>
-          <li><a href={url(lang === 'en' ? '/products/#cat-metalwork' : '/ar/products/#cat-metalwork')}>{lang === 'en' ? 'Wrought Iron & Metalwork' : 'الحديد المطروق والمعادن'}</a></li>
-          <li><a href={url(lang === 'en' ? '/products/#cat-kitchens' : '/ar/products/#cat-kitchens')}>{lang === 'en' ? 'Kitchens & Interiors' : 'المطابخ والديكور الداخلي'}</a></li>
-          <li><a href={url(lang === 'en' ? '/products/#cat-stone' : '/ar/products/#cat-stone')}>{lang === 'en' ? 'Stone Surfaces' : 'الأسطح الحجرية'}</a></li>
+          {t.productNav.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
           <li><a href={url(lang === 'en' ? '/contact/#quote' : '/ar/contact/#quote')}>{lang === 'en' ? 'Request Product Catalog' : 'طلب كتالوج المنتجات'}</a></li>
         </ul>
       </div>
