@@ -7,7 +7,7 @@ export const translations = {
     brand: {
       name: 'EITCO Ltd',
       legalName: 'Elena International Trading Co., Limited',
-      tagline: 'Sourcing · Building · Shipping',
+      tagline: 'Sourcing · Building Materials · Shipping',
       slogan: 'Your Global Partner in Sourcing & Trade',
       hubs: 'China · New Jersey · Kuwait',
       email: 'eliagadallah@eit-co.com',
@@ -481,7 +481,7 @@ export const translations = {
     brand: {
       name: 'شركة إيتكو المحدودة (EITCO Ltd)',
       legalName: 'شركة إلينا للتجارة الدولية المحدودة (Elena International Trading Co., Limited)',
-      tagline: 'التوريد · البناء · الشحن',
+      tagline: 'التوريد · مواد البناء · الشحن',
       slogan: 'شريكك العالمي في التوريد والتجارة',
       hubs: 'الصين · نيو جيرسي · الكويت',
       email: 'eliagadallah@eit-co.com',
