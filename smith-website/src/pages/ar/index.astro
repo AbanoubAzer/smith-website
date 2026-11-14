@@ -204,9 +204,9 @@ const faqSchema = {
       </div>
 
       <div class="products-mockup-grid">
-        <!-- Top Row (4 cards): Doors, Windows, Pergolas, Wrought Iron -->
+        <!-- Top Row (3 cards): Doors, Windows, Wrought Iron -->
         <div class="prod-row-top">
-          {h.products.categories.slice(0, 4).map((cat, i) => (
+          {h.products.categories.slice(0, 3).map((cat, i) => (
             <a href={cat.href} class="prod-mockup-card" id={`cat-card-ar-${i}`}>
               <img src={cat.img} alt={cat.title} loading="lazy" />
               <div class="prod-mockup-overlay">
@@ -219,10 +219,10 @@ const faqSchema = {
           ))}
         </div>
 
-        <!-- Bottom Row (3 cards): Kitchens & Bars, Bathroom Vanities, Quartz Marble & Stone -->
+        <!-- Bottom Row (2 cards): Kitchens & Interiors, Stone Surfaces -->
         <div class="prod-row-bottom">
-          {h.products.categories.slice(4, 7).map((cat, i) => (
-            <a href={cat.href} class="prod-mockup-card" id={`cat-card-ar-${i + 4}`}>
+          {h.products.categories.slice(3, 5).map((cat, i) => (
+            <a href={cat.href} class="prod-mockup-card" id={`cat-card-ar-${i + 3}`}>
               <img src={cat.img} alt={cat.title} loading="lazy" />
               <div class="prod-mockup-overlay">
                 <div class="prod-mockup-meta">

@@ -138,11 +138,9 @@ export const translations = {
         categories: [
           { title: 'Doors', img: url('/images/doors/entrance/luxury-modern.jpg'), href: url('/products/doors/') },
           { title: 'Windows & Aluminum', img: url('/images/windows/fixed-glass-facades-and-smart-systems.jpg'), href: url('/products/#cat-windows') },
-          { title: 'Pergolas & Sunrooms', img: url('/images/windows/pergola.png'), href: url('/products/#cat-outdoor') },
-          { title: 'Wrought Iron & Metalwork', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/products/#cat-metalwork') },
-          { title: 'Kitchens & Bars', img: url('/images/kitchens/european-style.jpg'), href: url('/products/#cat-kitchens') },
-          { title: 'Bathroom Vanities', img: url('/images/kitchens/vanities/bathroom-vanities-and-cabinets.jpeg'), href: url('/products/#cat-kitchens') },
-          { title: 'Quartz, Marble & Stone', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/products/#cat-stone') },
+          { title: 'Wrought Iron & Metal Work', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/products/#cat-metalwork') },
+          { title: 'Kitchens & Interiors', img: url('/images/kitchens/european-style.jpg'), href: url('/products/#cat-kitchens') },
+          { title: 'Stone Surfaces', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/products/#cat-stone') },
         ],
       },
       sourcing: {
@@ -611,11 +609,9 @@ export const translations = {
         categories: [
           { title: 'الأبواب', img: url('/images/doors/entrance/luxury-modern.jpg'), href: url('/ar/products/doors/') },
           { title: 'النوافذ والألومنيوم', img: url('/images/windows/fixed-glass-facades-and-smart-systems.jpg'), href: url('/ar/products/#cat-windows') },
-          { title: 'البرجولات والغرف الشمسية', img: url('/images/windows/pergola.png'), href: url('/ar/products/#cat-outdoor') },
           { title: 'الحديد المطروق والمعادن', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/ar/products/#cat-metalwork') },
-          { title: 'المطابخ والبارات', img: url('/images/kitchens/european-style.jpg'), href: url('/ar/products/#cat-kitchens') },
-          { title: 'أثاث ووحدات الحمامات', img: url('/images/kitchens/vanities/bathroom-vanities-and-cabinets.jpeg'), href: url('/ar/products/#cat-kitchens') },
-          { title: 'الكوارتز والرخام والأحجار', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/ar/products/#cat-stone') },
+          { title: 'المطابخ والديكور الداخلي', img: url('/images/kitchens/european-style.jpg'), href: url('/ar/products/#cat-kitchens') },
+          { title: 'الأسطح الحجرية والرخام', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/ar/products/#cat-stone') },
         ],
       },
       sourcing: {
