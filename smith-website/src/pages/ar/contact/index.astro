@@ -1,0 +1,563 @@
+---
+// src/pages/ar/contact/index.astro
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLang } from '../../../i18n/translations';
+import { url } from '../../../utils/paths';
+
+const lang = 'ar';
+const t = getLang(lang);
+const b = t.brand;
+
+const productOptions = [
+  'أبواب المداخل الرئيسية', 'الأبواب الداخلية', 'أبواب البيفوت المحورية', 'أبواب مخصصة',
+  'نوافذ الألومنيوم', 'البرجولات والغرف المشمسة', 'الحديد المشغول والمعادن',
+  'المطابخ ووحدات الحمامات', 'الرخام، الكوارتز والأسطح الحجرية',
+  'التوريد العالمي والتصنيع', 'فحص الجودة والمطابقة', 'التصدير والتخليص الجمركي',
+  'الشحن البحري والجوي', 'منتجات أخرى / مشروع خاص',
+];
+---
+
+<Base
+  lang={lang}
+  title="اتصل بنا | شركة إيتكو للتجارة الدولية المحدودة"
+  description="تواصل مع شركة إيتكو لتوريد المنتجات المعمارية، مواد البناء، أو خدمات التوريد العالمي من الصين مباشرة. فريقنا الدولي مستعد لخدمتكم عبر الواتساب، البريد، أو مكاتبنا."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/ar/contact/"
+>
+  <Header lang={lang} />
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src={url('/images/contact-hero.jpg')} alt="اتصل بشركة إيتكو" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href={url('/ar/')}>الرئيسية</a>
+          <span>›</span>
+          <span>اتصل بنا</span>
+        </nav>
+        <h1>دعنا نتحدث عن مشروعك القادم</h1>
+        <p>شاركنا متطلبات ومخططات مشروعك، وسيتواصل فريقنا الفني معك لمناقشة أفضل الخيارات والأسعار المنافسة.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--off-white);" id="quote">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- RIGHT: Info (in RTL) -->
+        <div class="contact-info">
+          <span class="section-tag">التواجد العالمي والمكاتب</span>
+          <h2>تواصل معنا مباشرة</h2>
+          <p>سواء كنت تبحث عن منتجات معمارية فاخرة لمشروع إنشائي أو خدمات توريد متكاملة لشركتك، نحن على أتم الاستعداد لمراجعة متطلباتك.</p>
+
+          <div class="office-cards">
+            <!-- China -->
+            <div class="office-card" id="office-china">
+              <div class="office-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                  <path d="M9 22v-4h6v4"/>
+                  <path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">الصين — المكتب الرئيسي للشركة</div>
+                <div class="office-address">{b.chinaAddress}</div>
+                <div class="office-desc">التنسيق مع المصانع، التوريد، متابعة الإنتاج، فحص الجودة وتجهيز الشحن والتصدير.</div>
+                <div class="office-links" style="margin-top:0.4rem; display:flex; flex-wrap:wrap; gap:0.75rem; font-size:0.84rem;">
+                  <a href={`mailto:${b.email}`} style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.35rem;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>{b.email}</span>
+                  </a>
+                  <a href={`https://wa.me/${b.whatsappRaw}`} target="_blank" rel="noopener noreferrer" style="color:#0b1e36; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.35rem;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <span>{b.whatsapp}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- USA Partner -->
+            <div class="office-card" id="office-usa">
+              <div class="office-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">نيوجيرسي، أمريكا — مكتب الشريك المعتمد</div>
+                <div class="office-partner-title">{b.usPartnerName}</div>
+                <div class="office-desc">استقبال استفسارات العملاء في الولايات المتحدة وتنسيق استلام الطلبات المؤهلة.</div>
+                <div class="office-links">
+                  <span>هاتف: <a href={`tel:${b.usPartnerPhone.replace(/[^0-9+]/g, '')}`}>{b.usPartnerPhone}</a></span> •
+                  <span><a href={b.usPartnerWebsite} target="_blank" rel="noopener">الموقع الإلكتروني</a></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kuwait -->
+            <div class="office-card" id="office-kuwait">
+              <div class="office-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                  <path d="M9 22v-4h6v4"/>
+                  <path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">الكويت — تواجد إقليمي</div>
+                <div class="office-desc">متابعة مشاريع الخليج العربي وتنسيق التوريد المباشر من المصانع.</div>
+              </div>
+            </div>
+
+            <!-- Egypt & Saudi Arabia -->
+            <div class="office-card" id="office-egypt">
+              <div class="office-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div>
+                <div class="office-name">مصر والمملكة العربية السعودية — ممثلو توريد</div>
+                <div class="office-desc">تواصل محلي مباشر لخدمة كبرى المشاريع والمكاتب الهندسية.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Button -->
+          <a href={`https://wa.me/${b.whatsappRaw}`} class="whatsapp-contact-btn" target="_blank" rel="noopener noreferrer" id="whatsapp-contact-link">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>واتساب الأعمال مباشرة: {b.whatsapp}</span>
+          </a>
+        </div>
+
+        <!-- LEFT: Direct Inquiry Form (in RTL) -->
+        <div class="quote-form-wrap">
+          <div class="form-header" id="form-header-area">
+            <h2>طلب عرض سعر واستشارة</h2>
+            <p>أخبرنا بما تبحث عنه. أرسل متطلبات مشروعك مباشرة عبر الواتساب أو البريد الإلكتروني.</p>
+          </div>
+
+          <form class="quote-form" id="inquiry-form" name="inquiry-request" onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-name">الاسم بالكامل *</label>
+                <input type="text" id="full-name" name="fullName" placeholder="اسمك الكريم" required />
+              </div>
+              <div class="form-group">
+                <label for="company-name">اسم الشركة</label>
+                <input type="text" id="company-name" name="companyName" placeholder="اختياري" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" />
+              </div>
+              <div class="form-group">
+                <label for="phone">رقم الهاتف / واتساب *</label>
+                <input type="tel" id="phone" name="phone" placeholder="+966 50 123 4567" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="country">الدولة / المدينة *</label>
+                <input type="text" id="country" name="country" placeholder="السعودية، الكويت، أمريكا، مصر..." required />
+              </div>
+              <div class="form-group">
+                <label for="product-service">المنتج أو الخدمة المطلوبة *</label>
+                <select id="product-service" name="productService" required>
+                  <option value="">اختر التصنيف المطلوب...</option>
+                  {productOptions.map(opt => <option value={opt}>{opt}</option>)}
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quantity">الكمية التقديرية</label>
+                <input type="text" id="quantity" name="quantity" placeholder="مثال: 50 باب، حاوية 40 قدم" />
+              </div>
+              <div class="form-group">
+                <label for="project-location">موقع المشروع</label>
+                <input type="text" id="project-location" name="projectLocation" placeholder="المدينة، الدولة" />
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="message">مواصفات المنتج أو رسالتك *</label>
+              <textarea id="message" name="message" rows="5" placeholder="يرجى توضيح الأبعاد، الخامات، المخططات أو الاستفسارات المحددة..." required></textarea>
+            </div>
+
+            <div class="inquiry-actions-row">
+              <button type="button" class="btn-whatsapp-action" id="send-wa-inquiry-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span>إرسال فوري عبر واتساب الأعمال</span>
+              </button>
+              <button type="button" class="btn-email-action" id="send-email-inquiry-btn">
+                <span>✉️ إرسال عبر البريد الإلكتروني</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(7, 21, 38, 0.92) 0%, rgba(7, 21, 38, 0.65) 45%, rgba(7, 21, 38, 0.25) 100%),
+              linear-gradient(to top, rgba(7, 21, 38, 0.85) 0%, transparent 60%);
+  z-index: 1;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.5rem;
+  width: 100%;
+}
+.page-hero-content h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+.page-hero-content p {
+  color: #cbd5e1;
+}
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.breadcrumb a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #d4a843;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+  color: #0b1e36;
+  margin-bottom: 0.75rem;
+}
+.contact-info > p {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.office-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.office-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.office-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.office-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(212, 168, 67, 0.15);
+  color: #0b1e36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.office-name {
+  font-weight: 700;
+  color: #0b1e36;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.office-partner-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d4a843;
+  margin-bottom: 0.25rem;
+}
+.office-address {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+.office-desc {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+.office-links {
+  margin-top: 0.35rem;
+  font-size: 0.84rem;
+  color: #64748b;
+}
+.office-links a {
+  color: #0b1e36;
+  font-weight: 600;
+  text-decoration: none;
+}
+.office-links a:hover {
+  color: #d4a843;
+}
+
+.whatsapp-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: #25d366;
+  color: #ffffff;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+.whatsapp-contact-btn:hover {
+  background: #1eb956;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+  color: #ffffff;
+}
+
+.quote-form-wrap {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+.form-header h2 {
+  font-size: 1.65rem;
+  color: #0b1e36;
+  margin-bottom: 0.35rem;
+}
+.form-header p {
+  color: #64748b;
+  font-size: 0.92rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-group label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #334155;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: #0b1e36;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d4a843;
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+}
+.form-group textarea {
+  resize: vertical;
+}
+
+.inquiry-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.btn-whatsapp-action {
+  background: #25d366;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  transition: all 0.2s ease;
+}
+.btn-whatsapp-action:hover {
+  background: #1eb956;
+  transform: translateY(-2px);
+}
+.btn-email-action {
+  background: #0b1e36;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-email-action:hover {
+  background: #102a4c;
+}
+
+@media (max-width: 960px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+  // Client-side submission helper
+  const form = document.getElementById('inquiry-form') as HTMLFormElement | null;
+  const waBtn = document.getElementById('send-wa-inquiry-btn');
+  const emailBtn = document.getElementById('send-email-inquiry-btn');
+
+  function getFormData() {
+    if (!form) return null;
+    const data = new FormData(form);
+    return {
+      fullName: (data.get('fullName') as string) || '',
+      companyName: (data.get('companyName') as string) || '',
+      email: (data.get('email') as string) || '',
+      phone: (data.get('phone') as string) || '',
+      country: (data.get('country') as string) || '',
+      productService: (data.get('productService') as string) || '',
+      quantity: (data.get('quantity') as string) || '',
+      projectLocation: (data.get('projectLocation') as string) || '',
+      message: (data.get('message') as string) || '',
+    };
+  }
+
+  function validateRequired(d: ReturnType<typeof getFormData>): boolean {
+    if (!d) return false;
+    if (!d.fullName.trim() || !d.phone.trim() || !d.country.trim() || !d.productService || !d.message.trim()) {
+      alert('يرجى ملء كافة الحقول الإلزامية (*) قبل الإرسال.');
+      return false;
+    }
+    return true;
+  }
+
+  waBtn?.addEventListener('click', () => {
+    const d = getFormData();
+    if (!validateRequired(d)) return;
+    if (!d) return;
+
+    const text = `*طلب عرض سعر واستشارة جديدة (EITCO Ltd)*%0A%0A` +
+      `*الاسم:* ${encodeURIComponent(d.fullName)}%0A` +
+      (d.companyName ? `*الشركة:* ${encodeURIComponent(d.companyName)}%0A` : '') +
+      (d.email ? `*البريد:* ${encodeURIComponent(d.email)}%0A` : '') +
+      `*الهاتف:* ${encodeURIComponent(d.phone)}%0A` +
+      `*الدولة:* ${encodeURIComponent(d.country)}%0A` +
+      `*المنتج/الخدمة:* ${encodeURIComponent(d.productService)}%0A` +
+      (d.quantity ? `*الكمية التقديرية:* ${encodeURIComponent(d.quantity)}%0A` : '') +
+      (d.projectLocation ? `*موقع المشروع:* ${encodeURIComponent(d.projectLocation)}%0A` : '') +
+      `*المواصفات والرسالة:*%0A${encodeURIComponent(d.message)}`;
+
+    window.open(`https://wa.me/8618616232842?text=${text}`, '_blank');
+  });
+
+  emailBtn?.addEventListener('click', () => {
+    const d = getFormData();
+    if (!validateRequired(d)) return;
+    if (!d) return;
+
+    const subject = encodeURIComponent(`طلب استفسار: ${d.productService} - ${d.fullName}`);
+    const body = encodeURIComponent(
+      `طلب عرض سعر جديد (EITCO Ltd):\n\n` +
+      `الاسم: ${d.fullName}\n` +
+      `الشركة: ${d.companyName || 'N/A'}\n` +
+      `البريد: ${d.email || 'N/A'}\n` +
+      `الهاتف: ${d.phone}\n` +
+      `الدولة: ${d.country}\n` +
+      `المنتج / الخدمة: ${d.productService}\n` +
+      `الكمية: ${d.quantity || 'N/A'}\n` +
+      `الموقع: ${d.projectLocation || 'N/A'}\n\n` +
+      `الرسالة والمواصفات:\n${d.message}`
+    );
+
+    window.location.href = `mailto:eliagadallah@eit-co.com?subject=${subject}&body=${body}`;
+  });
+</script>

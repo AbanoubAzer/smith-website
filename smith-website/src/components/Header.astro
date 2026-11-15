@@ -157,12 +157,12 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
 
       <!-- Contact Us -->
       <div class="nav-item">
-        <a href={lang === 'en' ? url('/contact/') : url('/ar/#quote')} class="nav-link" id="nav-contact">{t.nav.contactUs}</a>
+        <a href={lang === 'en' ? url('/contact/') : url('/ar/contact/')} class="nav-link" id="nav-contact">{t.nav.contactUs}</a>
       </div>
 
       <!-- Mobile Drawer Quote CTA -->
       <div class="nav-drawer-quote">
-        <a href={lang === 'en' ? url('/contact/#quote') : url('/ar/#quote')} class="btn-primary" id="drawer-quote-btn" style="width: 100%; justify-content: center;">
+        <a href={lang === 'en' ? url('/contact/#quote') : url('/ar/contact/#quote')} class="btn-primary" id="drawer-quote-btn" style="width: 100%; justify-content: center;">
           <span>{t.nav.requestQuote}</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
         </a>
@@ -172,7 +172,7 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
     <!-- Header Actions -->
     <div class="header-actions">
       <!-- Quote CTA Button -->
-      <a href={lang === 'en' ? url('/contact/#quote') : url('/ar/#quote')} class="btn-quote-header" id="header-quote-btn">
+      <a href={lang === 'en' ? url('/contact/#quote') : url('/ar/contact/#quote')} class="btn-quote-header" id="header-quote-btn">
         <span>{t.nav.requestQuote}</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
       </a>

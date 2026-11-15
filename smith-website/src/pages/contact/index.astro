@@ -30,7 +30,7 @@ const productOptions = [
   <!-- Page Hero -->
   <div class="page-hero">
     <div class="page-hero-overlay"></div>
-    <img src={url('/images/mockup-assets/hero-bg.jpg')} alt="Contact EITCO Ltd" />
+    <img src={url('/images/contact-hero.jpg')} alt="Contact EITCO Ltd" />
     <div class="container">
       <div class="page-hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -227,11 +227,13 @@ const productOptions = [
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: right center;
 }
 .page-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 100%);
+  background: linear-gradient(to right, rgba(7, 21, 38, 0.92) 0%, rgba(7, 21, 38, 0.65) 45%, rgba(7, 21, 38, 0.25) 100%),
+              linear-gradient(to top, rgba(7, 21, 38, 0.85) 0%, transparent 60%);
   z-index: 1;
 }
 .page-hero .container {
