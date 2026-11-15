@@ -1,0 +1,198 @@
+---
+// src/pages/ar/global-sourcing/index.astro
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { url } from '../../../utils/paths';
+
+const lang = 'ar';
+const services = [
+  {
+    icon: '🔍',
+    title: 'التوريد العالمي للمنتجات',
+    desc: 'نساعدك في الوصول إلى أفضل المصانع والمنتجات المطابقة لمواصفاتك الفنية ومخططاتك المعمارية والميزانية المستهدفة من الصين مباشرة.',
+    id: 'product-sourcing',
+  },
+  {
+    icon: '🏭',
+    title: 'تدقيق وتنسيق المصانع والموردين',
+    desc: 'نتولى التواصل المباشر مع المصانع المعتمدة والمؤهلة — من الاستفسارات الفنية الأولى إلى اعتماد العينات، التفاوض السعري، ومتابعة خطوط الإنتاج.',
+    id: 'supplier-coord',
+  },
+  {
+    icon: '🔬',
+    title: 'فحص الطلبات وضمان الجودة',
+    desc: 'فحص هندسي صارم قبل الشحن يشمل الأبعاد، الخامات، تفاوتات التشطيب، التغليف، وتجهيز الصناديق الخشبية قبل التحميل في الحاويات.',
+    id: 'order-inspection',
+  },
+  {
+    icon: '📋',
+    title: 'مستندات التصدير والدعم الجمركي',
+    desc: 'إصدار ومراجعة الفواتير التجارية، قوائم التعبئة، بوالص الشحن، شهادات المنشأ الرسمية، وكافة وثائق الامتثال الجمركي.',
+    id: 'export-docs',
+  },
+  {
+    icon: '🚢',
+    title: 'تنسيق الشحن البحري والجوي',
+    desc: 'تنسيق لوجستي متكامل (شحن حاويات كاملة FCL وحاويات مشتركة LCL، وشحن جوي سريع) مع خطوط ملاحية موثوقة وأسعار تنافسية.',
+    id: 'freight',
+  },
+  {
+    icon: '🤝',
+    title: 'الدعم المحلي وشبكة الشركاء',
+    desc: 'من خلال شبكة شركائنا في الولايات المتحدة (نيوجيرسي) وممثلينا في الكويت والخليج، ننسق استفسارات العملاء المحليين واستلام الشحنات المؤهلة.',
+    id: 'partner-support',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="خدمات التوريد والتجارة الدولية — من الصين إلى وجهتك النهائية | شركة إيتكو"
+  description="نتولى توريد منتجاتك من الصين، التنسيق مع المصانع المعتمدة، فحص الجودة والمطابقة، إنهاء مستندات التصدير، وتنسيق الشحن الدولي المباشر حتى وجهتك."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/ar/global-sourcing/"
+>
+  <Header lang={lang} />
+
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src={url('/images/mockup-assets/global-sourcing-inspection.jpg')} alt="خدمات التوريد العالمي" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href={url('/ar/')}>الرئيسية</a><span>›</span><span>التوريد العالمي</span>
+        </nav>
+        <h1>خدمات التوريد والتجارة الدولية</h1>
+        <p>منتجك. شبكتنا العالمية. من اختيار المورد حتى التسليم النهائي.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto 4rem;">
+        <span class="section-tag">ماذا نقدم</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem; color:var(--navy-850);">حلول توريد شاملة ومتكاملة</h2>
+        <p style="color:var(--stone-600); font-size:0.95rem; line-height:1.8;">
+          نوفر المنتجات بدقة وفق متطلباتك ومواصفاتك الفنية، ننسق مع الموردين المعتمدين، ونتولى عمليات الفحص والتوثيق والشحن الدولي — لتتفرغ لتطوير أعمالك.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        {services.map(svc => (
+          <div class="service-card" id={`service-${svc.id}`}>
+            <div class="service-icon">{svc.icon}</div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Process -->
+      <div class="process-section">
+        <h2 style="text-align:center; margin-bottom:3rem; color:var(--navy-850);">مراحل عملنا المنهجية (5 خطوات للتوريد)</h2>
+        <div class="process-steps">
+          {[
+            { num: '01', title: 'تحديد المتطلبات والمواصفات', desc: 'شاركنا تفاصيل طلبك — نوع المنتج، الأبعاد، المخططات الهندسية، نوع التشطيب، الكمية، الميزانية، وميناء الوصول.' },
+            { num: '02', title: 'مطابقة الموردين وعروض الأسعار', desc: 'نقيّم المصانع المناسبة من شبكتنا المعتمدة ونقدم عروض أسعار تفصيلية وجداول زمنية ونماذج للعينات.' },
+            { num: '03', title: 'متابعة الإنتاج والتنسيق الفني', desc: 'نتابع مراحل التصنيع في المصنع خطوة بخطوة لضمان الالتزام بالمواعيد المحددة والمواصفات القياسية.' },
+            { num: '04', title: 'فحص الجودة قبل الشحن', desc: 'يقوم مهندسو الجودة بفحص الأبعاد، جودة الدهان والتشطيب، التعبئة، وصناديق التغليف الخشبية قبل التصريح بالتحميل.' },
+            { num: '05', title: 'التصدير، الشحن والتسليم', desc: 'ننهي مستندات التصدير الرسمية، ننسق الحجز البحري/الجوي، ونتابع وصول الشحنة بالتنسيق مع مكاتبنا وشركائنا.' },
+          ].map((step, i) => (
+            <div class="process-step" id={`step-ar-${i}`}>
+              <div class="step-num">{step.num}</div>
+              <div class="step-content">
+                <h4>{step.title}</h4>
+                <p>{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-banner" style="margin-top:0;">
+        <div class="cta-banner-content">
+          <h2>هل أنت مستعد لبدء التوريد المباشر من الصين؟</h2>
+          <p>شاركنا متطلبات مشروعك ومواصفات المنتجات المطلوبة وسيقوم فريقنا بالرد عليك بدراسة شاملة خلال 24 ساعة.</p>
+        </div>
+        <a href={url('/ar/contact/')} class="btn-primary" id="start-sourcing-btn-ar">
+          <span>ابدأ طلب التوريد الآن</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 11H7.14l5.43-5.43L11.14 4.14 2.86 12.43l8.28 8.29 1.43-1.42L7.14 13H19v-2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero { position: relative; height: 300px; overflow: hidden; display: flex; align-items: flex-end; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 100%); z-index: 1; }
+.page-hero .container { position: relative; z-index: 2; padding-bottom: 2.5rem; width: 100%; }
+.page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
+.page-hero-content p { color: rgba(255,255,255,0.75); }
+.breadcrumb { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+.breadcrumb a { color: var(--gold-400); text-decoration: none; }
+
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid #e2e8f0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-deep); }
+.service-icon { font-size: 2.2rem; margin-bottom: 1.25rem; }
+.service-card h3 { font-size: 1.15rem; color: var(--navy-850); margin-bottom: 0.75rem; }
+.service-card p { font-size: 0.88rem; color: var(--stone-600); line-height: 1.7; }
+
+.process-section {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 4rem 3rem;
+  margin-bottom: 5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  border: 1px solid #e2e8f0;
+}
+.process-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+.process-step { display: flex; gap: 2rem; align-items: flex-start; padding-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; }
+.process-step:last-child { border: none; padding-bottom: 0; }
+.step-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gold-400);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 50px;
+}
+.step-content h4 { font-size: 1.1rem; color: var(--navy-850); margin-bottom: 0.4rem; }
+.step-content p { font-size: 0.88rem; color: var(--stone-600); line-height: 1.6; }
+
+.cta-banner {
+  background: #0b1e36;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-banner-content h2 { font-size: 1.6rem; color: var(--white); margin-bottom: 0.4rem; }
+.cta-banner-content p { font-size: 0.9rem; color: #cbd5e1; max-width: 540px; }
+
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-section { padding: 2.5rem 1.5rem; }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .process-step { gap: 1rem; }
+  .cta-banner { flex-direction: column; text-align: center; padding: 2rem; }
+}
+</style>

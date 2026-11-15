@@ -1,0 +1,215 @@
+---
+// src/pages/ar/our-network/index.astro
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLang } from '../../../i18n/translations';
+import { url } from '../../../utils/paths';
+
+const lang = 'ar';
+const t = getLang(lang);
+const b = t.brand;
+
+const offices = [
+  {
+    id: 'china',
+    flag: '🇨🇳',
+    location: 'الصين',
+    type: 'المكتب الرئيسي للشركة',
+    title: 'إدارة التوريد وتنسيق المصانع',
+    address: b.chinaAddress,
+    desc: 'مقرنا الرئيسي في هانغتشو بالصين، يتولى التواصل المباشر مع المصانع، التوريد الشامل لكافة المنتجات المعمارية، متابعة الجداول الزمنية للإنتاج، فحص الجودة، وتجهيز الحاويات للتصدير.',
+    color: '#0f233d',
+  },
+  {
+    id: 'usa',
+    flag: '🇺🇸',
+    location: 'نيوجيرسي، الولايات المتحدة',
+    type: 'مكتب الشريك المعتمد',
+    title: b.usPartnerName,
+    address: 'نيوجيرسي، الولايات المتحدة',
+    phone: b.usPartnerPhone,
+    website: b.usPartnerWebsite,
+    desc: 'شريكنا المعتمد في نيوجيرسي يوفر نقطة اتصال وتنسيق محلية لطلبات المنتجات المعمارية المؤهلة، استشارات المشاريع، وتنسيق الاستلام والدفع المتفق عليه.',
+    color: '#b88a24',
+  },
+  {
+    id: 'kuwait',
+    flag: '🇰🇼',
+    location: 'الكويت',
+    type: 'مكتب الشركة الإقليمي',
+    title: 'التواجد والتمثيل الإقليمي',
+    desc: 'مكتبنا وشبكة ممثلي التوريد في الكويت يساعدون في إدارة استفسارات العملاء ومتابعة متطلبات التوريد والمشاريع في الكويت ومنطقة الخليج العربي.',
+    color: '#0f233d',
+  },
+  {
+    id: 'egypt-saudi',
+    flag: '🌍',
+    location: 'مصر والمملكة العربية السعودية',
+    type: 'ممثلو توريد محليون',
+    title: 'ممثلو توريد واستشارات',
+    desc: 'فريق من الممثلين المتخصصين لتسهيل التواصل مع كبار العملاء والمقاولين، وتجميع المواصفات والمخططات وتنسيق التوريد مباشرة مع مكتبنا في الصين.',
+    color: '#b88a24',
+  },
+];
+---
+
+<Base
+  lang={lang}
+  title="شبكتنا وتواجدنا العالمي | شركة إيتكو للتجارة الدولية"
+  description="تربط شبكة أعمالنا عمليات التوريد المباشرة في الصين مع ممثلينا الإقليميين وشركائنا في الولايات المتحدة، الكويت، مصر والمملكة العربية السعودية."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/ar/our-network/"
+>
+  <Header lang={lang} />
+
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src={url('/images/mockup-assets/hero-bg.jpg')} alt="شبكة شركة إيتكو العالمية" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href={url('/ar/')}>الرئيسية</a><span>›</span><span>شبكتنا العالمية</span>
+        </nav>
+        <h1>شبكتنا وتواجدنا العالمي</h1>
+        <p>شبكة مترابطة للتجارة الدولية والحلول المعمارية المتكاملة</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto 3.5rem;">
+        <span class="section-tag">التواجد والمراكز العالمية</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:1rem; color:var(--navy-850);">نربط الأسواق. ننسق الحلول.</h2>
+        <p style="color:var(--stone-600); font-size:0.95rem; line-height:1.8;">
+          أينما كان موقع مشروعك أو عملك، هدفنا جعل التوريد والشراء والتجارة الدولية تجربة منظمة، موثوقة ومجدية اقتصادياً.
+        </p>
+      </div>
+
+      <div class="network-grid">
+        {offices.map(office => (
+          <div class="network-card" id={`office-card-ar-${office.id}`}>
+            <div class="network-card-header" style={`background:${office.color}`}>
+              <div class="nc-flag">{office.flag}</div>
+              <div>
+                <div class="nc-location">{office.location}</div>
+                <div class="nc-type">{office.type}</div>
+              </div>
+            </div>
+            <div class="network-card-body">
+              <h3>{office.title}</h3>
+              {office.address && <p class="nc-address">📍 {office.address}</p>}
+              {office.phone && <p class="nc-phone">📞 <a href={`tel:${office.phone.replace(/[^0-9+]/g, '')}`}>{office.phone}</a></p>}
+              {office.website && <p class="nc-web">🌐 <a href={office.website} target="_blank" rel="noopener">زيارة موقع الشريك</a></p>}
+              <p class="nc-desc">{office.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="cta-banner" style="margin-top:4rem;">
+        <div class="cta-banner-content">
+          <h2>تواصل مع فريقنا الدولي مباشرة</h2>
+          <p>تواصل معنا اليوم لمناقشة متطلبات مشروعك، طلب عرض سعر مجاني، أو معرفة كيف يمكننا دعم أعمالك وحمايتها.</p>
+        </div>
+        <a href={url('/ar/contact/')} class="btn-primary" id="contact-team-btn-ar">
+          <span>تواصل معنا الآن</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 11H7.14l5.43-5.43L11.14 4.14 2.86 12.43l8.28 8.29 1.43-1.42L7.14 13H19v-2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 21, 38, 0.9) 0%, rgba(7, 21, 38, 0.4) 100%);
+  z-index: 1;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.5rem;
+  width: 100%;
+}
+.page-hero-content h1 { font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--white); margin-bottom: 0.4rem; }
+.page-hero-content p { color: rgba(255,255,255,0.75); }
+.breadcrumb {
+  display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;
+  font-size: 0.8rem; color: rgba(255,255,255,0.65);
+}
+.breadcrumb a { color: var(--gold-400); text-decoration: none; }
+
+.network-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.network-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid #e2e8f0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.network-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-deep);
+}
+.network-card-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.nc-flag { font-size: 1.8rem; }
+.nc-location { font-size: 0.95rem; font-weight: 700; color: #ffffff; }
+.nc-type { font-size: 0.72rem; color: #d4a843; font-weight: 600; text-transform: uppercase; margin-top: 0.15rem; }
+.network-card-body { padding: 1.5rem; }
+.network-card-body h3 { font-size: 1.05rem; color: var(--navy-850); margin-bottom: 0.5rem; }
+.nc-address { font-size: 0.78rem; color: #1e4574; font-weight: 600; margin-bottom: 0.4rem; }
+.nc-phone { font-size: 0.78rem; color: #334155; margin-bottom: 0.4rem; }
+.nc-phone a { color: #2563eb; font-weight: 600; text-decoration: none; }
+.nc-web { font-size: 0.78rem; color: #2563eb; font-weight: 600; margin-bottom: 0.6rem; }
+.nc-desc { font-size: 0.83rem; color: #64748b; line-height: 1.7; }
+
+.cta-banner {
+  background: #0b1e36;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-banner-content h2 { font-size: 1.6rem; color: var(--white); margin-bottom: 0.4rem; }
+.cta-banner-content p { font-size: 0.9rem; color: #cbd5e1; max-width: 540px; }
+
+@media (max-width: 990px) {
+  .network-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .network-grid { grid-template-columns: 1fr; }
+  .cta-banner { flex-direction: column; text-align: center; padding: 2rem; }
+}
+</style>

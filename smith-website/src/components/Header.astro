@@ -83,33 +83,33 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
 
       <!-- Services & Sourcing Dropdown -->
       <div class="nav-item has-dropdown" id="nav-services-item">
-        <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/#sourcing')} class="nav-link" id="nav-services">
+        <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/global-sourcing/')} class="nav-link" id="nav-services">
           <span>{t.nav.services}</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </a>
         <div class="dropdown-menu" id="dropdown-menu-services">
-          <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/#sourcing')} class="dropdown-link">
+          <a href={lang === 'en' ? url('/global-sourcing/') : url('/ar/global-sourcing/')} class="dropdown-link">
             <span class="dropdown-icon">🌐</span>
             <div>
               <div class="dropdown-title">{t.nav.globalSourcing}</div>
               <div class="dropdown-desc">{lang === 'en' ? 'Factory matching & custom procurement' : 'البحث عن المصانع والتوريد المباشر'}</div>
             </div>
           </a>
-          <a href={lang === 'en' ? url('/global-sourcing/#order-inspection') : url('/ar/#sourcing')} class="dropdown-link">
+          <a href={lang === 'en' ? url('/global-sourcing/#order-inspection') : url('/ar/global-sourcing/#order-inspection')} class="dropdown-link">
             <span class="dropdown-icon">🛡️</span>
             <div>
               <div class="dropdown-title">{t.nav.orderInspection}</div>
               <div class="dropdown-desc">{lang === 'en' ? 'On-site audits & quality control' : 'الفحص الميداني ومراقبة الجودة'}</div>
             </div>
           </a>
-          <a href={lang === 'en' ? url('/global-sourcing/#export-docs') : url('/ar/#sourcing')} class="dropdown-link">
+          <a href={lang === 'en' ? url('/global-sourcing/#export-docs') : url('/ar/global-sourcing/#export-docs')} class="dropdown-link">
             <span class="dropdown-icon">📋</span>
             <div>
               <div class="dropdown-title">{t.nav.exportDocs}</div>
               <div class="dropdown-desc">{lang === 'en' ? 'Customs compliance & documentation' : 'التخليص الجمركي وتجهيز المستندات'}</div>
             </div>
           </a>
-          <a href={lang === 'en' ? url('/global-sourcing/#freight') : url('/ar/#sourcing')} class="dropdown-link">
+          <a href={lang === 'en' ? url('/global-sourcing/#freight') : url('/ar/global-sourcing/#freight')} class="dropdown-link">
             <span class="dropdown-icon">🚢</span>
             <div>
               <div class="dropdown-title">{t.nav.seaAirFreight}</div>
@@ -121,7 +121,7 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
 
       <!-- Projects -->
       <div class="nav-item">
-        <a href={lang === 'en' ? url('/our-network/') : url('/ar/#projects')} class="nav-link" id="nav-projects">{t.nav.projects}</a>
+        <a href={lang === 'en' ? url('/our-network/') : url('/ar/our-network/')} class="nav-link" id="nav-projects">{t.nav.projects}</a>
       </div>
 
       <!-- Company Dropdown -->
