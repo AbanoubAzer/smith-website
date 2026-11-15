@@ -138,9 +138,9 @@ export const translations = {
         categories: [
           { title: 'Doors', img: url('/images/doors/entrance/luxury-modern.jpg'), href: url('/products/doors/') },
           { title: 'Windows & Aluminum', img: url('/images/windows/sliding-windows.jpg'), href: url('/products/windows/') },
-          { title: 'Wrought Iron & Metal Work', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/products/metalwork/') },
+          { title: 'Wrought Iron & Metal Work', img: url('/images/metalwork/architectural-villa-gate.jpg'), href: url('/products/metalwork/') },
           { title: 'Kitchens & Interiors', img: url('/images/kitchens/european-style.jpg'), href: url('/products/kitchens/') },
-          { title: 'Stone Surfaces', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/products/stone/') },
+          { title: 'Stone Surfaces', img: url('/images/marble/stone-hero.jpg'), href: url('/products/stone/') },
         ],
       },
       sourcing: {
@@ -601,9 +601,9 @@ export const translations = {
         categories: [
           { title: 'الأبواب', img: url('/images/doors/entrance/luxury-modern.jpg'), href: url('/ar/products/doors/') },
           { title: 'النوافذ والألومنيوم', img: url('/images/windows/sliding-windows.jpg'), href: url('/ar/products/windows/') },
-          { title: 'الحديد المطروق والمعادن', img: url('/images/metalwork/grand-estate-gates.jpg'), href: url('/ar/products/metalwork/') },
+          { title: 'الحديد المطروق والمعادن', img: url('/images/metalwork/architectural-villa-gate.jpg'), href: url('/ar/products/metalwork/') },
           { title: 'المطابخ والديكور الداخلي', img: url('/images/kitchens/european-style.jpg'), href: url('/ar/products/kitchens/') },
-          { title: 'الأسطح الحجرية والرخام', img: url('/images/marble/calacatta-gold.jpeg'), href: url('/ar/products/stone/') },
+          { title: 'الأسطح الحجرية والرخام', img: url('/images/marble/stone-hero.jpg'), href: url('/ar/products/stone/') },
         ],
       },
       sourcing: {
