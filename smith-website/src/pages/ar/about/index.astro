@@ -1,0 +1,207 @@
+---
+// src/pages/ar/about/index.astro
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { url } from '../../../utils/paths';
+
+const lang = 'ar';
+const values = [
+  { icon: '📚', title: 'دراية فنية بالمنتجات', desc: 'معرفة عملية متعمقة بالمنتجات المعمارية، المواصفات الفنية وخامات مواد البناء.' },
+  { icon: '🔄', title: 'مرونة عالية في التوريد', desc: 'حلول مخصصة تناسب مختلف المنتجات، المعايير الهندسية والميزانيات المعتمدة.' },
+  { icon: '✔', title: 'تنسيق صارم للجودة', desc: 'إجراءات فحص دقيقة ومطابقة للمواصفات ومراجعة شاملة للطلبيات قبل التعبئة.' },
+  { icon: '📦', title: 'دعم تجاري وتصديري', desc: 'إدارة متكاملة للتخليص الجمركي، وثائق التصدير الرسمية وتنسيق الشحن البحري والجوي.' },
+  { icon: '🌐', title: 'شبكة علاقات دولية', desc: 'مكاتب وشبكة شركاء وممثلين في الصين، أمريكا، الكويت ومصر لخدمة عملائنا.' },
+];
+---
+
+<Base
+  lang={lang}
+  title="عن شركة إيتكو | شريكك في المنتجات المعمارية والتجارة الدولية"
+  description="شركة إيتكو للتجارة الدولية المحدودة (Hangzhou, China) — شريكك الموثوق لتوريد المنتجات المعمارية، مواد البناء، وحلول الشحن الدولي للمشاريع السكنية والتجارية."
+  canonicalUrl="https://abanoubazer.github.io/smith-website/ar/about/"
+>
+  <Header lang={lang} />
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <img src={url('/images/about-hero.jpg')} alt="عن شركة إيتكو للتجارة الدولية" />
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href={url('/ar/')}>الرئيسية</a><span>›</span><span>عن الشركة</span>
+        </nav>
+        <h1>عن شركة إيتكو (EITCO Ltd)</h1>
+        <p>شريكك الموثوق في المنتجات المعمارية الفاخرة والتوريد العالمي المباشر</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-text">
+          <span class="section-tag">من نحن</span>
+          <h2>شريك تجاري موثوق ترتكز عليه أعمالك</h2>
+          <p><strong>شركة إيتكو المحدودة (Elena International Trading Co., Limited)</strong> هي شركة تجارة دولية مسجلة ومقرها الرئيسي في مدينة هانغتشو بالصين، متخصصة في توريد المنتجات المعمارية ومواد البناء الفاخرة وحلول التوريد المخصص للأسواق العالمية.</p>
+          <p>تشمل خبرتنا المباشرة توريد أبواب المداخل المصفحة والبيفوت، أنظمة النوافذ والواجهات الزجاجية، أعمال الحديد المشغول اليدوي، البرجولات البيوكليماتيك الذكية، المطابخ وخزائن الملابس المخصصة، وألواح الرخام الطبيعي والكوارتز للمشاريع السكنية الراقية والمجمعات التجارية.</p>
+          <p>أكثر من مجرد كتالوج منتجات، نرافق عملاءنا في كافة مراحل المشروع: التنسيق الفني مع المصانع المعتمدة، تدقيق خطوط الإنتاج، فحص الجودة والمطابقة قبل التحميل، توثيق مستندات التصدير، وتنسيق الشحن البحري والجوي حتى ميناء الوصول.</p>
+          <p>بفضل مقرنا الرئيسي في الصين، وتواجدنا الإقليمي في الكويت، وشبكة شركائنا في نيوجيرسي بالولايات المتحدة، نقدم تجربة تجارية موحدة وسلسة وشفافة تضمن راحة بالك وتوفير أعلى معايير الجودة والتكلفة.</p>
+
+          <div class="about-mission">
+            <h3>رؤيتنا ورسالتنا</h3>
+            <p>تبسيط عمليات التوريد الخارجي والتجارة الدولية عبر ربط العملاء والمطورين بأفضل المصانع العالمية الموثوقة، مع ضمان سلامة المواصفات والشفافية اللوجستية في كل مرحلة.</p>
+          </div>
+
+          <a href={url('/ar/contact/')} class="btn-primary" id="discuss-requirements-btn-ar" style="margin-top:1.75rem; display:inline-flex;">
+            <span>دعنا نناقش متطلبات مشروعك</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 11H7.14l5.43-5.43L11.14 4.14 2.86 12.43l8.28 8.29 1.43-1.42L7.14 13H19v-2z"/></svg>
+          </a>
+        </div>
+
+        <div class="about-side">
+          <div class="about-img-stack">
+            <img src={url('/images/logo/elena-logo-full.png')} alt="Elena International Trading Co. Ltd" class="about-img-main" style="background:#fff; padding:1.5rem; object-fit:contain; border:1px solid #e2e8f0; border-radius:12px;" />
+            <img src={url('/images/mockup-assets/cta-ship-bg.jpg')} alt="Global Shipping" class="about-img-accent" />
+          </div>
+
+          <div class="values-grid">
+            <h3 style="grid-column:1/-1; font-size:1.1rem; color:var(--navy-850); margin-top:1rem;">قيمنا ومنهج عملنا</h3>
+            {values.map((val, i) => (
+              <div class="value-item" id={`value-ar-${i}`}>
+                <span class="value-icon">{val.icon}</span>
+                <div>
+                  <div class="value-title">{val.title}</div>
+                  <div class="value-desc">{val.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>
+
+<style>
+.page-hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center left;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(7, 21, 38, 0.92) 0%, rgba(7, 21, 38, 0.6) 45%, rgba(7, 21, 38, 0.2) 100%),
+              linear-gradient(to top, rgba(7, 21, 38, 0.85) 0%, transparent 60%);
+  z-index: 1;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2.5rem;
+  width: 100%;
+}
+.page-hero-content h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--white); margin-bottom: 0.4rem; }
+.page-hero-content p { color: rgba(255,255,255,0.85); }
+.breadcrumb {
+  display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;
+  font-size: 0.8rem; color: rgba(255,255,255,0.65);
+}
+.breadcrumb a { color: var(--gold-400); text-decoration: none; }
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-text h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: var(--navy-850);
+  margin-bottom: 1.25rem;
+}
+.about-text p {
+  font-size: 0.92rem;
+  color: var(--stone-600);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.about-mission {
+  background: #ffffff;
+  border-right: 4px solid var(--gold-400);
+  padding: 1.5rem;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+.about-mission h3 {
+  font-size: 1rem;
+  color: var(--navy-850);
+  margin-bottom: 0.5rem;
+}
+.about-mission p {
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  color: var(--stone-700);
+}
+
+.about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about-img-stack {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.about-img-main {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+.about-img-accent {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-top: 1rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+.value-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  background: #ffffff;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+}
+.value-icon { font-size: 1.3rem; flex-shrink: 0; }
+.value-title { font-size: 0.88rem; font-weight: 700; color: var(--navy-850); margin-bottom: 0.2rem; }
+.value-desc { font-size: 0.78rem; color: var(--stone-600); line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+</style>

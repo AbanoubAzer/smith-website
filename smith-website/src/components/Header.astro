@@ -126,12 +126,12 @@ const altHref = lang === 'en' ? url('/ar/') : url('/');
 
       <!-- Company Dropdown -->
       <div class="nav-item has-dropdown" id="nav-company-item">
-        <a href={lang === 'en' ? url('/about/') : url('/ar/#sourcing')} class="nav-link" id="nav-company">
+        <a href={lang === 'en' ? url('/about/') : url('/ar/about/')} class="nav-link" id="nav-company">
           <span>{t.nav.company}</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </a>
         <div class="dropdown-menu" id="dropdown-menu-company">
-          <a href={lang === 'en' ? url('/about/') : url('/ar/#sourcing')} class="dropdown-link">
+          <a href={lang === 'en' ? url('/about/') : url('/ar/about/')} class="dropdown-link">
             <span class="dropdown-icon">🏢</span>
             <div>
               <div class="dropdown-title">{t.nav.aboutUs}</div>
