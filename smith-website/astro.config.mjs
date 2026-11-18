@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://abanoubazer.github.io',
-  base: '/smith-website',
+  site: 'https://eit-co.com',
+  base: '/',
   output: 'static',
   trailingSlash: 'always',
   vite: {

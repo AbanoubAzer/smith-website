@@ -36,7 +36,7 @@ const pages = [
   { url: '/ar/articles/lcl-vs-fcl-shipping/', priority: '0.8', changefreq: 'monthly' },
 ];
 
-const baseUrl = 'https://abanoubazer.github.io/smith-website';
+const baseUrl = 'https://eit-co.com';
 const today = new Date().toISOString().split('T')[0];
 
 export const GET = () => {
