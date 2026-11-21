@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abanoubazer.github.io/smith-website/sitemap.xml
+Sitemap: https://eit-co.com/sitemap.xml
