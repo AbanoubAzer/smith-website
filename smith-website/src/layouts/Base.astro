@@ -9,6 +9,7 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  image?: string;
   canonicalUrl?: string;
   keywords?: string;
 }
@@ -17,16 +18,144 @@ const {
   lang,
   title,
   description,
-  ogImage = '/images/logo/elena-logo-full.png',
+  ogImage,
+  image,
   canonicalUrl,
   keywords = lang === 'ar'
     ? 'توريد مواد بناء من الصين, منتجات معمارية الصين, استيراد أبواب ونوافذ من الصين, شحن من الصين الى امريكا, فحص جودة المصانع في الصين, شركة إلينا للتجارة الدولية, شركة إيتكو, حديد مطروق رخام كوارتز مطابخ'
     : 'building materials from China, architectural products sourcing, doors and windows manufacturer China, importing building materials to USA, China sourcing agent Hangzhou, pre-shipment inspection China, custom kitchens China, EITCO Ltd, Elena International Trading'
 } = Astro.props;
 
-const resolvedOgImage = ogImage.startsWith('http') ? ogImage : url(ogImage);
+const rawImage = ogImage || image || '/images/logo/elena-logo-full.png';
+const resolvedOgImage = rawImage.startsWith('http')
+  ? rawImage
+  : `https://eit-co.com${rawImage.startsWith('/') ? rawImage : '/' + rawImage}`;
 const isRtl = lang === 'ar';
 const currentUrl = canonicalUrl || Astro.url.href;
+
+// Dynamic bilingual hreflang calculation
+const pathname = Astro.url.pathname || '/';
+const isArabicPage = pathname.startsWith('/ar/') || pathname === '/ar' || pathname === '/ar/';
+const basePath = isArabicPage
+  ? pathname.replace(/^\/ar(\/|$)/, '/')
+  : pathname;
+const normalizedPath = basePath.startsWith('/') ? basePath : `/${basePath}`;
+const enHref = `https://eit-co.com${normalizedPath === '' ? '/' : normalizedPath}`;
+const arHref = `https://eit-co.com/ar${normalizedPath === '/' ? '/' : normalizedPath}`;
+
+// BreadcrumbList Structured Data calculation
+const pathSegments = normalizedPath.split('/').filter(Boolean);
+const breadcrumbItems = pathSegments.length > 0 ? [
+  {
+    "@type": "ListItem",
+    "position": 1,
+    "name": lang === 'ar' ? 'الرئيسية' : 'Home',
+    "item": lang === 'ar' ? 'https://eit-co.com/ar/' : 'https://eit-co.com/'
+  },
+  ...pathSegments.map((seg, idx) => {
+    const segmentAccum = '/' + pathSegments.slice(0, idx + 1).join('/') + '/';
+    const titlesEn: Record<string, string> = {
+      'products': 'Products',
+      'doors': 'Doors',
+      'windows': 'Windows & Aluminum',
+      'metalwork': 'Wrought Iron & Metalwork',
+      'kitchens': 'Kitchens & Interiors',
+      'stone': 'Stone Surfaces',
+      'global-sourcing': 'Global Sourcing',
+      'our-network': 'Our Network',
+      'about': 'About Us',
+      'contact': 'Contact Us',
+      'articles': 'Insights',
+    };
+    const titlesAr: Record<string, string> = {
+      'products': 'المنتجات المعمارية',
+      'doors': 'الأبواب المعمارية',
+      'windows': 'النوافذ والألومنيوم',
+      'metalwork': 'الحديد المشغول والمعادن',
+      'kitchens': 'المطابخ والديكور الداخلي',
+      'stone': 'الرخام والأسطح الحجرية',
+      'global-sourcing': 'التوريد العالمي',
+      'our-network': 'شبكتنا وتواجدنا',
+      'about': 'عن الشركة',
+      'contact': 'اتصل بنا',
+      'articles': 'رؤى وأبحاث السوق',
+    };
+    const segName = (lang === 'ar' ? titlesAr[seg] : titlesEn[seg]) || seg;
+    return {
+      "@type": "ListItem",
+      "position": idx + 2,
+      "name": segName,
+      "item": lang === 'ar' ? `https://eit-co.com/ar${segmentAccum}` : `https://eit-co.com${segmentAccum}`
+    };
+  })
+] : null;
+
+const schemaGraph: any[] = [
+  {
+    "@type": "Organization",
+    "@id": "https://eit-co.com/#organization",
+    "name": "EITCO Ltd",
+    "legalName": "Elena International Trading Co., Limited",
+    "alternateName": ["شركة إلينا للتجارة الدولية المحدودة", "شركة إيتكو المحدودة"],
+    "url": "https://eit-co.com/",
+    "logo": "https://eit-co.com/images/logo/globe-emblem-transparent.png",
+    "image": "https://eit-co.com/images/logo/elena-logo-full.png",
+    "description": "Global trading company specializing in architectural products, building materials, supplier audits, quality inspection, and international sea/air freight from China to the United States and global markets.",
+    "areaServed": ["United States", "Kuwait", "Saudi Arabia", "United Arab Emirates", "China", "Egypt"],
+    "knowsAbout": [
+      "Architectural Entrance Doors",
+      "Aluminum Window Systems",
+      "Wrought Iron Gates and Balconies",
+      "Custom European and American Kitchens",
+      "Natural Marble and Engineered Quartz",
+      "Pre-Shipment Quality Audits in China",
+      "International Freight and Customs Compliance"
+    ],
+    "priceRange": "$$$",
+    "currenciesAccepted": "USD, CNY, KWD, SAR, AED",
+    "paymentAccepted": "Wire Transfer, Letter of Credit, Commercial Payment",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+86-186-1623-2842",
+        "contactType": "customer service",
+        "email": "eliagadallah@eit-co.com",
+        "availableLanguage": ["English", "Arabic", "Chinese"]
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Innovation China Industrial Park, 4 Xingxian Road, Gongshu District",
+      "addressLocality": "Hangzhou City",
+      "addressCountry": "CN"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "48",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  {
+    "@type": "WebSite",
+    "@id": "https://eit-co.com/#website",
+    "url": "https://eit-co.com/",
+    "name": "EITCO Ltd",
+    "publisher": {
+      "@id": "https://eit-co.com/#organization"
+    },
+    "inLanguage": ["en", "ar"]
+  }
+];
+
+if (breadcrumbItems) {
+  schemaGraph.push({
+    "@type": "BreadcrumbList",
+    "@id": `${currentUrl}#breadcrumb`,
+    "itemListElement": breadcrumbItems
+  });
+}
 ---
 <!doctype html>
 <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} class:list={[isRtl && 'rtl']}>
@@ -45,10 +174,10 @@ const currentUrl = canonicalUrl || Astro.url.href;
     <meta name="google-site-verification" content="googlee24948eeb8175dde" />
     <link rel="canonical" href={currentUrl} />
 
-    <!-- Hreflang for bilingual -->
-    <link rel="alternate" hreflang="en" href="https://eit-co.com/" />
-    <link rel="alternate" hreflang="ar" href="https://eit-co.com/ar/" />
-    <link rel="alternate" hreflang="x-default" href="https://eit-co.com/" />
+    <!-- Dynamic Bilingual Hreflang -->
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="ar" href={arHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -65,55 +194,10 @@ const currentUrl = canonicalUrl || Astro.url.href;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={resolvedOgImage} />
 
-    <!-- Schema.org Organization & Aggregate Rating -->
+    <!-- Schema.org Organization, WebSite & Breadcrumbs -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://eit-co.com/#organization",
-          "name": "EITCO Ltd",
-          "legalName": "Elena International Trading Co., Limited",
-          "alternateName": ["شركة إلينا للتجارة الدولية المحدودة", "شركة إيتكو المحدودة"],
-          "url": "https://eit-co.com/",
-          "logo": "https://eit-co.com/images/logo/globe-emblem-transparent.png",
-          "image": "https://eit-co.com/images/logo/elena-logo-full.png",
-          "description": "Global trading company specializing in architectural products, building materials, supplier audits, quality inspection, and international sea/air freight from China to the United States and global markets.",
-          "areaServed": ["United States", "Kuwait", "Saudi Arabia", "United Arab Emirates", "China", "Egypt"],
-          "contactPoint": [
-            {
-              "@type": "ContactPoint",
-              "telephone": "+86-186-1623-2842",
-              "contactType": "customer service",
-              "email": "eliagadallah@eit-co.com",
-              "availableLanguage": ["English", "Arabic", "Chinese"]
-            }
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Innovation China Industrial Park, 4 Xingxian Road, Gongshu District",
-            "addressLocality": "Hangzhou City",
-            "addressCountry": "CN"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "48",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://eit-co.com/#website",
-          "url": "https://eit-co.com/",
-          "name": "EITCO Ltd",
-          "publisher": {
-            "@id": "https://eit-co.com/#organization"
-          },
-          "inLanguage": ["en", "ar"]
-        }
-      ]
+      "@graph": schemaGraph
     })} />
 
     <!-- Favicon -->

@@ -27,9 +27,39 @@ const otherArticles = articles.filter(a => a.slug !== article.slug).slice(0, 3);
   lang={lang}
   title={`${article.titleAr} | رؤى وأبحاث إيتكو`}
   description={article.excerptAr}
-  image={article.image}
+  ogImage={article.image}
   canonicalUrl={`https://eit-co.com/ar/articles/${article.slug}/`}
 >
+  <!-- Schema.org Article Structured Data (Arabic) -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.titleAr,
+    "description": article.excerptAr,
+    "image": [`https://eit-co.com${article.image}`],
+    "datePublished": "2025-01-15T08:00:00+08:00",
+    "dateModified": new Date().toISOString().split('T')[0],
+    "inLanguage": "ar",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://eit-co.com/ar/articles/${article.slug}/`
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "شركة إيتكو المحدودة",
+      "url": "https://eit-co.com/ar/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "شركة إيتكو المحدودة",
+      "url": "https://eit-co.com/ar/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://eit-co.com/images/logo/globe-emblem-transparent.png"
+      }
+    }
+  })} />
+
   <Header lang={lang} />
 
   <!-- Breadcrumb & Header Section (Arabic RTL) -->
