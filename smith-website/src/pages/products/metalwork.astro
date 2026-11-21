@@ -128,7 +128,7 @@ const categories = [
                   </div>
                   <div class="cat-model-body">
                     <h4>{m.name}</h4>
-                    <a href={url('/contact/#quote')} class="cat-model-inquire">
+                    <a href={`${url('/contact/#quote')}?product=${encodeURIComponent(m.name)}`} class="cat-model-inquire">
                       Inquire About Specifications →
                     </a>
                   </div>

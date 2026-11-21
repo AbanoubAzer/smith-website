@@ -175,7 +175,7 @@ const doorCategories = [
                   </div>
                   <div class="door-model-body">
                     <h4>{m.name}</h4>
-                    <a href={url('/ar/contact/#quote')} class="door-model-inquire">
+                    <a href={`${url('/ar/contact/#quote')}?product=${encodeURIComponent(m.name)}`} class="door-model-inquire">
                       طلب المواصفات والأسعار ←
                     </a>
                   </div>

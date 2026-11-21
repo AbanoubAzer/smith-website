@@ -497,6 +497,36 @@ const productOptions = [
   const sendWaBtn = document.getElementById('send-wa-inquiry-btn');
   const sendEmailBtn = document.getElementById('send-email-inquiry-btn');
 
+  // Handle ?product= query parameter from product cards
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedProduct = urlParams.get('product');
+  if (selectedProduct) {
+    const productSelect = document.getElementById('product-service') as HTMLSelectElement | null;
+    const messageField = document.getElementById('message') as HTMLTextAreaElement | null;
+    if (productSelect) {
+      let matched = false;
+      for (let i = 0; i < productSelect.options.length; i++) {
+        const optText = productSelect.options[i].text.toLowerCase();
+        const pLower = selectedProduct.toLowerCase();
+        if (pLower.includes(optText) || optText.includes(pLower)) {
+          productSelect.selectedIndex = i;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) {
+        const customOpt = document.createElement('option');
+        customOpt.value = selectedProduct;
+        customOpt.text = `Model: ${selectedProduct}`;
+        customOpt.selected = true;
+        productSelect.appendChild(customOpt);
+      }
+    }
+    if (messageField && !messageField.value) {
+      messageField.value = `Hello, I would like to inquire about specifications, available dimensions, and pricing for: ${selectedProduct}.`;
+    }
+  }
+
   function getInquiryData() {
     const fullName = (document.getElementById('full-name') as HTMLInputElement)?.value.trim() || '';
     const companyName = (document.getElementById('company-name') as HTMLInputElement)?.value.trim() || '';
