@@ -164,7 +164,14 @@ if (breadcrumbItems) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0b1e36" />
-    <link rel="icon" type="image/png" href={url('/images/logo/globe-emblem-transparent.png')} />
+
+    <!-- Favicon & Touch Icons (Google Search & Multi-Device Compliant) -->
+    <link rel="icon" type="image/x-icon" href={url('/favicon.ico')} />
+    <link rel="icon" type="image/png" sizes="48x48" href={url('/favicon-48x48.png')} />
+    <link rel="icon" type="image/png" sizes="96x96" href={url('/favicon-96x96.png')} />
+    <link rel="icon" type="image/png" sizes="192x192" href={url('/favicon-192x192.png')} />
+    <link rel="apple-touch-icon" sizes="180x180" href={url('/apple-touch-icon.png')} />
+    <link rel="manifest" href={url('/site.webmanifest')} />
 
     <!-- SEO Primary -->
     <title>{title}</title>
@@ -199,9 +206,6 @@ if (breadcrumbItems) {
       "@context": "https://schema.org",
       "@graph": schemaGraph
     })} />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href={url('/images/logo/globe-emblem-transparent.png')} />
 
     <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
