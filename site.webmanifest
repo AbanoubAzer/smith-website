@@ -1,0 +1,14 @@
+{
+  "name": "EITCO Ltd — Elena International Trading Co., Limited",
+  "short_name": "EITCO",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0b1e36",
+  "background_color": "#0b1e36",
+  "display": "standalone"
+}
